@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'business/deals/index' => 'deals#index', as: :index
-
-  get 'business/deals/new' => 'deals#new', as: :new
-  post 'business/deals/create' => 'deals#create', as: :create
-
-  get 'business/deals/edit/:id' => 'deals#edit', as: :edit
-  patch 'business/deals/:id' => 'deals#update', as: :update
-
+  get '/business/deals' => 'deals#index', as: :index
+  post '/business/deals' => 'deals#create', as: :create
+  get '/business/deals/new' => 'deals#new', as: :deal_new
+  get '/business/deals/:id/edit' => 'deals#edit', as: :deal_edit
+  get '/business/deals/:id' => 'deals#show', as: :deal_show
+  patch '/business/deals/:id/edit' => 'deals#update', as: :deal_update
+  # put '/business/deals/:id' => 'deals#update' # , as: :update
+  delete '/business/deals/:id' => 'deals#destroy'
   # get 'deals/:id/show'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,14 +4,16 @@
 
 <h2>Current Deal Campaigns</h2>
 
-<%= @deals.each do |deal| %>
+<% @deals.each do |deal| %>
 
 	<%= deal.name %></br>
 	<%= deal.description %></br>
 	<%= deal.fine %></br>
+	<%= deal.start_date %></br>
+	<%= deal.end_date %></br>
 
-	<%= link_to "Edit", edit_path(deal) %>
+	<%= link_to "Edit", deal_edit_path(deal) %>
 
 <% end %></br>
 
-<%= link_to "Creat a new deal", new_path %>
+<%= link_to "Create a new deal", deal_new_path %>

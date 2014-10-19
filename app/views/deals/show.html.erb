@@ -1,2 +1,9 @@
 <h1>Deals#show</h1>
 <p>Find me in app/views/deals/show.html.erb</p>
+
+<%= @deal.name %>
+<%= @deal.description %>
+<%= @deal.fine %>
+
+
+<%= link_to 'Edit', edit_deal_path(@deal) %>
