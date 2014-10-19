@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'business/deals/new' => 'deals#new', as: :new
   post 'business/deals/create' => 'deals#create', as: :create
 
-  get 'business/deals/edit/:id' => 'deals#edit', as: :edit
+  get 'business/deals/:id/edit' => 'deals#edit', as: :edit
   patch 'business/deals/:id' => 'deals#update', as: :update
 
   # get 'deals/:id/show'

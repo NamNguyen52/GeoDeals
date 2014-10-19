@@ -1,6 +1,6 @@
 <h1>Edit</h1>
 
-<%= form_for @deal do |d| %>
+<%= form_for @deal, url: deal_path(@deal), html: {method: :patch} do |d| %>
 
 	<%= d.label :name %>
 	<%= d.text_field :name %>
