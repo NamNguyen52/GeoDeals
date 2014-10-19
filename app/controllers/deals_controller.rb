@@ -4,6 +4,10 @@ class DealsController < ApplicationController
   end
 
   def destroy
+    deal_record = Deal.find(params[:id])
+    deal_record.destroy
+
+    redirect_to index_path
   end
 
   def edit
