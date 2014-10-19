@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  get 'business/deals/index' => 'deals#index', as: :index
+
+  get 'business/deals/new' => 'deals#new', as: :new
+  post 'business/deals/create' => 'deals#create', as: :create
+
+  get 'business/deals/edit/:id' => 'deals#edit', as: :edit
+  patch 'business/deals/:id' => 'deals#update', as: :update
+
+  # get 'deals/:id/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

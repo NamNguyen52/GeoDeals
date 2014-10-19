@@ -1,0 +1,25 @@
+<h1>Edit</h1>
+
+<%= form_for @deal do |d| %>
+
+	<%= d.label :name %>
+	<%= d.text_field :name %>
+
+	<%= d.label :description %>
+	<%= d.text_area :description, size: "50x10" %>
+
+	<%= d.label :fine_print %>
+	<%= d.text_area :fine_print, size: "50x10" %>
+
+	<%= d.label :start_date %>
+	<%= d.date_select :start_date %>
+
+	<%= d.label :end_date %>
+	<%= d.date_select :end_date %>
+
+	<%= d.submit "submit update" %>
+
+<% end %>
+
+
+<%= link_to "Go Back", index_path %>

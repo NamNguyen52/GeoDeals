@@ -1,0 +1,33 @@
+
+<h1>Create a new deal</h1>
+
+<!-- This begins the section for the business to enter the details for their deal -->
+
+<%= form_for(:deal_details, url: create_path) do |d| %>
+
+	<h4>Name of the deal</h4>
+		<p>This should be descriptive but short.</p>
+		<p>example: "Buy one get one"</p>
+			<%= d.text_field :name %>
+
+	<h4>Deal details</h4>
+		<p>Provide details for the deal you are offering. Optimal length is a tweet! (140 characters).</p>
+			<%= d.text_area :description, size: "50x10" %>
+
+	<h4>Fine print</h4>
+		<p>Provide the stipulations for this deal.</p>
+			<%= d.text_area :fine_print, size: "50x10" %>
+
+	<h4>Start Date</h4>
+		<p>Select the date this deal will start</p>
+			<%= d.date_select :start_date %>
+
+	<h4>End Date</h4>
+		<p>Select the date this deal will end<p>
+			<%= d.date_select :end_date %>
+
+	<%= d.submit "Submit" %>
+
+<% end %>
+
+<%= link_to "Go back", index_path %>
