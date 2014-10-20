@@ -1,0 +1,22 @@
+<h1>Welcome Business Name</h1>
+
+<!-- This section is an overview of all the deals for the business -->
+
+<h2>Current Deal Campaigns</h2>
+
+<% @deals.each do |deal| %>
+
+	<%= deal.name %></br>
+	<%= deal.description %></br>
+	<%= deal.fine %></br>
+	<%= deal.start_date %></br>
+	<%= deal.end_date %></br>
+
+	<%= link_to "Edit", deal_edit_path(deal) %>
+	<%= link_to "Delete", deal_delete_path(deal), method: :delete %>
+	<%= link_to "Show", deal_show_path(deal) %>
+
+<% end %></br>
+
+<%= link_to "Create a new deal", deal_new_path %>
+
