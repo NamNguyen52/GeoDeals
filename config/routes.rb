@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   # resources :sessions
   # resources :users
-  root "sessions#new"
+  root "users#show"
 
-  get 'users/new' => 'users#new'
-  post 'users/new' => 'users#create', as: :sign_up
+  get 'users/new' => 'users#new', as: :users_new
+  post 'users/new' => 'users#create'
   get 'users/:id' => 'users#show', as: :user
   patch '/users/:id' => 'users#update', as: :update_user
   get '/sessions' => 'sessions#index'

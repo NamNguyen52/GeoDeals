@@ -1,4 +1,4 @@
-<div class= "users-new">
+2<div class= "users-new">
 
 <header class="users-header">
   <h1>Welcome to GeoDeals</h1>
@@ -8,7 +8,10 @@
 <main class="users-new-container">
 
   <div class="sign-up">
-   <%= form_for :user do |u| %>
+  	
+     <%= form_for @user, url: users_new_path do |u| %>
+
+       <%= u.check_box :business_owner %>
 	   <%= u.text_field :first_name, :class => @user.errors.messages[:first_name] ? 'new-user-forms' : 'new-user-forms', :placeholder => @user.errors.messages[:first_name] ? "First Name #{@user.errors.messages[:first_name].join(" & ")}" : "First Name" %>
 	   <%= u.text_field :last_name, :class => @user.errors.messages[:last_name] ? 'new-user-forms' : 'new-user-forms', :placeholder => @user.errors.messages[:last_name] ? "Last Name #{@user.errors.messages[:last_name].join(" & ")}" : "Last Name" %>
 	   <%= u.text_field :email, :class => @user.errors.messages[:email] ? 'new-user-forms' : 'new-user-forms', :placeholder => @user.errors.messages[:email] ? "Email #{@user.errors.messages[:email].join(" & ")}" : "Email" %>
@@ -17,6 +20,6 @@
 	   <%= u.password_field :password_confirmation, :class => @user.errors.messages[:password_confirmation] ? 'new-user-forms' : 'new-user-forms', :placeholder => @user.errors.messages[:password_confirmation] ? "Password Confirmation #{@user.errors.messages[:password_confirmation].join(" & ")}" : "Password Confirmation" %>
 	   <%= u.submit "Sign Up",  class: "new-user-submit-button" %>
 	   <%= link_to "Returning? Sign In", sign_in_path, class: "sign-up-link-button" %>
-   <% end %>
+    <% end %>
   </div>
 </main>
