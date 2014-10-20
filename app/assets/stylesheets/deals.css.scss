@@ -1,3 +1,48 @@
 // Place all the styles related to the Deals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bar {
+  fill: steelblue;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+/* testing visual rep of GeoDeals brand*/
+
+.point {
+  fill: #000;
+}
+
+.candidate .point {
+  fill: #aaa;
+  transition: fill 250ms linear;
+}
+
+.candidate .search {
+  fill: none;
+  stroke: #aaa;
+  transition: stroke 250ms linear, stroke-width 250ms linear;
+}
+
+.candidate--best .point {
+  fill: #f00;
+}
+
+.candidate--best .search {
+  stroke: #f00;
+  stroke-width: 1.5px;
+}
