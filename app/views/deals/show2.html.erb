@@ -1,0 +1,144 @@
+<html>
+<head>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4&libraries=geometry"> </script>
+
+<!--<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=geometry"></script>-->
+
+<script type="text/javascript">
+
+var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}];
+
+function initialize() {
+	var mapOptions = {
+	   center : {
+				lat: 34.0214935,
+				lng: -118.4806145
+				},
+		zoom: 8,
+		styles: mapStyle
+	};
+
+
+///////////////////////////  DISTANCE BETWEEN 2 LOCATIONS  /////////////////////////////
+  var loc1 = {lat: 34.0218628, lng: -118.4804206};
+  var loc2 = {lat: 33.8336391, lng: -118.3511089};
+
+  var distance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(loc1.lat, loc1.lng), new google.maps.LatLng(loc2.lat, loc2.lng));
+
+  document.getElementById('calculation').innerHTML = distance*0.00062 + ' miles';
+
+
+////////////////////////////  ALL DEALS DISPLAYED ON MAP  //////////////////////////////
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  mapPoints = [<% @deal.each do |mp| %>
+  	{latitude: <%= mp.latitude %>, longitude: <%= mp.longitude %>},<% end %>];
+
+  for(var i = 0; i < mapPoints.length; ++i)
+  {
+	  var someCoolPlace = new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude);
+	  var marker = new google.maps.Marker({
+	    position: someCoolPlace,
+	    title: 'Deal $$!',
+	    map: map,
+	    animation: google.maps.Animation.BOUNCE,
+	    icon: "/assets/nampng.png",
+	    draggable: true
+	  });
+	}
+}
+
+ //  navigator.geolocation.getCurrentPosition(latitude);
+ //  navigator.geolocation.getCurrentPosition(longitude);
+ //  function latitude(pos) {
+ //    var curr = pos.coords;
+ //      document.getElementById('currentLat').innerHTML = curr.latitude
+	// };
+ //  function longitude(pos) {
+ //  	var curr = pos.coords;
+ //      document.getElementById('currentLng').innerHTML = curr.longitude
+	// };	
+  
+ //  latitude(pos);
+ //  longitude(pos);
+
+////// var x = document.getElementById("demo");
+
+
+
+///////////////////////////  FUNCTION INITIALIZER ON LOAD  ///////////////////////////
+google.maps.event.addDomListener(window, 'load', initialize, getLocation);
+
+
+//////////////////////  USER'S CURRENT POSITION & DISTANCE FROM /////////////////////
+function showPosition(position) {
+    document.getElementById("currentLat").innerHTML = position.coords.latitude;	
+    document.getElementById("currentLng").innerHTML = position.coords.longitude;
+
+	var distanceNew = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[20].latitude, mapPoints[20].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+
+///////////////////  CONSOLE.LOG EACH MAP POINT IN DB  ///////////////////
+//	for(var i = 0; i < mapPoints.length; ++i) 
+//	{console.log(new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude))};
+//	document.getElementById('newCalculation').innerHTML = distanceNew*0.00062 + ' miles';
+
+///////////////// FIND DISTANCE FROM EACH DEAL LOCATION //////////////////
+  for(var i = 0; i < mapPoints.length; ++i)
+  	{
+	console.log(google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude)));
+  	}
+
+
+}   /// SHOW POSITION ENDS HERE
+
+//////////////////////////// GET CURRENT LOCATION /////////////////////////////
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        document.getElementById("currentLat").innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+getLocation();
+
+
+</script>
+
+<style type="text/css">
+	
+#map {
+	height: 605px;
+	width: 1100px;
+	margin: 0 auto;
+	border: 10px solid white;
+	box-shadow: 0px 0px 40px 10px #ccc;
+
+}
+
+.container {
+	margin-top: 35px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h2 class="p-heading">An exhuastive list of deals</h2>
+<p id="calculation"></p>
+<p id="currentLat"></p>
+<p id="currentLng"></p>
+<p id="newCalculation"></p>
+
+<div id="map">Map!</div>
+
+</body>
+</html>
+

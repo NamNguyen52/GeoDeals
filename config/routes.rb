@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+  root 'deals#new'
+
+  get 'deals/index'
+
+  # get 'deals/new'
+
+  post 'deals/create' => 'deals#create', as: :create
+
+  get 'deals/show' => 'deals#show', as: :show
+
+  get 'deals/edit'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

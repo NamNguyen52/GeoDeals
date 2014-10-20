@@ -1,0 +1,29 @@
+<%= form_for(@deal, url: create_path, method: :post) do |f| %>
+
+<%= f.label :direction %>
+<%= f.text_field :direction %><br>
+
+<%= f.label :latitude %>
+<%= f.text_field :latitude %><br>
+
+<%= f.label :longitude %>
+<%= f.text_field :longitude %><br>
+
+<%= f.label :distance %>
+<%= f.text_field :distance %><br>
+
+<%= f.label :start %>
+<%= f.text_field :start %><br>
+
+<%= f.label :expire %>
+<%= f.text_field :expire %><br>
+
+<%= f.label :text %>
+<%= f.text_field :text %><br>
+
+<%= f.label :triggerid %>
+<%= f.text_field :triggerid %><br>
+
+<%= f.submit %>
+
+<% end %>
