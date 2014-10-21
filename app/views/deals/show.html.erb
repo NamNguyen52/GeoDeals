@@ -131,11 +131,34 @@ function distance(position){
 	//console.log(mapPoints[2].longitude);
 	//console.log(positionn.coords.latitude + ' dist1');
 	//console.log(positionn.coords.longitude + ' dist2');
-	var changingDistance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[7].latitude, mapPoints[7].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-	document.getElementById('everChanging').innerHTML = changingDistance
-	if (changingDistance < 500) {
+
+	// DISTANCE TO HILLSTONE
+	var distToHillstone = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[7].latitude, mapPoints[7].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+	document.getElementById('hillstone').innerHTML = distToHillstone
+	if (distToHillstone < 500) {
 		alert("500 m away!");
 	};
+
+
+	// DISTANCE TO HUNTLEY HOTEL
+	var distToHuntley = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[8].latitude, mapPoints[8].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+	document.getElementById('huntley').innerHTML = distToHuntley
+	if (distToHillstone < 500) {
+		alert("500 m away!");
+	};
+
+
+	// DISTANCE TO PANERA BREAD
+	var distToPanera = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[9].latitude, mapPoints[9].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+	document.getElementById('panera').innerHTML = distToPanera
+	if (distToPanera < 500) {
+		alert("500 m away!");
+	};
+
+
+
+
+
 }
 
 
@@ -173,9 +196,13 @@ function distance(position){
 
 <!-- BUTTON TO GET CURRENT AND UPDATE WHEN MOVING -->
 <input type="button" value="Show Location" onclick="showCurrentlocation()"/> <br>
-Latitude: <span id="latitude">..</span> <br>
-Longitude: <span id="longitude">..</span> <br>
-Changing Distance: <span id="everChanging"></span> <br><br><br><br>
+Current Latitude: <span id="latitude"></span> <br>
+Current Longitude: <span id="longitude"></span> <br><br>
+Distance to Hillstone: <span id="hillstone"></span> <br>
+Distance to Huntley Hotel: <span id="huntley"></span> <br>
+Distance to Panera Bread: <span id="panera"></span> <br><br><br>
+
+
 
 
 <div id="map">Map!</div>
