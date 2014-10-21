@@ -1,0 +1,8 @@
+This is the user settings page!
+
+This is where users are going to be able to change their settings, specifically from 
+
+<%= form_for @user, url: update_user_path(@user.id) do |f| %>
+	<%= f.check_box :business_owner %>
+	<%= f.submit %>
+<% end %>

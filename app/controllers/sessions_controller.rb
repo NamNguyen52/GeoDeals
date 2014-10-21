@@ -1,7 +1,23 @@
-class SessionsController < ApplicationController
+ class SessionsController < ApplicationController
 include SessionsHelper
 
   def index
+    if !logged_in?
+	  redirect_to sign_in_path
+	else
+	  @user = current_user
+	end	
+  end
+
+  def business_index
+    if !logged_in?
+	  redirect_to sign_in_path
+	else
+	  @user = current_user
+	end	
+  end
+
+  def settings
     if !logged_in?
 	  redirect_to sign_in_path
 	else
@@ -38,5 +54,14 @@ include SessionsHelper
   def destroy
 	log_out
 	redirect_to sessions_path
+  end
+
+   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params.require(:user).permit(:business_owner))
+	  redirect_to sessions_path
+    else
+	  render 'edit'
+    end
   end
 end

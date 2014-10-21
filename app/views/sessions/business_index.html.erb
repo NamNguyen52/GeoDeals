@@ -1,0 +1,8 @@
+<% if @user.business_owner == true %>
+	<%= render 'layouts/businessnav' %>
+	<br>
+	<br>
+	YOU ARE A BUSINESS OWNER! HOORAY
+<% else %>
+	<p> Sorry, you must be a business owner in order to view this page. Click here to change your user settings.</p>
+<% end %>

@@ -40,8 +40,8 @@ include SessionsHelper
 
   def update
     @user = User.find(params[:id])
-    if @user.update!(params.require(:user).permit())
-      redirect_to user_path(@user)
+    if @user.update!(params.require(:user).permit(:business_owner))
+      redirect_to sessions_path(@user)
     end
   end
 end
