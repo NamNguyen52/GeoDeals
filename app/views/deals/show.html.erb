@@ -69,53 +69,67 @@ function initialize() {
 
 
 ///////////////////////////  FUNCTION INITIALIZER ON LOAD  ///////////////////////////
-google.maps.event.addDomListener(window, 'load', initialize, getLocation);
+google.maps.event.addDomListener(window, 'load', initialize);
 
 
 //////////////////////  USER'S CURRENT POSITION & DISTANCE FROM /////////////////////
-function showPosition(position) {
-    document.getElementById("currentLat").innerHTML = position.coords.latitude;	
-    document.getElementById("currentLng").innerHTML = position.coords.longitude;
+// function showPosition(position) {
+//     document.getElementById("currentLat").innerHTML = position.coords.latitude;	
+//     document.getElementById("currentLng").innerHTML = position.coords.longitude;
 
-	var distanceNew = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[20].latitude, mapPoints[20].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+// 	var distanceNew = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[20].latitude, mapPoints[20].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 
 ///////////////////  CONSOLE.LOG EACH MAP POINT IN DB  ///////////////////
 //	for(var i = 0; i < mapPoints.length; ++i) 
 //	{console.log(new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude))};
 //	document.getElementById('newCalculation').innerHTML = distanceNew*0.00062 + ' miles';
 
-///////////////// FIND DISTANCE FROM EACH DEAL LOCATION //////////////////
-  for(var i = 0; i < mapPoints.length; ++i)
-  	{
-	console.log(google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude)));
-  	}
 
-}   /// SHOW POSITION ENDS HERE
+
+
+// ///////////////// FIND DISTANCE FROM EACH DEAL LOCATION //////////////////
+//   for(var i = 0; i < mapPoints.length; ++i)
+//   	{
+// 	console.log(google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude)));
+//   	}
+
+// }   /// SHOW POSITION ENDS HERE
+
+
+
 
 //////////////////////////// GET CURRENT LOCATION /////////////////////////////
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        document.getElementById("currentLat").innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else { 
+//         document.getElementById("currentLat").innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
 
-getLocation();
+// getLocation();
 
 ///////////////////////// WATCH AND UPDATE POSITION ///////////////////////////
 function showCurrentlocation(){
 	navigator.geolocation.watchPosition(callback);
+	navigator.geolocation.watchPosition(distance);
 
 }
 function callback(position){
 	document.getElementById('latitude').innerHTML=position.coords.latitude;
 	document.getElementById('longitude').innerHTML=position.coords.longitude;
+	console.log(position.coords.latitude + ' pos1');
+	console.log(position.coords.longitude + ' pos2');
 
-	setInterval(function() {distance(position)}, 5000);
+
+	//setInterval(function() {distance(position)}, 5000);
 }
 
-function distance(position) {
+function distance(position){
+	//console.log(mapPoints[2].latitude);
+	//console.log(mapPoints[2].longitude);
+	console.log(position.coords.latitude + ' dist1');
+	console.log(position.coords.longitude + ' dist2');
 	var changingDistance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[2].latitude, mapPoints[2].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('everChanging').innerHTML = changingDistance
 }
