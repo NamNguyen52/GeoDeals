@@ -136,28 +136,24 @@ function distance(position){
 	var distToHillstone = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[7].latitude, mapPoints[7].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('hillstone').innerHTML = distToHillstone
 	if (distToHillstone < 500) {
-		alert("500 m away!");
+		alert("500 m from Hillstone!");
 	};
 
 
 	// DISTANCE TO HUNTLEY HOTEL
 	var distToHuntley = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[8].latitude, mapPoints[8].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('huntley').innerHTML = distToHuntley
-	if (distToHillstone < 500) {
-		alert("500 m away!");
+	if (distToHillstone < 600) {
+		alert("600 m from Huntley!");
 	};
 
 
 	// DISTANCE TO PANERA BREAD
 	var distToPanera = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[9].latitude, mapPoints[9].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('panera').innerHTML = distToPanera
-	if (distToPanera < 500) {
-		alert("500 m away!");
+	if (distToPanera < 650) {
+		alert("650 m from Panera!");
 	};
-
-
-
-
 
 }
 
