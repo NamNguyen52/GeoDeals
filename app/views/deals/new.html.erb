@@ -1,0 +1,51 @@
+
+<h1>Create a new deal</h1>
+
+<!-- This begins the section for the business to enter the details for their deal -->
+
+<%= form_for(@deal, url: create_path, method: :post) do |d| %>
+	<ul class="example-orbit-content" data-orbit data-options="next_on_click: false; timer: false;">
+  		<li data-orbit-slide="headline-1">
+    		<div>
+			<h4>Name of the deal</h4>
+				<p>This should be descriptive but short.</p>
+				<p>example: "Buy one get one"</p>
+					<div class="large-4 columns"><%= d.text_field :name %></div>
+			</div>
+  		</li>
+  		<li data-orbit-slide="headline-2">
+    		<div>
+			<h4>Deal details</h4>
+				<p>Provide details for the deal you are offering. Optimal length is a tweet! (140 characters).</p>
+					<%= d.text_area :description, size: "50x10" %>
+			</div>
+  		</li>
+  		<li data-orbit-slide="headline-3">
+    		<div>
+			<h4>Fine print</h4>
+				<p>Provide the stipulations for this deal.</p>
+					<%= d.text_area :fine, size: "50x10" %>
+			</div>
+		</li>
+		<li data-orbit-slide="headline-4">
+			<div>
+			<h4>Start Date</h4>
+				<p>Select the date this deal will start</p>
+					<%= d.date_select :start_date %>
+			</div>
+		</li>
+		<li data-orbit-slide="headline-5">
+			<div>
+			<h4>End Date</h4>
+				<p>Select the date this deal will end<p>
+					<%= d.date_select :end_date %>
+			</div>
+		</li>
+	</ul>
+			<%= d.submit "Submit" %>
+	
+<% end %>
+
+<%= link_to "Go back", index_path %>
+
+
