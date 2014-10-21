@@ -115,11 +115,12 @@ function showCurrentlocation(){
 	navigator.geolocation.watchPosition(distance);
 
 }
+
 function callback(position){
 	document.getElementById('latitude').innerHTML=position.coords.latitude;
 	document.getElementById('longitude').innerHTML=position.coords.longitude;
-	console.log(position.coords.latitude + ' pos1');
-	console.log(position.coords.longitude + ' pos2');
+	//console.log(position.coords.latitude + ' pos1');
+	//console.log(position.coords.longitude + ' pos2');
 
 
 	//setInterval(function() {distance(position)}, 5000);
@@ -128,8 +129,8 @@ function callback(position){
 function distance(position){
 	//console.log(mapPoints[2].latitude);
 	//console.log(mapPoints[2].longitude);
-	console.log(position.coords.latitude + ' dist1');
-	console.log(position.coords.longitude + ' dist2');
+	//console.log(positionn.coords.latitude + ' dist1');
+	//console.log(positionn.coords.longitude + ' dist2');
 	var changingDistance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[2].latitude, mapPoints[2].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('everChanging').innerHTML = changingDistance
 }
