@@ -1,15 +1,8 @@
 <!DOCTYPE html>
-<HTML>
-<BODY>
-Click Show location button and run :)
-<input type="button" value="Show Location" onclick="showlocation()"/> 
- 
-<br/>
-Latitude: <span id="latitude">..</span> <br>
-Longitude: <span id="longitude">..</span>
-</BODY>
- 
-<SCRIPT>
+<html> 
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4"></script>
+
+<script>
 function showlocation(){
     navigator.geolocation.watchPosition(callback);
 }
@@ -17,5 +10,18 @@ function callback(position){
     document.getElementById('latitude').innerHTML=position.coords.latitude;
     document.getElementById('longitude').innerHTML=position.coords.longitude;
 }
-</SCRIPT>
-</HTML>
+</script>
+
+
+<body>
+Click Show location button and run :)
+<input type="button" value="Show Location" onclick="showlocation()"/> 
+ 
+<h3>Lat and Lng!</h3>
+<br/>
+Latitude: <span id="latitude">..</span> <br>
+Longitude: <span id="longitude">..</span>
+</body>
+
+
+</html>
