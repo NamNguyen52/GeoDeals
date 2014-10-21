@@ -112,7 +112,7 @@ function callback(position){
 	document.getElementById('latitude').innerHTML=position.coords.latitude;
 	document.getElementById('longitude').innerHTML=position.coords.longitude;
 
-	setInterval(distance(position), 5000);
+	setInterval(function() {distance(position)}, 5000);
 }
 
 function distance(position) {
