@@ -106,11 +106,16 @@ getLocation();
 ///////////////////////// WATCH AND UPDATE POSITION ///////////////////////////
 function showCurrentlocation(){
 	navigator.geolocation.watchPosition(callback);
+
 }
 function callback(position){
 	document.getElementById('latitude').innerHTML=position.coords.latitude;
 	document.getElementById('longitude').innerHTML=position.coords.longitude;
 
+	setInterval(distance(position), 5000);
+}
+
+function distance(position) {
 	var changingDistance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[2].latitude, mapPoints[2].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('everChanging').innerHTML = changingDistance
 }
@@ -149,10 +154,10 @@ function callback(position){
 <p id="newCalculation"></p>
 
 <!-- BUTTON TO GET CURRENT AND UPDATE WHEN MOVING -->
-<input type="button" value="Show Location" onclick="showCurrentlocation()"/> 
+<input type="button" value="Show Location" onclick="showCurrentlocation()"/> <br>
 Latitude: <span id="latitude">..</span> <br>
 Longitude: <span id="longitude">..</span> <br>
-Changing Distance: <span id="everChanging">..</span> <br>
+Changing Distance: <span id="everChanging"></span> <br><br><br><br>
 
 
 <div id="map">Map!</div>
