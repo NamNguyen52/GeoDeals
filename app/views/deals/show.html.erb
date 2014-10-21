@@ -133,6 +133,9 @@ function distance(position){
 	//console.log(positionn.coords.longitude + ' dist2');
 	var changingDistance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[7].latitude, mapPoints[7].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('everChanging').innerHTML = changingDistance
+	if (changingDistance < 500) {
+		alert("500 m away!");
+	};
 }
 
 
