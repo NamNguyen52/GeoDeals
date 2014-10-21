@@ -131,7 +131,7 @@ function distance(position){
 	//console.log(mapPoints[2].longitude);
 	//console.log(positionn.coords.latitude + ' dist1');
 	//console.log(positionn.coords.longitude + ' dist2');
-	var changingDistance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[2].latitude, mapPoints[2].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+	var changingDistance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[7].latitude, mapPoints[7].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('everChanging').innerHTML = changingDistance
 }
 
