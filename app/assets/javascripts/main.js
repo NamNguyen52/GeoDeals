@@ -5,12 +5,31 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
 	$urlRouterProvider.otherwise('/')
 
 	$stateProvider
-		.state('home', {
+		.state('dealsmap', {
 			url: '/',
-			template: 'dealmap.html.erb'
+			templateUrl: '/dealmap.html'
 		});
 
 }]);
 
+app.factory('Users', function($resource){
+	return $resource('/api/users/:id')
+});
 
-app.controller('geoCtrl', ['$scope'])
+app.factory('Deals', function($resource){
+	return $resource('api/deals/:id')
+});
+
+app.controller('geoCtrl', ['$scope', 'Users', 'Deals', function($scope, Users, Deals){
+	var user = Users.get({id: 1}, function () {
+		$scope.firstName = user.first_name
+		$scope.lastName = user.last_name
+	});
+
+	var deal = Deals.get({id: 0}, function (){
+		$scope.dealName = deal.name
+		$scope.dealDescription = deal.description
+		$scope.dealCode = deal.code
+		$scope.dealFine = deal.fine
+	});
+}]);
