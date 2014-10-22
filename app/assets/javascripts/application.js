@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require angular
-//= require angular-route
+//= require angular-ui-router.min
 //= require angular-resource
 //= require main 
 //= require_tree .
