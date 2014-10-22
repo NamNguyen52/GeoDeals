@@ -147,11 +147,11 @@ function distance(position){
 	var distToHuntley = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[8].latitude, mapPoints[8].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('huntley').innerHTML = distToHuntley
 	if (distToHillstone < 25000 && secondDeal === "2") {
-		function runOnce() {
+		function runOnceTwo() {
 			secondDeal = "22"
 			alert('Location: ' + mapPoints[8].triggerid + '\n' + 'Deets: ' + mapPoints[8].description + '\n' + 'Begins: ' + mapPoints[8].start + '\n' + 'Ends: ' + mapPoints[8].expire);
 		}
-		runOnce();
+		runOnceTwo();
 	};
 
 
@@ -160,11 +160,11 @@ function distance(position){
 	var distToPanera = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[9].latitude, mapPoints[9].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('panera').innerHTML = distToPanera
 	if (distToPanera < 25000 && thirdDeal === "3") {
-		function runOnce() {
+		function runOnceThree() {
 			thirdDeal = "33"
 			alert('Location: ' + mapPoints[9].triggerid + '\n' + 'Deets: ' + mapPoints[9].description + '\n' + 'Begins: ' + mapPoints[9].start + '\n' + 'Ends: ' + mapPoints[9].expire);
 		}
-		runOnce();
+		runOnceThree();
 	};
 
 }
