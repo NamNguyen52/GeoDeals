@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
   patch '/users/:id' => 'users#update', as: :update_user
   get '/sessions' => 'sessions#index'
+  get 'sessions/business_index/', :to => 'sessions#business_index', as: :business
+  get 'sessions/settings/', :to => 'sessions#settings', as: :settings
   get '/signin', to: 'sessions#new', as: :sessions_new
   post '/signin', to: 'sessions#create', as: :sign_in
   delete '/sessions' => 'sessions#destroy', as: :sign_out
