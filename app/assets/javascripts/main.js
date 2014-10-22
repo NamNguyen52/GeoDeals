@@ -1,19 +1,16 @@
-var app = angular.module('geoDeals', ['ngRoute', 'ngResource']);
+var app = angular.module('geoDeals', ['ui.router', 'ngResource']);
 
-app.config(['$routeProvider', function($routeProvider){
-	$routeProvider
-	.when('/',{
-		templateUrl: '/templates/',
-		controller: 'Ctrl'
-	})
+app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+	
+	$urlRouterProvider.otherwise('/')
 
-	.when('/', {
-		templateUrl: '/templates/',
-		controller: 'Ctrl'
-	})
+	$stateProvider
+		.state('home', {
+			url: '/',
+			template: 'dealmap.html.erb'
+		});
 
-	.otherwise({
-		templateUrl: '/templates/home.html',
-		controller: 'homeCtrl'
-	});	
 }]);
+
+
+app.controller('geoCtrl', ['$scope'])

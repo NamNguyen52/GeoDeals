@@ -4,7 +4,9 @@ gem 'angularjs-rails'
 
 gem 'active_model_serializers'
 
+gem 'redis'
 
+gem 'json'
 group :development, :test do
 	gem 'rspec-rails'
 end
