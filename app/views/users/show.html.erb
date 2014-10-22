@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="users.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4&libraries=geometry"> </script>
+</head>
+
+<body>
+<div class="container">
+
+<h2 class="p-heading">An exhuastive list of deals</h2>
+
+<!-- BUTTON TO GET CURRENT AND UPDATE WHEN MOVING -->
+<input type="button" value="Show Location" onclick="showCurrentlocation()"/> <br>
+Current Latitude: <span id="latitude"></span> <br>
+Current Longitude: <span id="longitude"></span> <br><br>
+Distance to Hillstone: <span id="hillstone"></span> <br>
+Distance to Huntley Hotel: <span id="huntley"></span> <br>
+Distance to Panera Bread: <span id="panera"></span> <br><br><br>
+
+<div id="map">Map!</div>
+
+</body>
+</html>
