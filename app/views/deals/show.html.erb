@@ -7,7 +7,7 @@
   src="https://maps.googleapis.com/maps/api/js?libraries=geometry"></script>-->
 
 <script type="text/javascript">
-
+// index = 7, 8, 9 for each deal; 500, 600, 650
 var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}];
 
 function initialize() {
@@ -34,7 +34,8 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
   mapPoints = [<% @deal.each do |mp| %>
-  	{latitude: <%= mp.latitude %>, longitude: <%= mp.longitude %>},<% end %>];
+  	{latitude: <%= mp.latitude %>, longitude: <%= mp.longitude %>, triggerid: '<%= mp.triggerid %>', text: '<%= mp.text %>', start: '<%= mp.start %>', expire: '<%= mp.expire %>', description: '<%= mp.description %>'},<% end %>];
+
 
   for(var i = 0; i < mapPoints.length; ++i)
   {
@@ -115,44 +116,55 @@ function showCurrentlocation(){
 	navigator.geolocation.watchPosition(distance);
 
 }
-
 function callback(position){
-	document.getElementById('latitude').innerHTML=position.coords.latitude;
-	document.getElementById('longitude').innerHTML=position.coords.longitude;
-	//console.log(position.coords.latitude + ' pos1');
-	//console.log(position.coords.longitude + ' pos2');
-
-
+	document.getElementById('latitude').innerHTML = position.coords.latitude;
+	document.getElementById('longitude').innerHTML = position.coords.longitude;
 	//setInterval(function() {distance(position)}, 5000);
 }
 
+firstDeal = "1"
+secondDeal = "2"
+thirdDeal = "3"
+
 function distance(position){
-	//console.log(mapPoints[2].latitude);
-	//console.log(mapPoints[2].longitude);
-	//console.log(positionn.coords.latitude + ' dist1');
-	//console.log(positionn.coords.longitude + ' dist2');
 
 	// DISTANCE TO HILLSTONE
-	var distToHillstone = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[7].latitude, mapPoints[7].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+	
+	var distToHillstone = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[5].latitude, mapPoints[5].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('hillstone').innerHTML = distToHillstone
-	if (distToHillstone < 500) {
-		alert("500 m from Hillstone!");
+	if (distToHillstone < 25000 && firstDeal === "1") {
+		function runOnce() {
+			firstDeal = "11"
+			alert('Location: ' + mapPoints[5].triggerid + '\n' + 'Deets: ' + mapPoints[5].description + '\n' + 'Begins: ' + mapPoints[5].start + '\n' + 'Ends: ' + mapPoints[7].expire);
+			//alert(mapPoints[23].triggerid\nmapPoints[23].description\nmapPoints[23].start\nmapPoints[23].expire);
+		}
+		runOnce();
 	};
+
 
 
 	// DISTANCE TO HUNTLEY HOTEL
-	var distToHuntley = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[8].latitude, mapPoints[8].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+	var distToHuntley = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[6].latitude, mapPoints[6].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('huntley').innerHTML = distToHuntley
-	if (distToHillstone < 600) {
-		alert("600 m from Huntley!");
+	if (distToHillstone < 25000 && secondDeal === "2") {
+		function runOnce() {
+			secondDeal = "22"
+			alert('Location: ' + mapPoints[6].triggerid + '\n' + 'Deets: ' + mapPoints[6].description + '\n' + 'Begins: ' + mapPoints[6].start + '\n' + 'Ends: ' + mapPoints[7].expire);
+		}
+		runOnce();
 	};
 
 
+
 	// DISTANCE TO PANERA BREAD
-	var distToPanera = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[9].latitude, mapPoints[9].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+	var distToPanera = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[7].latitude, mapPoints[7].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('panera').innerHTML = distToPanera
-	if (distToPanera < 650) {
-		alert("650 m from Panera!");
+	if (distToPanera < 25000 && thirdDeal === "3") {
+		function runOnce() {
+			thirdDeal = "33"
+			alert('Location: ' + mapPoints[7].triggerid + '\n' + 'Deets: ' + mapPoints[7].description + '\n' + 'Begins: ' + mapPoints[7].start + '\n' + 'Ends: ' + mapPoints[7].expire);
+		}
+		runOnce();
 	};
 
 }

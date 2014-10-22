@@ -13,22 +13,21 @@ class DealsController < ApplicationController
 
   def show
   	@deal = Deal.all
-    # @deal1 = Deal.where(:id => 45)
-    # @deal1 = Deal.find params[:id => 43]
   end
 
   def edit
   end
 
   def create 
-  	@deal = Deal.new(params.require(:deal).permit(:direction, :latitude, :longitude, :distance, :start, :expire, :text, :triggerid))   # (deal_params)
+  	@deal = Deal.new(deal_params)
   	@deal.save
+    redirect_to show_path
 
- 	if @deal.save
- 	  createtwo(@deal.direction, @deal.latitude, @deal.longitude, @deal.distance, @deal.start, @deal.expire, @deal.text, @deal.triggerid)
- 	else
- 	  render 'new'
- 	end
+ 	# if @deal.save
+ 	#   createtwo(@deal.direction, @deal.latitude, @deal.longitude, @deal.distance, @deal.start, @deal.expire, @deal.text, @deal.triggerid)
+ 	# else
+ 	#   render 'new'
+ 	# end
   end
 
   def createtwo(direction, latitude, longitude, distance, start, expire, text, triggerid)
@@ -50,6 +49,11 @@ class DealsController < ApplicationController
   	redirect_to show_path
 
   end
+  private
+
+  def deal_params
+      params.require(:deal).permit(:direction, :latitude, :longitude, :distance, :start, :expire, :text, :triggerid)
+  end 
 
 end
 
