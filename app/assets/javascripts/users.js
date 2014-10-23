@@ -28,7 +28,7 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
   mapPoints = [<% @deal.each do |mp| %>
-  	{latitude: <%= mp.latitude %>, longitude: <%= mp.longitude %>, name: '<%= mp.name %>', description: '<%= mp.description %>', startDate: '<%= mp.start_date %>', endDate: '<%= mp.end_date %>', fine: '<%= mp.fine %>'},<% end %>];
+  	{latitude: <%= mp.latitude %>, longitude: <%= mp.longitude %>, name: '<%= mp.name %>', description: '<%= mp.description %>', fine: '<%= mp.fine %>', code: '<%= mp.code %>'},<% end %>];
 
 
   for(var i = 0; i < mapPoints.length; ++i)
