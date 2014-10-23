@@ -9,10 +9,9 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
 			url: '/',
 			templateUrl: '/dealmap.html'
 		});
-
 }]);
 
-app.factory('Users', function($resource){
+app.factory('User', function($resource){
 	return $resource('/api/users/:id')
 });
 
@@ -20,8 +19,8 @@ app.factory('Deals', function($resource){
 	return $resource('api/deals/:id')
 });
 
-app.controller('geoCtrl', ['$scope', 'Users', 'Deals', function($scope, Users, Deals){
-	var user = Users.get({id: 1}, function () {
+app.controller('geoCtrl', ['$scope', 'User', 'Deals', function($scope, User, Deals){
+	var user = User.get({id: 1}, function () {
 		$scope.firstName = user.first_name
 		$scope.lastName = user.last_name
 	});

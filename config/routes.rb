@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   patch '/sessions' => 'friendships#update', as: :update_friendship
   delete '/users/:id' => 'sessions#destroy', as: :log_out
 
+  # API
+
+  get '/api/users/:id' => 'users#show'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
