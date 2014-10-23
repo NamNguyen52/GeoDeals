@@ -33,7 +33,9 @@ Rails.application.routes.draw do
 
   # API
 
-  # get '/api/users/:id' => 'users#show'
+  scope '/api' do
+    resources :users, defaults: {format: 'json'}
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

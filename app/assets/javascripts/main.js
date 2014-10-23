@@ -12,7 +12,7 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
 }]);
 
 app.factory('User', function($resource){
-	return $resource('/api/users/:id')
+	return $resource('/api/users/:id.json')
 });
 
 app.factory('Deals', function($resource){
@@ -20,9 +20,10 @@ app.factory('Deals', function($resource){
 });
 
 app.controller('geoCtrl', ['$scope', 'User', 'Deals', function($scope, User, Deals){
-	var user = User.get({id: 1}, function () {
-		$scope.firstName = user.first_name
-		$scope.lastName = user.last_name
+	console.log('controller loaded')
+	User.get({id: 1}, function (data) {
+		$scope.firstName = data.first_name;
+		$scope.lastName = data.last_name;
 	});
 
 	var deal = Deals.get({id: 0}, function (){
