@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # resources :sessions
   # resources :users
-  root "users#show"
+  # root "users#show"
 
   get 'users/new' => 'users#new', as: :users_new
   post 'users/new' => 'users#create'
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   # API
 
-  get '/api/users/:id' => 'users#show'
+  # get '/api/users/:id' => 'users#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
