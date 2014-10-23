@@ -15,6 +15,7 @@ include SessionsHelper
 	else
 	  @user = current_user
 	end	
+	@deals = Deal.all
   end
 
   def settings

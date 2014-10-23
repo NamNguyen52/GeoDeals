@@ -1,5 +1,7 @@
 class DealsController < ApplicationController
+include SessionsHelper
   def index
+    @user = current_user
   	@deals = Deal.all
   end
 
@@ -20,9 +22,8 @@ class DealsController < ApplicationController
 
   def create
     @deal = Deal.new(params.require(:deal).permit(:name, :description, :fine, :start_date, :end_date))
-
       if @deal.save
-        redirect_to index_path
+        redirect_to root_path
       else
         render 'new'
       end

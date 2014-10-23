@@ -39,6 +39,7 @@
 		}
 	}
 	.top-bar-section {
+		color: red;
 		.right {
 			.active {
 		}
@@ -51,3 +52,16 @@
 		}
 	}
 }
+
+// ####################################
+// ########## business_index ##########
+// ####################################
+
+.deals-container {
+	border: 2px solid black;
+	height: 400px;
+	width: 400px;
+	text-align: center;
+}
+
+
