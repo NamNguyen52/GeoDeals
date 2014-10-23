@@ -26,7 +26,8 @@ function initialize() {
 
 ////////////////////////////  ALL DEALS DISPLAYED ON MAP  //////////////////////////////
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
+// Need to remove once seed data has established
+<% @deal = [] %>
   mapPoints = [<% @deal.each do |mp| %>
   	{latitude: <%= mp.latitude %>, longitude: <%= mp.longitude %>, name: '<%= mp.name %>', description: '<%= mp.description %>', startDate: '<%= mp.start_date %>', endDate: '<%= mp.end_date %>', fine: '<%= mp.fine %>'},<% end %>];
 
