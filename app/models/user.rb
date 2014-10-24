@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 	attr_accessor :password_confirmation
 
   has_many :deals, through: :lists
+  belongs_to :business
 
   validates_uniqueness_of :email, on: :create
   # validates_inclusion_of :customer, :in => [true, false]

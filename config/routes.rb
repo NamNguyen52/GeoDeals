@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'lists/new'
+
+  get 'lists/create'
+
+  get 'lists/index'
+
   get '/business/deals' => 'deals#index', as: :index
   post '/business/deals' => 'deals#create', as: :create
   get '/business/deals/new' => 'deals#new', as: :deal_new
@@ -16,7 +22,7 @@ Rails.application.routes.draw do
 
   # resources :sessions
   # resources :users
-  # root "users#show"
+  root "users#show"
 
   get 'users/new' => 'users#new', as: :users_new
   post 'users/new' => 'users#create'
