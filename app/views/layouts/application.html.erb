@@ -18,8 +18,11 @@
 
   <body ng-app="geoDeals">
     
+    <% if current_page?(:controller => 'users', :action => 'index') %>
+      <div ui-view></div>
+    <% end %>
+
     <%= yield %>
-    <div ui-view></div>
- 
+
   </body>
 </html>

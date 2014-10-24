@@ -21,9 +21,9 @@ include SessionsHelper
   end
 
   def create
-    @deal = Deal.new(params.require(:deal).permit(:name, :description, :fine, :start_date, :end_date))
+    @deal = Deal.new(params.require(:deal).permit(:name, :description, :fine, :start_date, :end_date, :start_time, :end_time))
       if @deal.save
-        redirect_to root_path
+        redirect_to business_index_path
       else
         render 'new'
       end

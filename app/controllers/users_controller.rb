@@ -19,7 +19,7 @@ respond_to :json, :html
     elsif @user.save
       if @user.business_owner == false
         log_in(@user)
-        redirect_to sessions_path
+        redirect_to user_index_path
     elsif @user.errors.messages[:password] && @user.errors.messages[:email] 
 	    @user.email = ""
 	    @user.email_confirmation = ""
