@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'business/deals/:id' => 'deals#destroy', as: :deal_delete
   get 'business/deals/:id/show' => 'deals#show', as: :deal_show
 
+  resources :businesses
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
   patch '/users/:id' => 'users#update', as: :update_user
   get '/sessions' => 'sessions#index'
-  get 'sessions/business_index/', :to => 'sessions#business_index', as: :business
+  get 'sessions/business_index/', :to => 'sessions#business_index', as: :business_index
   get 'sessions/settings/', :to => 'sessions#settings', as: :settings
   get '/signin', to: 'sessions#new', as: :sessions_new
   post '/signin', to: 'sessions#create', as: :sign_in
