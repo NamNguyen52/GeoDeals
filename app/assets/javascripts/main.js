@@ -16,7 +16,7 @@ app.factory('User', function($resource){
 });
 
 app.factory('Deals', function($resource){
-	return $resource('api/deals/:id')
+	return $resource('/api/deals/:id.json')
 });
 
 app.controller('geoCtrl', ['$scope', 'User', 'Deals', function($scope, User, Deals){
@@ -26,10 +26,10 @@ app.controller('geoCtrl', ['$scope', 'User', 'Deals', function($scope, User, Dea
 		$scope.lastName = data.last_name;
 	});
 
-	var deal = Deals.get({id: 0}, function (){
-		$scope.dealName = deal.name
-		$scope.dealDescription = deal.description
-		$scope.dealCode = deal.code
-		$scope.dealFine = deal.fine
+	Deals.get({id: 1}, function (data) {
+		$scope.dealName = data.name
+		$scope.dealDescription = data.description
+		$scope.dealCode = data.code
+		$scope.dealFine = data.fine
 	});
 }]);

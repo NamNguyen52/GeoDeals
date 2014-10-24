@@ -26,8 +26,7 @@ function initialize() {
 
 ////////////////////////////  ALL DEALS DISPLAYED ON MAP  //////////////////////////////
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-// Need to remove once seed data has established
-<% @deal = [] %>
+
   mapPoints = [<% @deal.each do |mp| %>
   	{latitude: <%= mp.latitude %>, longitude: <%= mp.longitude %>, name: '<%= mp.name %>', description: '<%= mp.description %>', fine: '<%= mp.fine %>', code: '<%= mp.code %>'},<% end %>];
 
@@ -65,7 +64,7 @@ function initialize() {
 
 
 ///////////////////////////  FUNCTION INITIALIZER ON LOAD  ///////////////////////////
-//google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize);
 
 
 //////////////////////  USER'S CURRENT POSITION & DISTANCE FROM /////////////////////
@@ -128,7 +127,7 @@ function distance(position){
 	if (distToHillstone < 25000 && firstDeal === "1") {
 		function runOnce() {
 			firstDeal = "11"
-			alert('Location: ' + mapPoints[0].name + '\n' + 'Deets: ' + mapPoints[0].description + '\n' + 'Begins: ' + mapPoints[0].startDate + '\n' + 'Ends: ' + mapPoints[0].endDate + '\n' + 'Fine: ' + mapPoints[0].fine);
+			//alert('Location: ' + mapPoints[0].name + '\n' + 'Deets: ' + mapPoints[0].description + '\n' + 'Begins: ' + mapPoints[0].startDate + '\n' + 'Ends: ' + mapPoints[0].endDate + '\n' + 'Fine: ' + mapPoints[0].fine);
 			//alert(mapPoints[23].triggerid\nmapPoints[23].description\nmapPoints[23].start\nmapPoints[23].expire);
 		}
 		runOnce();
@@ -141,7 +140,7 @@ function distance(position){
 	if (distToHillstone < 25000 && secondDeal === "2") {
 		function runOnceTwo() {
 			secondDeal = "22"
-			alert('Location: ' + mapPoints[1].name + '\n' + 'Deets: ' + mapPoints[1].description + '\n' + 'Begins: ' + mapPoints[1].startDate + '\n' + 'Ends: ' + mapPoints[1].endDate + '\n' + 'Fine: ' + mapPoints[1].fine);
+			//alert('Location: ' + mapPoints[1].name + '\n' + 'Deets: ' + mapPoints[1].description + '\n' + 'Begins: ' + mapPoints[1].startDate + '\n' + 'Ends: ' + mapPoints[1].endDate + '\n' + 'Fine: ' + mapPoints[1].fine);
 		}
 		runOnceTwo();
 	};
@@ -154,7 +153,7 @@ function distance(position){
 	if (distToPanera < 25000 && thirdDeal === "3") {
 		function runOnceThree() {
 			thirdDeal = "33"
-			alert('Location: ' + mapPoints[2].name + '\n' + 'Deets: ' + mapPoints[2].description + '\n' + 'Begins: ' + mapPoints[2].startDate + '\n' + 'Ends: ' + mapPoints[2].endDate  + '\n' + 'Fine: ' + mapPoints[2].fine);
+			//alert('Location: ' + mapPoints[2].name + '\n' + 'Deets: ' + mapPoints[2].description + '\n' + 'Begins: ' + mapPoints[2].startDate + '\n' + 'Ends: ' + mapPoints[2].endDate  + '\n' + 'Fine: ' + mapPoints[2].fine);
 		}
 		runOnceThree();
 	};

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/business/deals/:id/edit' => 'deals#edit', as: :deal_edit
   patch '/business/deals/:id/edit' => 'deals#update', as: :deal_update
   delete 'business/deals/:id' => 'deals#destroy', as: :deal_delete
-  get 'business/deals/:id/show' => 'deals#show', as: :deal_show
+  get '/deals/:id' => 'deals#show', as: :deal_show
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -35,6 +35,11 @@ Rails.application.routes.draw do
 
   scope '/api' do
     resources :users, defaults: {format: 'json'}
+  end
+
+
+ scope '/api' do
+    resources :deals, defaults: {format: 'json'}
   end
 
   # Example of regular route:

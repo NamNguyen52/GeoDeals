@@ -1,4 +1,7 @@
 class DealsController < ApplicationController
+
+respond_to :json, :html
+
   def index
   	@deals = Deal.all
   end
@@ -19,7 +22,7 @@ class DealsController < ApplicationController
   end
 
   def create
-    @deal = Deal.new(params.require(:deal).permit(:name, :description, :fine, :start_date, :end_date))
+    @deal = Deal.new(params.require(:deal).permit(:name, :description, :fine, :start_date, :end_date, :latitude, :longitude, :code))
 
       if @deal.save
         redirect_to index_path
@@ -51,6 +54,7 @@ class DealsController < ApplicationController
 
   def show
     @deal = Deal.find(params[:id])
+    respond_with @deal
   end
 
   def update
