@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   belongs_to :business
   has_many :lists
   has_many :deals, through: :lists
+  belongs_to :business
 
   validates_uniqueness_of :email, on: :create
   # validates_inclusion_of :customer, :in => [true, false]
