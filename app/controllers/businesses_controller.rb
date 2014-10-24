@@ -22,12 +22,12 @@ include SessionsHelper
   end
 
   def create
-    @business = Business.new(params.require(:business).permit(:name, :location, :street, :ste, :city, :state, :zip, :country, :id))
+    @business = Business.new(params.require(:business).permit(:name, :location, :latitude, :longitude, :id))
       if @business.save
         @user = current_user
         @user.business_id = @business.id
         @user.save
-        redirect_to root_path
+        redirect_to business_index_path
       else
         render 'new'
       end

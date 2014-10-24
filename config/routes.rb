@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
   patch '/users/:id' => 'users#update', as: :update_user
   get '/sessions' => 'sessions#index'
+  get '/users' => 'users#index', as: :user_index   # Newly added
   get 'sessions/business_index/', :to => 'sessions#business_index', as: :business_index
   get 'sessions/settings/', :to => 'sessions#settings', as: :settings
   get '/signin', to: 'sessions#new', as: :sessions_new
