@@ -9,8 +9,8 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string :state
       t.integer :zip
       t.string :country
-      t.float :lat
-      t.float :lng
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

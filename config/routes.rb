@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # resources :sessions
   # resources :users
   root "sessions#index"
-
+  
   get 'users/new' => 'users#new', as: :users_new
   post 'users/new' => 'users#create'
   get 'users/:id' => 'users#show', as: :user
@@ -31,6 +31,11 @@ Rails.application.routes.draw do
   delete '/sessions' => 'sessions#destroy', as: :sign_out
   patch '/sessions' => 'friendships#update', as: :update_friendship
   delete '/users/:id' => 'sessions#destroy', as: :log_out
+
+  # API@user = current_user
+  scope '/api' do
+    resources :users, defaults: {format: 'json'}
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

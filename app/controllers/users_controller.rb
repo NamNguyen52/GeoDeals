@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 include SessionsHelper
+respond_to :json, :html
 
   def new
     @user = User.new
@@ -35,6 +36,7 @@ include SessionsHelper
 
   def show
     @user = User.find(params[:id])
+    respond_with @user
   end
 
   def update
