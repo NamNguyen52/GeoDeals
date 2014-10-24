@@ -4,5 +4,5 @@ This is where users are going to be able to change their settings, specifically 
 
 <%= form_for @user, url: update_user_path(@user.id) do |f| %>
 	<%= f.check_box :business_owner %>
-	<%= f.submit %>
+	<%= f.submit "Save" %>
 <% end %>
