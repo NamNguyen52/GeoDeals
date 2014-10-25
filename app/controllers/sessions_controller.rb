@@ -49,7 +49,7 @@ include SessionsHelper
 	elsif user && user.authenticate(params[:session][:password]) && user.business_owner == false
 	  flash[:success] = 'Logged In!'
 	  log_in(user)
-	  redirect_to user_index_path
+	  redirect_to sessions_path
 	else
 	  flash[:error] ||= 'Password not found.'
 	  redirect_to root_path

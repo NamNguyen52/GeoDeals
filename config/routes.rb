@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'business/deals/:id/show' => 'deals#show', as: :deal_show
 
   resources :businesses
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -26,9 +27,7 @@ Rails.application.routes.draw do
 
   root "sessions#index"
   
-
   # root "users#show"
-
 
   get 'users/new' => 'users#new', as: :users_new
   post 'users/new' => 'users#create'

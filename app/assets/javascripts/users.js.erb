@@ -19,9 +19,9 @@ function initialize() {
   var loc1 = {lat: 34.0218628, lng: -118.4804206};
   var loc2 = {lat: 33.8336391, lng: -118.3511089};
 
-  var distance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(loc1.lat, loc1.lng), new google.maps.LatLng(loc2.lat, loc2.lng));
+  // var distance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(loc1.lat, loc1.lng), new google.maps.LatLng(loc2.lat, loc2.lng));
 
-  document.getElementById('calculation').innerHTML = distance*0.00062 + ' miles';
+  // document.getElementById('calculation').innerHTML = distance*0.00062 + ' miles';
 
 
 ////////////////////////////  ALL DEALS DISPLAYED ON MAP  //////////////////////////////
@@ -122,7 +122,6 @@ thirdDeal = "3"
 function distance(position){
 
 	// DISTANCE TO HILLSTONE
-	
 	var distToHillstone = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[0].latitude, mapPoints[0].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('hillstone').innerHTML = distToHillstone
 	if (distToHillstone < 25000 && firstDeal === "1") {
@@ -147,7 +146,6 @@ function distance(position){
 	};
 
 
-
 	// DISTANCE TO PANERA BREAD
 	var distToPanera = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[2].latitude, mapPoints[2].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 	document.getElementById('panera').innerHTML = distToPanera
@@ -158,6 +156,5 @@ function distance(position){
 		}
 		runOnceThree();
 	};
-
 }
 
