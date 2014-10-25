@@ -18,8 +18,11 @@
 
   <body ng-app="geoDeals">
     
-    <%= yield %>
+    <% if @user != nil %>
     <div ui-view></div>
+    <% end %>
+
+    <%= yield %>
  
   </body>
 </html>

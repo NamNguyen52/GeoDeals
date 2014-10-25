@@ -1,22 +1,57 @@
 <div class= "sessions-new">
-
-  <header class="sessions-header">
+  <header class="sessions-header" id="geo-top">
     <h1>GeoDeals</h1>
-    <h2>TBD.</h2>
   </header>
+    <main class="sessions-new-container">
+      <h2>Find deals based on your proximity to businesses!</h2>
+        <div class="row">
+          <%= form_for(:session, url: sessions_new_path) do |s| %>
+          <div class="large-4 columns">
+          <%= s.text_field :email, :placeholder => 'Email' %>
+          </div>
 
-  <main class="sessions-new-container">
-    <h2>Find deals based on your proximity to businesses!</h2>
-    <h3>Sign up and start exploring.<h3>
-    <div class="sign-in">
-        <%= form_for(:session, url: sessions_new_path) do |s| %>
-        <%= s.text_field :email, :class => 'new-session-forms', :placeholder => 'Email' %>
-        <%= s.password_field :password, :class => 'new-session-forms',:placeholder => 'Password' %>
-        <%= s.submit :class => 'button expand', :value => 'Sign In' %>
-        <div class="sign-up-link-button">New to GeoDeals?<%= link_to "Sign Up!", users_new_path, class: "sign-in-link-button" %>
+          <div class="large-4 columns">
+          <%= s.password_field :password, :placeholder => 'Password' %>
+          </div>
+
+          <%= s.submit :class => 'button radius signin-fields', :value => 'Sign In' %></br>
+
+          <div class="sign-up-link-button ">New to GeoDeals?</br><%= link_to "Sign Up!", users_new_path, class: "sign-in-link-button" %>
+          </div>
         </div>
-    </div>
-        <% end %>
-  </main>
-
+          <% end %>
+    </main>
+  <a href="#info-container">Learn More</a>
 </div>
+  <section id="info-container">
+      <h1>What is GeoDeals?</h1>
+      <div class="parallax" data-velocity="-.3">
+        <a href="#who-anchor">Who we are</a>
+      </div>
+  </section>
+
+
+  <div class="test-container" id="who-anchor">
+    <h1>Who we are</h1>
+    <div class="parallax" data-velocity="-.3">
+      <div id="who-container">
+        <h1>We want to make it easier to find deals in your immediate area!</h1>
+        <p><a href="#geo-top">Back to the top</a></p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  $(document).ready(function(){
+  $('a[href^="#"]').on('click',function (e) {
+      e.preventDefault();
+
+      var target = this.hash;
+      $target = $(target);
+
+      $('html, body').stop().animate({
+          'scrollTop': $target.offset().top
+      }, 900, 'swing');
+  });
+});
+</script>
