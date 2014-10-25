@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'lists/index'
 
   get '/business/deals' => 'deals#index', as: :index
-  post '/business/deals' => 'deals#create', as: :create
+  post '/business/:id/deals/new' => 'deals#create', as: :create
   get '/business/:id/deals/new' => 'deals#new', as: :deal_new
   get '/business/deals/:id/edit' => 'deals#edit', as: :deal_edit
   patch '/business/deals/:id/edit' => 'deals#update', as: :deal_update
