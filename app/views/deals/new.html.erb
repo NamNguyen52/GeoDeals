@@ -3,7 +3,7 @@
 
 <!-- This begins the section for the business to enter the details for their deal -->
 
-<%= form_for(@deal, url: create_path, method: :post) do |d| %>
+<%= form_for(@deal, url: deal_new_path, method: :post) do |d| %>
 	<ul class="example-orbit-content" data-orbit data-options="next_on_click: false; timer: false;">
   		<li data-orbit-slide="headline-1">
     		<div>
@@ -41,6 +41,7 @@
 					<%= d.date_select :end_date %>
 			</div>
 		</li>
+					<%= d.hidden_field :business_id, value: current_user.business_id %>
 	</ul>
 			<%= d.submit "Submit" %>
 	
