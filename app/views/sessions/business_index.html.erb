@@ -3,7 +3,7 @@
 	YOU ARE A BUSINESS OWNER! HOORAY
 <%= link_to "Add a Deal", deal_new_path(current_user.business_id) %>
 
-<% @user.business_id do |d| %>
+<% Deal.where(business_id: current_user.business_id).each do |d| %>
 <div class="deals-container">
 	<%= d.name %>
 </div>
