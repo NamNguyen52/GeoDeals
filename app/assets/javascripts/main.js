@@ -26,7 +26,7 @@ app.controller('geoCtrl', ['$scope', 'User', 'Deals', function($scope, User, Dea
 		$scope.lastName = data.last_name;
 	});
 
-	var deal = Deals.get({id: 0}, function (){
+	var deal = Deals.get({id: 1}, function (){
 		$scope.dealName = deal.name
 		$scope.dealDescription = deal.description
 		$scope.dealCode = deal.code

@@ -19,7 +19,7 @@ respond_to :json, :html
     elsif @user.save
       if @user.business_owner == false
         log_in(@user)
-        redirect_to user_index_path
+        redirect_to sessions_path   # CHANGED_THIS
     elsif @user.errors.messages[:password] && @user.errors.messages[:email] 
 	    @user.email = ""
 	    @user.email_confirmation = ""
@@ -35,7 +35,7 @@ respond_to :json, :html
 	    @user.password_confirmation = ""
 	    render 'new'
     else
-	   render 'new'
+	    render 'new'
     end
   end
 end
