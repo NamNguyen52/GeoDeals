@@ -34,9 +34,9 @@ function initialize() {
 
   for(var i = 0; i < mapPoints.length; ++i)
   {
-	  var someCoolPlace = new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude);
+	  var dealLocation = new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude);
 	  var marker = new google.maps.Marker({
-	    position: someCoolPlace,
+	    position: dealLocation,
 	    title: 'Deal $$!',
 	    map: map,
 	    animation: google.maps.Animation.BOUNCE,

@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'lists/new'
+
+  get 'lists/create'
+
+  get 'lists/index'
+
   get '/business/deals' => 'deals#index', as: :index
   post '/business/deals' => 'deals#create', as: :create
-  get '/business/deals/new' => 'deals#new', as: :deal_new
+  get '/business/:id/deals/new' => 'deals#new', as: :deal_new
   get '/business/deals/:id/edit' => 'deals#edit', as: :deal_edit
   patch '/business/deals/:id/edit' => 'deals#update', as: :deal_update
   delete 'business/deals/:id' => 'deals#destroy', as: :deal_delete
@@ -17,13 +23,19 @@ Rails.application.routes.draw do
 
   # resources :sessions
   # resources :users
+
   root "sessions#index"
   
+
+  # root "users#show"
+
+
   get 'users/new' => 'users#new', as: :users_new
   post 'users/new' => 'users#create'
   get 'users/:id' => 'users#show', as: :user
   patch '/users/:id' => 'users#update', as: :update_user
   get '/sessions' => 'sessions#index'
+  get '/users' => 'users#index', as: :user_index   # Newly added
   get 'sessions/business_index/', :to => 'sessions#business_index', as: :business_index
   get 'sessions/settings/', :to => 'sessions#settings', as: :settings
   get '/signin', to: 'sessions#new', as: :sessions_new

@@ -1,12 +1,86 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+      	<title></title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4"
+      type="text/javascript"></script>
+    <script type="text/javascript">
+
+function load() {
+    var businessMap = new GMap2(document.getElementById("businessMap"));
+    var center = new GLatLng(48.89364, 2.33739);
+    businessMap.setCenter(center, 16);
+    geocoder = new GClientGeocoder();
+    var marker = new GMarker(center, {draggable: false});  
+    businessMap.addOverlay(marker);
+    document.getElementById("lat").innerHTML = center.lat().toFixed(6);
+    document.getElementById("lng").innerHTML = center.lng().toFixed(6);
+}
+
+function showAddress(address) {
+   var businessMap = new GMap2(document.getElementById("businessMap"));
+
+   if (geocoder) {
+      geocoder.getLatLng(
+      address,
+      function(point) {
+        if (!point) {
+          alert(address + " not found");
+        } 
+        else {
+	  	  document.getElementById("lat").value = point.lat().toFixed(6);
+   		  document.getElementById("lng").value = point.lng().toFixed(6);
+	 	  businessMap.clearOverlays()
+		  businessMap.setCenter(point, 16);
+		  var marker = new GMarker(point, {draggable: false});  
+		  businessMap.addOverlay(marker);
+        }
+      }
+      );
+  	}
+}
+</script>
+
+</head>
+
+
+<body onload="load()" onunload="GUnload()">
+
 <%= form_for @business do |f| %>
 Please submit your business information below so that you can start making deals!
 	<%= f.text_field :name %>
 	<%= f.text_field :location %>
-	<%= f.text_field :street %>
-	<%= f.text_field :ste %>
-	<%= f.text_field :city %>
-	<%= f.text_field :state %>
-	<%= f.text_field :zip %> 
-	<%= f.text_field :country %>
+	<%= f.hidden_field :id %>
+
+
+  <form action="#" onsubmit="showAddress(this.address.value); return false">
+	<p>        
+	<input type="text" size="60" name="address" value="Enter address here to display location on map" />
+	<input type="submit" value="Search!" />
+	</p>
+  </form>
+
+	<p align="left">
+
+	<%= f.text_field :latitude, :id => "lat" %>
+	<%= f.text_field :longitude, :id => "lng" %>
 	<%= f.submit "Submit" %>
+  
 <% end %>
+
+
+	<!-- <table  bgcolor="#FFFFCC" width="300">
+	  <tr>
+		<td><b>Latitude</b><input type="text" id="lat"></input></td>
+		<td><b>Longitude</b><input type="text" id="lng"></input></td>
+	  </tr>
+	</table> -->
+	</p>
+	<p>
+	  <div align="center" id="businessMap" style="width: 600px; height: 400px"><br/></div>
+	</p>
+	  </div>
+
+</body>
+
+</html>

@@ -6,6 +6,7 @@ include SessionsHelper
 	  redirect_to sign_in_path
 	else
 	  @user = current_user
+	  @business = Business.new
 	end	
   end
 
@@ -37,15 +38,19 @@ include SessionsHelper
   def create
     flash.clear
 	begin
-	  user = User.find_by({username: params[:session][:username]})
+	  user = User.find_by({email: params[:session][:email]})
 	rescue
 	  flash[:error] = 'Email not found.'
 	end
 	
-	if user && user.authenticate(params[:session][:password])
+	if user && user.authenticate(params[:session][:password]) && user.business_owner == true
 	  flash[:success] = 'Logged In!'
 	  log_in(user)
 	  redirect_to sessions_path
+	elsif user && user.authenticate(params[:session][:password]) && user.business_owner == false
+	  flash[:success] = 'Logged In!'
+	  log_in(user)
+	  redirect_to user_index_path
 	else
 	  flash[:error] ||= 'Password not found.'
 	  redirect_to root_path
