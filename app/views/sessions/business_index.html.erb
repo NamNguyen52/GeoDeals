@@ -6,6 +6,10 @@
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
 <div class="deals-container">
 	<%= d.name %>
+	<%= d.description %>
+	<%= d.fine %>
+	<%= d.start_date %>
+
 </div>
 <% end %>
 <% else %>

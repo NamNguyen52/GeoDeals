@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20141024181856) do
     t.time     "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
     t.integer  "business_id"
   end
 
