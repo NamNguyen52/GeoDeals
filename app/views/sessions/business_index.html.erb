@@ -1,9 +1,9 @@
 <% if @user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
 	YOU ARE A BUSINESS OWNER! HOORAY
-<%= link_to "Add a Deal", deal_new_path %>
+<%= link_to "Add a Deal", deal_new_path(current_user.business_id) %>
 
-<% @user.deals.each do |d| %>
+<% @user.business_id do |d| %>
 <div class="deals-container">
 	<%= d.name %>
 </div>
