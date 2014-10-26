@@ -1,6 +1,10 @@
-This is the user settings page!
-
-This is where users are going to be able to change their settings, specifically from 
+<header class="h1 settings-header">
+	<h1>Settings</h1>
+<% if current_user.business_owner == true %>
+	<h2> Status: Business Owner <h2>
+<% else %>
+	<h2> Status: Customer <h2>
+<% end %>
 
 <%= form_for @user, url: update_user_path(@user.id) do |f| %>
 	<%= f.check_box :business_owner %>

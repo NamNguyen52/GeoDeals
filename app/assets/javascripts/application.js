@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require jquery.scrolly
 //= require angular
 //= require angular-ui-router.min
 //= require angular-resource

@@ -1,5 +1,5 @@
 <div class="row">
-<% if @user.business_owner == true %>
+<% if current_user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
 	YOU ARE A BUSINESS OWNER! HOORAY
 <%= link_to "Add a Deal", deal_new_path(current_user.business_id) %>
@@ -22,7 +22,9 @@
     </li>
   <% end %>
 </ul>
+
 <% else %>
 	<p> Sorry, you must be a business owner in order to view this page. Click here to change your user settings.</p>
 <% end %>
+
 </div>
