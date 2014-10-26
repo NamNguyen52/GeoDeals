@@ -58,10 +58,17 @@
 // ####################################
 
 .deals-container {
-	border: 2px solid black;
+	color: black;
+	
+	position: relative;
+	font-family: Raleway;
 	height: 400px;
-	width: 400px;
+	width: 280px;
 	text-align: center;
 }
+
+#deals {
+			list-style: none;
+		}
 
 

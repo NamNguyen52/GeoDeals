@@ -1,13 +1,28 @@
+<div class="row">
 <% if @user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
 	YOU ARE A BUSINESS OWNER! HOORAY
 <%= link_to "Add a Deal", deal_new_path(current_user.business_id) %>
 
+<ul>
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
-<div class="deals-container">
-	<%= d.name %>
-</div>
-<% end %>
+    <li class="large-3 small-6 columns left" id="deals">
+    	<div class="deals-container">
+			<%= d.name %>
+			<%= d.description %>
+			<%= d.code %>
+			<%= d.fine %>
+			<%= d.start_date %>
+			<%= d.end_date %>
+			<%= d.start_time %>
+			<%= d.end_time %>
+			<%= d.business_id %>
+
+    	</div>
+    </li>
+  <% end %>
+</ul>
 <% else %>
 	<p> Sorry, you must be a business owner in order to view this page. Click here to change your user settings.</p>
 <% end %>
+</div>
