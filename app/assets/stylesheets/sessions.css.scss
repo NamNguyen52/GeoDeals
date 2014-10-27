@@ -6,12 +6,13 @@
 // ############ sessions/new ##########
 // ####################################
 
+
 .sessions-new {
 	text-align: center;
 	height: 100vh;
 }
 
-section {
+#info-container {
     min-height: 100vh;
     position: relative;
     width: 100% !important;
@@ -114,5 +115,6 @@ section article {
 	width: 400px;
 	text-align: center;
 }
+
 
 

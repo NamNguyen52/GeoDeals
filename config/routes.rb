@@ -48,6 +48,10 @@ Rails.application.routes.draw do
     resources :users, defaults: {format: 'json'}
   end
 
+  scope '/api/business/:id' do
+    resources :deals, defaults: {format: 'json'}
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

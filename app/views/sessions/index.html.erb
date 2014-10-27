@@ -1,13 +1,10 @@
-<% if @user.customer == true %>
+<% if @user.business_owner == false %>
 	<%= render 'layouts/customernav' %>
 <% end %>
 
 <% if @user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
 <% end %>
-
-<%= render 'layouts/customer' %>
-
 
 
 

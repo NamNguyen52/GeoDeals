@@ -1,5 +1,8 @@
 class DealsController < ApplicationController
 include SessionsHelper
+
+  respond_to :html, :json
+
   def index
     @user = current_user
   	@deals = Deal.all
@@ -23,6 +26,8 @@ include SessionsHelper
   def create
     @deal = Deal.new(params.require(:deal).permit(:name, :description, :fine, :start_date, :end_date, :start_time, :end_time))
       @deal.business_id = current_user.business_id
+      @deal.latitude = current_user.business.latitude
+      @deal.longitude = current_user.business.longitude
       if @deal.save
         redirect_to business_index_path
       else
@@ -53,6 +58,7 @@ include SessionsHelper
 
   def show
     @deal = Deal.find(params[:id])
+    respond_with @deal
   end
 
   def update
