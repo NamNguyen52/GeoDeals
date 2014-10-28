@@ -8,16 +8,16 @@
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
     <li class="large-3 small-6 columns left" id="deals">
     	<div class="deals-container">
-			<%= d.name %>
-			<%= d.description %>
-			<%= d.code %>
-			<%= d.fine %>
-			<%= d.start_date %>
-			<%= d.end_date %>
-			<%= d.start_time %>
-			<%= d.end_time %>
-			<%= d.business_id %>
-
+			<div id="deal-name"><%= d.name %></div>
+			Description:
+			<div id="deal-description"><%= d.description %>
+			<div id="deal-code"><%= d.code %>
+			Fine Print:
+			<div id="deal-fine"><%= d.fine %>
+			<div id="deal-start-date"><%= d.start_date %>
+			<div id="deal-end-date"><%= d.end_date %>
+			<div id="deal-start-time"><%= d.start_time %>
+			<div id="deal-end-time"><%= d.end_time %>
     	</div>
     </li>
   <% end %>

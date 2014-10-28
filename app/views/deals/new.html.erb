@@ -2,8 +2,8 @@
 <h1>Create a new deal</h1>
 
 <!-- This begins the section for the business to enter the details for their deal -->
-<% form_for @deal, url: deal_new_path do |d| %>
-<li class="active add-deal"><%= link_to "Log Out", sessions_path, method: :delete %></a></li>url: deal_new_path, method: :post) do |d| %>
+
+<%= form_for(@deal, url: deal_new_path, method: :post) do |d| %>
 	<ul class="example-orbit-content" data-orbit data-options="next_on_click: false; timer: false;">
   		<li data-orbit-slide="headline-1">
     		<div>
@@ -44,6 +44,7 @@
 					<%= d.hidden_field :business_id, value: current_user.business_id %>
 	</ul>
 			<%= d.submit "Submit" %>
+	
 <% end %>
 
 <%= link_to "Go back", index_path %>

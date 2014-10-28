@@ -109,17 +109,102 @@ section article {
 // ####################################
 
 .deals-container {
+	background-color: rgba(255,255,255,.3);
+ 	box-shadow: 3px solid;
+ 	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
+	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
+	box-shadow: 0px 10px 30px -1px rgba(0,0,0,1.0);
+	margin-top: 20%;
 	color: black;
-	
+	border: inset white 10px;
 	position: relative;
 	font-family: Raleway;
-	height: 400px;
-	width: 280px;
+	height: 475px;
+	width: 250px;
 	text-align: center;
+
+}
+
+body {
+	background: transparent url('http://www.psdgraphics.com/file/red-grunge-background.jpg');
 }
 
 #deals {
 			list-style: none;
 		}
+
+#deal-name {
+	font-family: Halvetica;
+	color: blue;
+	margin-top: 30px;
+}
+
+#deal-code{
+	
+}
+
+#deal-fine {
+	
+}
+
+#deal-start-date {
+	
+}
+
+#deal-end-date {
+	
+}
+
+#deal-start-time {
+	
+}
+
+#deal-end-time {
+	
+}
+
+// ####################################
+// ########## business settings #######
+// ####################################
+
+.settings-header {
+	font-size: 32px;
+	font-family: Courier;
+	margin-left: 12%;
+	margin-top: 5.0%;
+}
+
+.business-owner-button {
+	font-size: 32px;
+	font-family: Courier;
+	margin-left: 12%;
+	margin-top: 2.5%;
+}
+
+
+div.border-line {
+	background: black  no-repeat scroll center;
+	margin-left: 12%;
+	width: 18.5em;
+	height: 2px;
+}
+
+div.hr hr {
+	display: none;
+}
+
+.account-status {
+	margin-left: 37%;
+	font-size: 18px;
+}
+
+.something {
+	display: block;
+}
+
+.formsfor {
+	width: 300px;
+}
+
 
 

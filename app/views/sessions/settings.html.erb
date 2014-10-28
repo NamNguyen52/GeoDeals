@@ -1,12 +1,23 @@
-<header class="h1 settings-header">
-	<h1>Settings</h1>
-<% if current_user.business_owner == true %>
-	<h2> Status: Business Owner <h2>
-<% else %>
-	<h2> Status: Customer <h2>
-<% end %>
+<h1 class="settings-header">Settings</h1>
+<div class="hr border-line"><hr /></div>
 
-<%= form_for @user, url: update_user_path(@user.id) do |f| %>
-	<%= f.check_box :business_owner %>
-	<%= f.submit "Save" %>
+<% if current_user.business_owner == true %>
+<%= form_for @business, url: business_update_path(current_user.business_id) do |f| %>
+        <%= f.text_field :name %>
+            <%= f.fields_for :user, url: update_user_path(@user) do |ff| %>
+            <%= ff.check_box :business_owner, label: "Business Owner" %>
+            <%= ff.text_field :first_name, class: 'formsfor' %>
+            <%= ff.text_field :last_name %>
+            <%= ff.text_field :email %>
+            <%= ff.password_field :password %>
+                <% end %>
+            <span class="submit-button"><%= f.submit "Save" %></span>
+
+
+
+  </div>
+
+     <% end %>
+</div>
 <% end %>
+   
