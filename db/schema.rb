@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141028163033) do
     t.boolean  "customer"
     t.boolean  "business_owner"
     t.integer  "business_id"
+    t.string   "auth_token"
   end
 
 end

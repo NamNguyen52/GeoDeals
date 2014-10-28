@@ -5,6 +5,7 @@
 <!-- BUSINESS -->
         <%= f.text_field :name %>
             <%= f.fields_for :user, url: update_user_path(@user) do |ff| %>
+<<<<<<< HEAD
  <!-- USER -->
             <%= ff.check_box :business_owner, label: "Revert to Customer Status?" %>
       <div class="account-status-activation-note">Note: you can reactivate your business account at any time.</div>
