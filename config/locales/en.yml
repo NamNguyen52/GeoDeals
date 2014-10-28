@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+helpers:
+  label:
+    user:
+      business_owner: "Something"

@@ -40,6 +40,9 @@ respond_to :json, :html
   end
 end
 
+def edit
+   @user = User.find(params[:id])
+ end 
   def show
     @user = User.find(params[:id])
     respond_with @user
@@ -47,7 +50,7 @@ end
 
   def update
     @user = User.find(params[:id])
-    if @user.update!(params.require(:user).permit(:business_owner))
+    if @user.business.update(params.require(:user).permit(:business_owner, :first_name, :last_name, :email, :password))
       redirect_to sessions_path(@user)
     end
   end

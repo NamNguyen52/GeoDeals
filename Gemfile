@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'angular-rails-templates'
+gem 'bower-rails'
+
+gem 'simple_form'
+
 gem 'angularjs-rails'
 
 gem 'active_model_serializers'
@@ -11,6 +16,7 @@ group :development, :test do
 	gem 'rspec-rails'
 end
 
+gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use postgresql as the database for Active Record

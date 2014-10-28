@@ -46,13 +46,6 @@ function showAddress(address) {
 
 <body onload="load()" onunload="GUnload()">
 
-<%= form_for @business do |f| %>
-Please submit your business information below so that you can start making deals!
-	<%= f.text_field :name %>
-	<%= f.text_field :location %>
-	<%= f.hidden_field :id %>
-
-
   <form action="#" onsubmit="showAddress(this.address.value); return false">
 	<p>        
 	<input type="text" size="60" name="address" value="Enter address here to display location on map" />
@@ -61,12 +54,6 @@ Please submit your business information below so that you can start making deals
   </form>
 
 	<p align="left">
-
-	<%= f.text_field :latitude, :id => "lat" %>
-	<%= f.text_field :longitude, :id => "lng" %>
-	<%= f.submit "Submit" %>
-  
-<% end %>
 
 
 	<!-- <table  bgcolor="#FFFFCC" width="300">
@@ -84,3 +71,15 @@ Please submit your business information below so that you can start making deals
 </body>
 
 </html>
+
+
+
+<%= form_for @business do |f| %>
+Please submit your business information below so that you can start making deals!
+  <%= f.text_field :name %>
+  <%= f.text_field :location %>
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :latitude, :id => "lat" %>
+  <%= f.hidden_field :longitude, :id => "lng" %>
+  <%= f.submit "Submit" %>
+<% end %>

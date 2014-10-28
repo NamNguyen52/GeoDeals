@@ -6,7 +6,7 @@ include SessionsHelper
 	  redirect_to sign_in_path
 	else
 	  @user = current_user
-	  @business = Business.new
+	 
 	end	
   end
 
@@ -24,6 +24,7 @@ include SessionsHelper
 	  redirect_to sign_in_path
 	else
 	  @user = current_user
+	   @business = Business.find(current_user.business_id)
 	end	
   end
 

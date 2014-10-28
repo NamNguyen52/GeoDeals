@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'lists/create'
 
   get 'lists/index'
+  patch '/businesses/:id' => 'businesses#update', as: :business_update
 
   get '/business/deals' => 'deals#index', as: :index
   post '/business/:id/deals/new' => 'deals#create', as: :create
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   delete 'business/deals/:id' => 'deals#destroy', as: :deal_delete
   get 'business/deals/:id/show' => 'deals#show', as: :deal_show
 
-  resources :businesses
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -25,22 +26,21 @@ Rails.application.routes.draw do
   # resources :sessions
   # resources :users
 
-  root "sessions#index"
+  root 'sessions#index'
   
   # root "users#show"
 
   get 'users/new' => 'users#new', as: :users_new
   post 'users/new' => 'users#create'
   get 'users/:id' => 'users#show', as: :user
-  patch '/users/:id' => 'users#update', as: :update_user
-  get '/sessions' => 'sessions#index'
+  patch '/users/:id' => 'users#edit', as: :update_user
+  get '/sessions' => 'sessions#index', as: :sessions
   get '/users' => 'users#index', as: :user_index   # Newly added
   get 'sessions/business_index/', :to => 'sessions#business_index', as: :business_index
   get 'sessions/settings/', :to => 'sessions#settings', as: :settings
   get '/signin', to: 'sessions#new', as: :sessions_new
   post '/signin', to: 'sessions#create', as: :sign_in
   delete '/sessions' => 'sessions#destroy', as: :sign_out
-  patch '/sessions' => 'friendships#update', as: :update_friendship
   delete '/users/:id' => 'sessions#destroy', as: :log_out
 
   # API@user = current_user

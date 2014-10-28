@@ -7,22 +7,73 @@
 // ####################################
 
 .sessions-new {
-	.sessions-header {
-		h1 {
-		}
-		h2 {
-		}
-	}
-	.sessions-new-container {
-		.sign-in {
-			.new-session-forms {
-			}
-			.new-session-submit-button {
-			}
-			.sign-in-link-button {
-			}
-		}
-	}
+	text-align: center;
+	height: 100vh;
+}
+
+section {
+    min-height: 100vh;
+    position: relative;
+    width: 100% !important;
+    min-width: 1000px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+section article {
+	position:absolute;
+	top:240px;
+	left:40px;
+	width:300px;
+	z-index:4;
+}
+
+#info-container {
+	background: red;
+}
+
+#info-container>div:nth-of-type(1) {
+	background: url(/assets/geodeals_background.jpg) 10% 0 no-repeat fixed;
+	margin-top: 0;
+	height: 100vh;
+	position: absolute;
+	width: 100%;
+}
+
+.test-container {
+	height: 100vh;
+	width: 100%;
+	background-color: white;
+}
+
+.test-container>div:nth-of-type(1) {
+	background: url(/assets/geodeals_background2.jpg) 60% no-repeat fixed;
+	margin-top: 0;
+	height: 93%;
+	position: absolute;
+	width: 100%;
+}
+
+.signin-fields {
+	float: left;
+	clear: both;
+}
+
+#who-container {
+	height: 200px;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10%;
+}
+
+#who-container h1 {
+	color: white;
+}
+
+.inner-wrap {
+	height: 500px;
 }
 
 // ####################################
@@ -58,10 +109,102 @@
 // ####################################
 
 .deals-container {
-	border: 2px solid black;
-	height: 400px;
-	width: 400px;
+	background-color: rgba(255,255,255,.3);
+ 	box-shadow: 3px solid;
+ 	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
+	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
+	box-shadow: 0px 10px 30px -1px rgba(0,0,0,1.0);
+	margin-top: 20%;
+	color: black;
+	border: inset white 10px;
+	position: relative;
+	font-family: Raleway;
+	height: 475px;
+	width: 250px;
 	text-align: center;
+
 }
+
+body {
+	background: transparent url('http://www.psdgraphics.com/file/red-grunge-background.jpg');
+}
+
+#deals {
+			list-style: none;
+		}
+
+#deal-name {
+	font-family: Halvetica;
+	color: blue;
+	margin-top: 30px;
+}
+
+#deal-code{
+	
+}
+
+#deal-fine {
+	
+}
+
+#deal-start-date {
+	
+}
+
+#deal-end-date {
+	
+}
+
+#deal-start-time {
+	
+}
+
+#deal-end-time {
+	
+}
+
+// ####################################
+// ########## business settings #######
+// ####################################
+
+.settings-header {
+	font-size: 32px;
+	font-family: Courier;
+	margin-left: 12%;
+	margin-top: 5.0%;
+}
+
+.business-owner-button {
+	font-size: 32px;
+	font-family: Courier;
+	margin-left: 12%;
+	margin-top: 2.5%;
+}
+
+
+div.border-line {
+	background: black  no-repeat scroll center;
+	margin-left: 12%;
+	width: 18.5em;
+	height: 2px;
+}
+
+div.hr hr {
+	display: none;
+}
+
+.account-status {
+	margin-left: 37%;
+	font-size: 18px;
+}
+
+.something {
+	display: block;
+}
+
+.formsfor {
+	width: 300px;
+}
+
 
 

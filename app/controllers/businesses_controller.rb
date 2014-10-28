@@ -33,11 +33,28 @@ include SessionsHelper
       end
   end
 
+ 
+
   def show
     @business = Business.find(params[:id])
   end
 
   def update
-    redirect_to index_path
+    @business = Business.find(params[:id])
+        if @business.update(business_params)
+          @business.save
+        if @business.user.update(params.require(:business).require(:user_attributes).permit(:first_name))
+          @business.user.save
+      redirect_to sessions_path(@user)
+    end
   end
 end
+
+  private
+
+  def business_params
+    params.require(:business).permit(
+      :name)
+  end
+end
+
