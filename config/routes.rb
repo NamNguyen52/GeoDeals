@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
   get 'lists/new'
 
   get 'lists/create'

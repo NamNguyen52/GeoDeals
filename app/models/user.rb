@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 	attr_accessor :password_confirmation
 
 
+
   has_many :lists
   has_many :deals, through: :lists
   belongs_to :business
@@ -14,10 +15,25 @@ class User < ActiveRecord::Base
   # validates_inclusion_of :customer, :in => [true, false]
   # validates_inclusion_of :business_owner, :in => [true, false]
   before_create :set_default_values, :only => :create
+  before_create { generate_token(:auth_token) }
   validates_presence_of :email, :email_confirmation, on: :create
 	validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}, on: :create 
 	validates :password, presence: true, confirmation: true, length: { minimum: 7 }, format: { with: /\S{7}/}, on: :create
 
+
+
+def send_password_reset
+  generate_token(:password_reset_token)
+  self.password_reset_sent_at = Time.zone.now
+  save!
+  UserMailer.password_reset(self).deliver
+end
+
+def generate_token(column)
+  begin
+    self[column] = SecureRandom.urlsafe_base64
+  end while User.exists?(column => self[column])
+end
   def password=(new_password)
     @password = new_password
     self.password_digest = BCrypt::Password.create(new_password)
