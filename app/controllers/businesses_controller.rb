@@ -4,6 +4,7 @@ include SessionsHelper
   def index
     @user = current_user
   	@business = Business.all
+    @deals = Deal.where(id: current_user.business_id)
   end
 
   def destroy
@@ -41,11 +42,13 @@ include SessionsHelper
 
   def update
     @business = Business.find(params[:id])
-        if @business.update(business_params)
-          @business.save
-        if @business.user.update(params.require(:business).require(:user_attributes).permit(:first_name))
-          @business.user.save
-      redirect_to sessions_path(@user)
+      if @business.update(business_params)
+        @business.save
+        redirect_to sessions_path(@user)
+      elsif @business.user.update(params.require(:business).require(:user_attributes).permit(:first_name))
+        @business.user.save
+        redirect_to sessions_path(@user)
+      end
     end
   end
 end

@@ -1,23 +1,33 @@
 <h1 class="settings-header">Settings</h1>
 <div class="hr border-line"><hr /></div>
-
 <% if current_user.business_owner == true %>
 <%= form_for @business, url: business_update_path(current_user.business_id) do |f| %>
+<!-- BUSINESS -->
         <%= f.text_field :name %>
             <%= f.fields_for :user, url: update_user_path(@user) do |ff| %>
-            <%= ff.check_box :business_owner, label: "Business Owner" %>
+ <!-- USER -->
+            <%= ff.check_box :business_owner, label: "Revert to Customer Status?" %>
+      <div class="account-status-activation-note">Note: you can reactivate your business account at any time.</div>
             <%= ff.text_field :first_name, class: 'formsfor' %>
             <%= ff.text_field :last_name %>
             <%= ff.text_field :email %>
             <%= ff.password_field :password %>
-                <% end %>
-            <span class="submit-button"><%= f.submit "Save" %></span>
+<!-- DEALS -->
+        <%= f.fields_for :deals, url: deal_update_path(@deals.id) do |fff| %>
+            <% fff.text_field :description %>
+            <% fff.text_field :code %>
+            <% fff.text_field :fine %>
+            <% fff.text_field :start_date %>
+            <% fff.text_field :end_date %>
+            <% fff.text_field :start_time %>
+            <% fff.text_field :end_time %>
+            <% fff.text_field :created_at %>
+        <span class="submit-button"><%= f.submit "Save" %></span>
+        <% end %>
+      </div>
+    <% end %>
 
-
-
-  </div>
-
-     <% end %>
 </div>
+<% end %>
 <% end %>
    
