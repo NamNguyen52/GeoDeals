@@ -50,10 +50,11 @@
 			   			<%= u.password_field :password_confirmation, :class => @user.errors.messages[:password_confirmation] ? 'new-user-forms' : 'new-user-forms', :placeholder => @user.errors.messages[:password_confirmation] ? "Password Confirmation #{@user.errors.messages[:password_confirmation].join(" & ")}" : "Password Confirmation" %>
 			   		</div>
 			   	</div>
+			   	 	<%= u.submit "Sign Up", :class => 'button radius signin-fields'%></br>
 			</form>
 			
 			<div class="signup-submit">
-		   	<%= u.submit "Sign Up", :class => 'button radius signin-fields'%></br>
+		  
 
 		   	<%= link_to "Returning? Sign In", sign_in_path, class: "sign-up-link-button" %>
 		   	</div>
