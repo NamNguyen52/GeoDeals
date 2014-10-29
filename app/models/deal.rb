@@ -1,11 +1,11 @@
 class Deal < ActiveRecord::Base
-	belongs_to :business
-	has_many :users, through: :lists
+  belongs_to :business
+  has_many :users, through: :lists
 
-	after_validation :expired_deal
-  def expired_deal
-    if self.end_date > Date.today
-      self.expired = true
-    end
+  before_create :set_deal_salt
+
+
+  def set_deal_salt
+    self.code = (0...10).map { ('1'..'50').to_a[rand(26)] }.join
   end
 end

@@ -1,8 +1,8 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe Deal, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-
-  
-
-end
+describe 'Deal' do
+  describe "#create" do
+    it 'should have a valid name' do
+      deal = Deal.new(name: "50% off Massages!")
+      expect(deal).to be_valid
+    end
