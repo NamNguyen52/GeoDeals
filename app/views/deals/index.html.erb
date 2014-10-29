@@ -6,6 +6,8 @@
 
 <% @deals.each do |deal| %>
 
+<div id="individualDeals">
+
 	<%= deal.name %></br>
 	<%= deal.description %></br>
 	<%= deal.fine %></br>
@@ -16,7 +18,8 @@
 	<%= link_to "Delete", deal_delete_path(deal), method: :delete %>
 	<%= link_to "Show", deal_show_path(deal) %>
 
+</div>
+
 <% end %></br>
 
 <%= link_to "Create a new deal", deal_new_path %>
-

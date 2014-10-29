@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'lists/new'
+  #get 'lists/new'
 
-  get 'lists/create'
+  #get 'lists/create'
 
-  get 'lists/index'
+  #get 'lists/index'
 
   get '/business/deals' => 'deals#index', as: :index
   post '/business/:id/deals/new' => 'deals#create', as: :create
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'business/deals/:id/show' => 'deals#show', as: :deal_show
 
   resources :businesses
+
+  resources :lists
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

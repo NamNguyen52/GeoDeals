@@ -16,10 +16,10 @@
 //= require jquery.scrolly
 //= require angular
 //= require angular-ui-router.min
-//= require ui-map
-//= require ui-utils
+//= require angular-rails-templates
 //= require angular-resource
 //= require main 
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+

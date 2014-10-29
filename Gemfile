@@ -4,6 +4,8 @@ gem 'gon'
 
 gem 'angularjs-rails'
 
+gem 'angular-rails-templates'
+
 gem 'active_model_serializers'
 
 gem 'redis'

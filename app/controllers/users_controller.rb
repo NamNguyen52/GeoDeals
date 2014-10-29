@@ -12,7 +12,7 @@ respond_to :json, :html
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :business_owner, :customer))
+    @user = User.new(params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :business_owner, :customer, :deals_array))
 	  if @user.save && @user.business_owner == true
       log_in(@user)
       redirect_to new_business_path
@@ -45,7 +45,7 @@ respond_to :json, :html
 
   def update
     @user = User.find(params[:id])
-    if @user.update!(params.require(:user).permit(:business_owner))
+    if @user.update!(params.require(:user).permit(:business_owner, :deals_array))
       redirect_to sessions_path(@user)
     end
   end
