@@ -37,10 +37,10 @@ respond_to :json, :html
     end
   end
 
-
-def edit
+  def edit
    @user = User.find(params[:id])
- end 
+  end
+   
   def show
     @user = User.find(params[:id])
     respond_with @user

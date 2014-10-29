@@ -5,7 +5,7 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
 	$urlRouterProvider.otherwise('/')
 
 	$stateProvider
-		.state('dealmap', {
+		.state('dealsmap', {
 			url: '/',
 			templateUrl: '/dealmap.html.erb'
 		});

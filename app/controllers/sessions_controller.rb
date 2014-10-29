@@ -12,7 +12,7 @@ include SessionsHelper
 	@user = current_user
 	@deals = Deal.all
 	gon.deals = @deals
-	@userlist = List.where(user_id: @user.id)
+	# @userlist = List.where(user_id: @user.id)
   end
 
   def business_index
