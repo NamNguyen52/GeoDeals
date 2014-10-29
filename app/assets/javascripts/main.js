@@ -7,7 +7,7 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
 	$stateProvider
 		.state('dealsmap', {
 			url: '/',
-			templateUrl: '/dealmap.html'
+			templateUrl: '/dealmap.html.erb'
 		});
 }]);
 
@@ -15,11 +15,7 @@ app.factory('User', function($resource){
 	return $resource('/api/users/:id.json')
 });
 
-app.factory('Deals', function($resource){
-	return $resource('api/deals/:id')
-});
-
-app.controller('geoCtrl', ['$scope', 'User', 'Deals', function($scope, User, Deals){
+app.controller('geoCtrl', ['$scope', 'User', function($scope, User){
 	console.log('controller loaded')
 
 	if (gon) {

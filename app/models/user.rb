@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	attr_accessor :email_confirmation
 	attr_accessor :password_confirmation
 
-  has_many :lists
+  has_one :list
   belongs_to :business
 
   validates_uniqueness_of :email, on: :create
