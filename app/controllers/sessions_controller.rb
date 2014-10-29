@@ -8,7 +8,6 @@ include SessionsHelper
 	  @user = current_user
 	  gon.userid = @user.id
 	  @business = Business.new
->>>>>>> geostyling
 	end	
   end
 

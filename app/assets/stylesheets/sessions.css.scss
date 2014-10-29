@@ -51,15 +51,17 @@
 }
 
 .sessions-header {
-	height: 60%;
+	height: 55%;
 	width: 100%;
 	background: url(/assets/new_work.jpg);
 	background-size: cover;
+	padding-top: 80px;
 }
 
 .header-content {
 	position: relative;
-	height: 100px;
+	border-top: 10px solid white;
+	border-bottom: 10px solid white;
 }
 
 .outline-inward {
@@ -92,17 +94,11 @@
   opacity: 1;
 }
 
-.overlay-container {
-	height: 53%;
-	width: 100%;
-	position: absolute;
-}
-
 .header-content {
-	width: 100%;
+	width: 68%;
 	height: 100%;
-	padding-top: 80px;
-	z-index: 10;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .video-container {
@@ -118,16 +114,11 @@
 
 .header-content h1 {
 	color: rgba(255, 69, 0, 0.65);
-	/*color: rgba(255, 131, 0, 0.65);*/
 	font-size: 200px;
 	font-family: intro_regular;
 }
 
-.header-content h2 {
-	color: white;
-}
 
->>>>>>> geostyling
 #info-container {
     min-height: 100vh;
     position: relative;

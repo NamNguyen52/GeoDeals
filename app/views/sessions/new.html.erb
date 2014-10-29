@@ -1,12 +1,9 @@
 <div class= "sessions-new">
   <header class="sessions-header" id="geo-top">
     <div class="overlay-container">
-
       <div class="header-content">
         <h1>GeoDeals</h1>
-        <!-- <h2>Find deals based on your proximity to businesses!</h2> -->
       </div>
-
     </div>
   </header>
 
@@ -23,10 +20,9 @@
         <%= s.password_field :password, :placeholder => 'Password' %>
       </div>
     </div>
+    <%= s.submit :class => 'button radius signin-fields', :value => 'Sign In' %></br>
   </form>
-
-  <%= s.submit :class => 'button radius signin-fields', :value => 'Sign In' %></br>
-
+  
   <div class="sign-up-link-button">New to GeoDeals?</br><%= link_to "Sign Up!", users_new_path, class: "sign-in-link-button" %>
   </div>
 
