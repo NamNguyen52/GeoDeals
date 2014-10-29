@@ -7,7 +7,7 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
 	$stateProvider
 		.state('dealsmap', {
 			url: '/',
-			templateUrl: '/dealmap.html.erb'
+			templateUrl: '/dealmap.html'
 		});
 }]);
 

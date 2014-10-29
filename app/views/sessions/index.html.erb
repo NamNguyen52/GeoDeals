@@ -14,18 +14,7 @@
 
 
 		
-	<% @userlist.each do |ud| %>
-		<div class="row" id="userListContainer">
-		<div class="small-12 columns">
-			<p><%= ud.deal_name %></p>
-			<p><%= ud.deal_description %></p>
-			<p><%= ud.deal_code %></p>
-			<p><%= ud.deal_fine %></p>
-			<%= link_to "Nix This Deal", list_path(ud.id), method: :delete %>
-		</div>
-		</div>
-	<% end %>
-		
+
 
 
 <% end %>
