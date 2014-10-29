@@ -14,6 +14,7 @@ module SessionsHelper
   def log_in(user)
     cookies[:logged_in_id] = {value: user.id, :expire_after => 60.minutes}
     @current_user = user
+    # gon.userid = @current_user.id
   end
 
   def log_out

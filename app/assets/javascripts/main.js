@@ -7,7 +7,7 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
 	$stateProvider
 		.state('dealsmap', {
 			url: '/',
-			templateUrl: '/dealmap.html'
+			templateUrl: '/dealmap.html.erb'
 		});
 }]);
 
@@ -21,15 +21,18 @@ app.factory('Deals', function($resource){
 
 app.controller('geoCtrl', ['$scope', 'User', 'Deals', function($scope, User, Deals){
 	console.log('controller loaded')
-	User.get({id: 1}, function (data) {
+
+	if (gon) {
+		console.log('gon loaded')
+	} else {
+		console.log('gon not loaded')
+	};
+
+	var userId = gon.userid;
+	console.log(userId);
+
+	User.get({id: userId}, function (data) {
 		$scope.firstName = data.first_name;
 		$scope.lastName = data.last_name;
-	});
-
-	var deal = Deals.get({id: 1}, function (){
-		$scope.dealName = deal.name
-		$scope.dealDescription = deal.description
-		$scope.dealCode = deal.code
-		$scope.dealFine = deal.fine
 	});
 }]);

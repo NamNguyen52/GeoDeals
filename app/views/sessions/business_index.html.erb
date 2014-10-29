@@ -1,7 +1,4 @@
-<% if @user.business_owner == true %>
-	<%= render 'layouts/businessnav' %>
-	YOU ARE A BUSINESS OWNER! HOORAY
-<%= link_to "Add a Deal", deal_new_path(current_user.business_id) %>
+<h1>YOU ARE A BUSINESS OWNER! HOORAY</h1>
 
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
 <div class="deals-container">

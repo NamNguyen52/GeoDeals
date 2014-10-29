@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'gon'
+
 gem 'angularjs-rails'
 
 gem 'active_model_serializers'

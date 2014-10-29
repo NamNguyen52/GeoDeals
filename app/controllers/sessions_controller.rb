@@ -6,6 +6,7 @@ include SessionsHelper
 	  redirect_to sign_in_path
 	else
 	  @user = current_user
+	  gon.userid = @user.id
 	  @business = Business.new
 	end	
   end
@@ -15,6 +16,7 @@ include SessionsHelper
 	  redirect_to sign_in_path
 	else
 	  @user = current_user
+	  gon.userid = @user.id
 	end	
 	@deals = Deal.all
   end
