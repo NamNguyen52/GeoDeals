@@ -12,14 +12,12 @@ respond_to :json, :html
 
   def create
     @user = User.new(params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :business_owner, :customer))
-	  if @user.save
-      if @user.business_owner == true
+	  if @user.save && @user.business_owner == true
       log_in(@user)
       redirect_to new_business_path
-    elsif @user.save
-      if @user.business_owner == false
-        log_in(@user)
-        redirect_to sessions_path   # CHANGED_THIS
+    elsif @user.save && @user.business_owner == false
+      log_in(@user)
+      redirect_to sessions_path
     elsif @user.errors.messages[:password] && @user.errors.messages[:email] 
 	    @user.email = ""
 	    @user.email_confirmation = ""
@@ -38,7 +36,7 @@ respond_to :json, :html
 	    render 'new'
     end
   end
-end
+
 
 def edit
    @user = User.find(params[:id])
@@ -54,5 +52,4 @@ def edit
       redirect_to sessions_path(@user)
     end
   end
-end
 end
