@@ -6,18 +6,17 @@
 
 <ul>
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
+
     <li class="large-3 small-6 columns left" id="deals">
-    	<div class="deals-container">
-			<div id="deal-name"><%= d.name %></div>
-			Description:
-			<div id="deal-description"><%= d.description %>
-			<div id="deal-code"><%= d.code %>
+    	<div class=<%= d.end_date <= Date.today ? 'deals-container blue' : 'deals-container2 red' %>>
+			<div class=<%= d.end_date <= Date.today ? 'blue' : 'red' %>><%= d.name %></div>
+			<div id="deal-description"><%= d.description %></div>
+			<div id="deal-code"><%= d.code %></div>
 			Fine Print:
-			<div id="deal-fine"><%= d.fine %>
-			<div id="deal-start-date"><%= d.start_date %>
-			<div id="deal-end-date"><%= d.end_date %>
-			<div id="deal-start-time"><%= d.start_time %>
-			<div id="deal-end-time"><%= d.end_time %>
+			<div id="deal-fine"><%= d.fine %></div>
+			<div id="deal-start-date"><%= d.start_date %></div>
+			<div id="deal-end-date"><%= d.end_date %></div>
+			<%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     	</div>
     </li>
   <% end %>

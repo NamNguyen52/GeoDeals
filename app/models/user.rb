@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 	validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}, on: :create 
 	validates :password, presence: true, confirmation: true, length: { minimum: 7 }, format: { with: /\S{7}/}, on: :create
 
+  
   def password=(new_password)
     @password = new_password
     self.password_digest = BCrypt::Password.create(new_password)
@@ -30,8 +31,6 @@ class User < ActiveRecord::Base
       false
     end
   end
-
-
 
   def set_default_values
     self.customer = true if self.customer == nil

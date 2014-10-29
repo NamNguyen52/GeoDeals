@@ -41,17 +41,15 @@ include SessionsHelper
   end
 
   def update
+    @deals = Deal.find(params[:id])
     @business = Business.find(params[:id])
       if @business.update(business_params)
-        @business.save
-        redirect_to sessions_path(@user)
-      elsif @business.user.update(params.require(:business).require(:user_attributes).permit(:first_name))
-        @business.user.save
+        @business.user.update(params.require(:business).require(:user_attributes).permit(:first_name))
+        @deals.update(params.require(:deal).permit(:name))
         redirect_to sessions_path(@user)
       end
     end
-  end
-end
+
 
   private
 

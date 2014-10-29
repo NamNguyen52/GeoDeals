@@ -8,8 +8,7 @@ include SessionsHelper
   def destroy
     deal_record = Deal.find(params[:id])
     deal_record.destroy
-
-    redirect_to index_path
+    redirect_to business_index_path
   end
 
   def edit
