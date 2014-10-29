@@ -1,4 +1,4 @@
- class SessionsController < ApplicationController
+class SessionsController < ApplicationController
 include SessionsHelper
 
   def index
@@ -8,8 +8,11 @@ include SessionsHelper
 	  @user = current_user
 	  gon.userid = @user.id
 	  @business = Business.new
->>>>>>> geostyling
 	end	
+	@user = current_user
+	@deals = Deal.all
+	gon.deals = @deals
+	@userlist = List.where(user_id: @user.id)
   end
 
   def business_index

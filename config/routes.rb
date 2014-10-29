@@ -2,11 +2,6 @@ Rails.application.routes.draw do
 
   get 'password_resets/new'
 
-  get 'lists/new'
-
-  get 'lists/create'
-
-  get 'lists/index'
   patch '/businesses/:id' => 'businesses#update', as: :business_update
 
   get '/business/deals' => 'deals#index', as: :index
@@ -18,6 +13,7 @@ Rails.application.routes.draw do
   get 'business/deals/:id/show' => 'deals#show', as: :deal_show
 
 
+  resources :lists
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

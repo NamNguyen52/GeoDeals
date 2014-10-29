@@ -5,7 +5,7 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
 	$urlRouterProvider.otherwise('/')
 
 	$stateProvider
-		.state('dealsmap', {
+		.state('dealmap', {
 			url: '/',
 			templateUrl: '/dealmap.html.erb'
 		});
@@ -25,7 +25,7 @@ app.controller('geoCtrl', ['$scope', 'User', 'Deals', function($scope, User, Dea
 	if (gon) {
 		console.log('gon loaded')
 	} else {
-		console.log('gon not loaded')
+		console.log('gon not loaded lol')
 	};
 
 	var userId = gon.userid;
