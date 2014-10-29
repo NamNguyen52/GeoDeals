@@ -1,4 +1,4 @@
- class SessionsController < ApplicationController
+class SessionsController < ApplicationController
 include SessionsHelper
 
   def index
@@ -6,8 +6,13 @@ include SessionsHelper
 	  redirect_to sign_in_path
 	else
 	  @user = current_user
-	 
+	  gon.userid = @user.id
+	  @business = Business.new
 	end	
+	@user = current_user
+	@deals = Deal.all
+	gon.deals = @deals
+	# @userlist = List.where(user_id: @user.id)
   end
 
   def business_index
@@ -15,6 +20,7 @@ include SessionsHelper
 	  redirect_to sign_in_path
 	else
 	  @user = current_user
+	  gon.userid = @user.id
 	end	
 	@deals = Deal.all
   end

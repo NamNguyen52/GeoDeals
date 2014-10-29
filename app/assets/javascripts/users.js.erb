@@ -1,118 +1,101 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://coffeescript.org/
+// var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}];
 
-var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}];
+var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#F1FF00"},{"saturation":-27.4},{"lightness":9.4},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#0099FF"},{"saturation":-20},{"lightness":36.4},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#00FF4F"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FFB300"},{"saturation":-38},{"lightness":11.2},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00B6FF"},{"saturation":4.2},{"lightness":-63.4},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#9FFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]}];
+
+var holdYourHorses = function(){
+  $('#myModal').foundation('reveal', 'open')
+};
+
+var playThatTune = function(){
+    var audio = document.getElementById("audio");
+    audio.play();
+};
+
+var seconds;
+var temp;
+ 
+var countdown = function() {
+  seconds = document.getElementById('countdown').innerHTML;
+  seconds = parseInt(seconds, 10);
+ 
+  if (seconds == 1) {
+    temp = document.getElementById('countdown');
+    temp.innerHTML = "Viola!";
+    return;
+  }
+ 
+  seconds--;
+  temp = document.getElementById('countdown');
+  temp.innerHTML = seconds;
+  timeoutMyOswego = setTimeout(countdown, 90000);
+} 
+ 
+
+//window.setTimeout("holdYourHorses()", 5000);
+//window.setTimeout("playThatTune()", 5000);
+
 
 function initialize() {
-	var mapOptions = {
-	   center : {
-				lat: 34.0214935,
-				lng: -118.4806145
-				},
-		zoom: 8,
-		styles: mapStyle
-	};
+  var mapOptions = {
+    zoom: 12,
+    center: new google.maps.LatLng(34.01,-118.49),
+    styles: mapStyle
+  };
 
+  map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
 
-///////////////////////////  DISTANCE BETWEEN 2 LOCATIONS  /////////////////////////////
-  var loc1 = {lat: 34.0218628, lng: -118.4804206};
-  var loc2 = {lat: 33.8336391, lng: -118.3511089};
+  countdown();  
 
-  // var distance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(loc1.lat, loc1.lng), new google.maps.LatLng(loc2.lat, loc2.lng));
-
-  // document.getElementById('calculation').innerHTML = distance*0.00062 + ' miles';
-
-
-////////////////////////////  ALL DEALS DISPLAYED ON MAP  //////////////////////////////
-  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-// Need to remove once seed data has established
-<% @deal = [] %>
-  mapPoints = [<% @deal.each do |mp| %>
-  	{latitude: <%= mp.latitude %>, longitude: <%= mp.longitude %>, name: '<%= mp.name %>', description: '<%= mp.description %>', fine: '<%= mp.fine %>', code: '<%= mp.code %>'},<% end %>];
-
-
-  for(var i = 0; i < mapPoints.length; ++i)
-  {
-	  var dealLocation = new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude);
-	  var marker = new google.maps.Marker({
-	    position: dealLocation,
-	    title: 'Deal $$!',
-	    map: map,
-	    animation: google.maps.Animation.BOUNCE,
-	    icon: "http://www.balzacbrasserie.com/images/featured_boxes/cocktail.png",
-	    draggable: true
-	  });
-	}
 }
 
- //  navigator.geolocation.getCurrentPosition(latitude);
- //  navigator.geolocation.getCurrentPosition(longitude);
- //  function latitude(pos) {
- //    var curr = pos.coords;
- //      document.getElementById('currentLat').innerHTML = curr.latitude
-	// };
- //  function longitude(pos) {
- //  	var curr = pos.coords;
- //      document.getElementById('currentLng').innerHTML = curr.longitude
-	// };	
-  
- //  latitude(pos);
- //  longitude(pos);
 
-////// var x = document.getElementById("demo");
+////////////////////////////// OTHER STUFF ////////////////////////////////
 
+function loadScript() {
+  console.log("GMaps API has loaded");
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' + 'callback=initialize' + '&key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4&' + 'libraries=geometry';
+  document.body.appendChild(script);
+}
 
+window.onload = loadScript;
+console.log("loadScript fcn has passed by! Zoom!")
 
-///////////////////////////  FUNCTION INITIALIZER ON LOAD  ///////////////////////////
-google.maps.event.addDomListener(window, 'load', initialize);
+function mapTheseBs() {
+  deals = gon.deals
+  console.log(deals);
+  for (var i = 0; i < deals.length; i++) {
+    if (deals[i].longitude && deals[i].latitude) {
+      var dealLocation = new google.maps.LatLng(deals[i].latitude,deals[i].longitude);
+      var marker = new google.maps.Marker({
+      position: dealLocation,
+      title: 'Deal $$!',
+      map: map,
+      animation: google.maps.Animation.BOUNCE,
+      icon: "http://4.bp.blogspot.com/-IJXe-eEJTmA/U-G6WnOSe_I/AAAAAAAAAtQ/v_V9BcQu9Ok/s33-c/336914de2a.png",
+      draggable: true
+    });
+  } 
+}
+}
 
-
-//////////////////////  USER'S CURRENT POSITION & DISTANCE FROM /////////////////////
-// function showPosition(position) {
-//     document.getElementById("currentLat").innerHTML = position.coords.latitude;	
-//     document.getElementById("currentLng").innerHTML = position.coords.longitude;
-
-// 	var distanceNew = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[20].latitude, mapPoints[20].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-
-///////////////////  CONSOLE.LOG EACH MAP POINT IN DB  ///////////////////
-//	for(var i = 0; i < mapPoints.length; ++i) 
-//	{console.log(new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude))};
-//	document.getElementById('newCalculation').innerHTML = distanceNew*0.00062 + ' miles';
-
-
-
-// ///////////////// FIND DISTANCE FROM EACH DEAL LOCATION //////////////////
-//   for(var i = 0; i < mapPoints.length; ++i)
-//   	{
-// 	console.log(google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude)));
-//   	}
-
-// }   /// SHOW POSITION ENDS HERE
+setTimeout(mapTheseBs, 1800);
 
 
+///////////////////////// CALCULATIONS, BITCHES!!! //////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////// GET CURRENT LOCATION /////////////////////////////
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//     } else { 
-//         document.getElementById("currentLat").innerHTML = "Geolocation is not supported by this browser.";
-//     }
-// }
 
-// getLocation();
-
-///////////////////////// WATCH AND UPDATE POSITION ///////////////////////////
 function showCurrentlocation(){
-	navigator.geolocation.watchPosition(callback);
-	navigator.geolocation.watchPosition(distance);
-
+  navigator.geolocation.watchPosition(callback);
+  navigator.geolocation.watchPosition(distance);
 }
 function callback(position){
-	document.getElementById('latitude').innerHTML = position.coords.latitude;
-	document.getElementById('longitude').innerHTML = position.coords.longitude;
-	//setInterval(function() {distance(position)}, 5000);
+  document.getElementById('latitude').innerHTML = position.coords.latitude;
+  document.getElementById('longitude').innerHTML = position.coords.longitude;
+  setInterval(function() {distance(position)}, 7000);
 }
 
 firstDeal = "1"
@@ -121,40 +104,82 @@ thirdDeal = "3"
 
 function distance(position){
 
-	// DISTANCE TO HILLSTONE
-	var distToHillstone = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[0].latitude, mapPoints[0].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-	document.getElementById('hillstone').innerHTML = distToHillstone
-	if (distToHillstone < 25000 && firstDeal === "1") {
-		function runOnce() {
-			firstDeal = "11"
-			alert('Location: ' + mapPoints[0].name + '\n' + 'Deets: ' + mapPoints[0].description + '\n' + 'Begins: ' + mapPoints[0].startDate + '\n' + 'Ends: ' + mapPoints[0].endDate + '\n' + 'Fine: ' + mapPoints[0].fine);
-			//alert(mapPoints[23].triggerid\nmapPoints[23].description\nmapPoints[23].start\nmapPoints[23].expire);
-		}
-		runOnce();
-	};
+for (i = 1; i < 6; i++) {
+  console.log(i);
+  var distToDeal = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(deals[i].latitude,deals[i].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+  // document.getElementById('deal1').innerHTML = distToHillstone
+  if (distToDeal < 70000 && firstDeal === "1") {
+    function runOnce() {
 
+      document.getElementById('deets1').innerHTML = deals[i].name
+      document.getElementById('deets2').innerHTML = deals[i].description
+      document.getElementById('dealName').value = deals[i].name
+      document.getElementById('dealDescription').value = deals[i].description
+      document.getElementById('dealCode').value = deals[i].code
+      document.getElementById('dealFine').value = deals[i].fine
+      document.getElementById('dealDate').value = deals[i].end_date
+      // firstDeal = "11"
+      holdYourHorses();
+      playThatTune();
+      console.log(distToDeal);
+    }
+    runOnce();
+  };
 
-	// DISTANCE TO HUNTLEY HOTEL
-	var distToHuntley = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[1].latitude, mapPoints[1].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-	document.getElementById('huntley').innerHTML = distToHuntley
-	if (distToHillstone < 25000 && secondDeal === "2") {
-		function runOnceTwo() {
-			secondDeal = "22"
-			alert('Location: ' + mapPoints[1].name + '\n' + 'Deets: ' + mapPoints[1].description + '\n' + 'Begins: ' + mapPoints[1].startDate + '\n' + 'Ends: ' + mapPoints[1].endDate + '\n' + 'Fine: ' + mapPoints[1].fine);
-		}
-		runOnceTwo();
-	};
-
-
-	// DISTANCE TO PANERA BREAD
-	var distToPanera = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(mapPoints[2].latitude, mapPoints[2].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-	document.getElementById('panera').innerHTML = distToPanera
-	if (distToPanera < 25000 && thirdDeal === "3") {
-		function runOnceThree() {
-			thirdDeal = "33"
-			alert('Location: ' + mapPoints[2].name + '\n' + 'Deets: ' + mapPoints[2].description + '\n' + 'Begins: ' + mapPoints[2].startDate + '\n' + 'Ends: ' + mapPoints[2].endDate  + '\n' + 'Fine: ' + mapPoints[2].fine);
-		}
-		runOnceThree();
-	};
 }
 
+}
+
+
+
+
+/*
+
+
+  // DISTANCE TO FIRST
+  var distToHillstone = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(deals[1].latitude,deals[1].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+  document.getElementById('deal1').innerHTML = distToHillstone
+  if (distToHillstone < 700 && firstDeal === "1") {
+    function runOnce() {
+      document.getElementById('deets1').innerHTML = deals[1].name
+      document.getElementById('deets2').innerHTML = deals[1].description
+      firstDeal = "11"
+      holdYourHorses();
+      playThatTune();
+      // alert('Location: ' + deals[1].name + '\n' + 'Deets: ' + deals[1].description);
+    }
+    runOnce();
+  };
+
+
+  // DISTANCE TO SECOND
+  var distToHuntley = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(deals[2].latitude,deals[2].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+  document.getElementById('deal2').innerHTML = distToHuntley
+  if (distToHillstone > 70000 && secondDeal === "2") {
+    function runOnceTwo() {
+      secondDeal = "22"
+      // alert('Location: ' + deals[2].name + '\n' + 'Deets: ' + deals[2].description);
+    }
+    runOnceTwo();
+  };
+
+
+  // DISTANCE TO THIRD
+  var distToPanera = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(deals[3].latitude,deals[3].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+  document.getElementById('deal3').innerHTML = distToPanera
+  if (distToPanera > 70000 && thirdDeal === "3") {
+    function runOnceThree() {
+      thirdDeal = "33"
+      // alert('Location: ' + deals[3].name + '\n' + 'Deets: ' + deals[3].description);
+    }
+    runOnceThree();
+  };
+}
+
+
+*/
+
+
+
+
+// http://www.balzacbrasserie.com/images/featured_boxes/cocktail.png

@@ -1,22 +1,46 @@
-<head>
-<!-- <script src="users.js"></script> -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4&libraries=geometry"> </script>
-</head>
-
-<div ng-controller="geoCtrl">
+<div ng-controller="geoCtrl" ng-init="init('<%= current_user.id %>')">
+Welcome
 {{ firstName }}
-{{ lastName }}
+{{ lastName }}!</br>
+{{ user.id }}
 
-<h2 class="p-heading">An exhuastive list of deals</h2>
 
-<!-- BUTTON TO GET CURRENT AND UPDATE WHEN MOVING -->
-<input type="button" value="Show Location" onclick="showCurrentlocation()"/> <br>
-Current Latitude: <span id="latitude"></span> <br>
-Current Longitude: <span id="longitude"></span> <br><br>
-Distance to Hillstone: <span id="hillstone"></span> <br>
-Distance to Huntley Hotel: <span id="huntley"></span> <br>
-Distance to Panera Bread: <span id="panera"></span> <br><br><br>
+</div>
+
+
+<!-- ANGULAR CONTROLLED HTML ELEMENTS END HERE -->
+
+<div>
+	
+<p id="dealmapTitle">Cheap Thrills Without The Frills!</p><br>
+
+
+<div id="centered">
+<!-- <a onclick="play()" href="#" data-reveal-id="myModal">Click Me For A Modal</a> -->
+<audio id="audio" src="http://www.freesound.org/data/previews/133/133054_1148376-lq.mp3"></audio>
+<h3 id="countdownn" style="display:none">12</h3>
+
+<div id="myModal" class="reveal-modal small" style="height:350px" data-reveal>
+  <p class="dealInfo">You've unlocked a deal in the vicinity!</p>
+  <p class="dealInfo" class="lead" id="deets1">Name of Business</p>
+  <p class="dealInfo" id="deets2">Deal Description</p>
+  <p id="saveToUser"></p>
+  <p style="display:none" id="countdown">Deal Expiration Countdown</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+</div>
+
+
 
 <div id="map">Map!</div>
 
+
+
+<br><br>
+<input type="button" value="Show Location" onclick="showCurrentlocation()"/> <br>
+Current Latitude: <span id="latitude"></span> <br>
+Current Longitude: <span id="longitude"></span> <br>
+
+
 </div>
+
