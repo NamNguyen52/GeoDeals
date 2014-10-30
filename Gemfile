@@ -19,7 +19,10 @@ group :development, :test do
 	gem 'rspec-rails'
 end
 
-gem 'simple_form'
+gem 'rails_12factor', group: :production
+
+gem 'unicorn'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use postgresql as the database for Active Record
@@ -63,3 +66,4 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+ruby "2.1.2"
