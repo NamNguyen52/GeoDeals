@@ -212,6 +212,13 @@ h6 {
 	margin-left: 63%;
 }
 
+.signup-btn {
+	clear: both;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 #email-field {
 	position: relative;
 	margin-left: 71%;
@@ -320,7 +327,7 @@ h6 {
 
 .signup-submit {
 	height: 100px;
-	width: 150px;
+	width: 200px;
 	position: relative;
 	margin-right: auto;
 	margin-left: auto;
@@ -364,6 +371,10 @@ h6 {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+}
+
+.return-to-signin {
+	margin-left: 45.5%;
 }
 
 // ####################################

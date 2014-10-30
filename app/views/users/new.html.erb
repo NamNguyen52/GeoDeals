@@ -53,10 +53,11 @@
 			
 			
 			<div class="signup-submit">
-		   	<%= u.submit "Sign Up", :class => 'button radius signin-fields'%></br>
+		   	<%= u.submit "Sign Up", :class => 'button radius signup-btn'%>
+		   	</div></br>
 			</form>
-		   	<%= link_to "Returning? Sign In", sign_in_path, class: "sign-up-link-button" %>
-		   	</div>
+		   	<%= link_to "Returning? Sign In", sign_in_path, :class=> "return-to-signin" %>
+		   	
 
     <% end %>
 
