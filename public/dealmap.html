@@ -1,11 +1,77 @@
 <head>
 	
 
+<style type="text/css">
+
+body {
+	font-family: heroregular !important;
+}
+
+#peeone {
+	font-size: 30px;
+}
+
+#peetwo {
+	font-size: 17px;
+}
+
+#peethree {
+	font-size: 23px;
+	color: #555;
+	font-style: italic;
+}
+
+#peefour {
+	font-size: 14px;
+}
+
+.userList {
+	box-shadow: 10px 0px 30px 6px #ccc;
+	width: 80%;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 15px;
+}
+
+#inputLatLng {
+	margin: auto;
+	height: 70px;
+	width: 225px;
+	margin-bottom: 10px;
+}
+
+input {
+	color: #222;
+	font-size: 21px;
+	background-color: white;
+	border-radius: 7px;
+	font-family: heroregular;
+}
+
+#saveList {
+	margin: auto !important;
+	text-align: center;
+
+}
+
+#yourDeals {
+	font-size: 37px;
+	font-family: heroregular;
+	margin: auto;
+	width: 90%;
+	text-align: center;
+}
+
+
+</style>
+
+
 </head>
 
 <body>
 
 <div ng-controller="geoCtrl">
+<br>
 <div class="user-welcome">
 Welcome
 {{ firstName }}
@@ -20,7 +86,15 @@ Welcome
 
 <div>
 	
-<p id="dealmapTitle">Cheap Thrills Without The Frills!</p><br>
+<p id="dealmapTitle">DEAL DISCOVERY DEVICE</p>
+
+<div id="inputLatLng">
+<input type="button" value="Find Deals Near Me!" onclick="showCurrentlocation()"/>
+</div>
+
+
+<!-- Current Latitude: <span id="latitude"></span> <br>
+Current Longitude: <span id="longitude"></span> <br> -->
 
 
 <div id="centered">
@@ -28,10 +102,13 @@ Welcome
 <audio id="audio" src="http://www.freesound.org/data/previews/133/133054_1148376-lq.mp3"></audio>
 <h3 id="countdownn" style="display:none">12</h3>
 
-<div id="myModal" class="reveal-modal small" style="height:350px" data-reveal>
-  <p class="dealInfo">You've unlocked a deal in the vicinity!</p>
-  <p class="dealInfo" class="lead" id="deets1">Name of Business</p>
+<div id="myModal" class="reveal-modal small" data-reveal>
+  <p class="dealVicinity">DEAL UNLOCKED IN THE VICINITY!</p>
+  <p class="dealInfo" class="lead" id="deets1">Business Name</p>
   <p class="dealInfo" id="deets2">Deal Description</p>
+  <p class="dealInfo" id="deets3">Deal Code</p>
+  <p class="dealInfo" id="deets4">Fine Print</p>
+  <p class="dealInfo" id="deets5">Expires:</p>
   <p id="saveToUser"></p>
   <p style="display:none" id="countdown">Deal Expiration Countdown</p>
   <a class="close-reveal-modal">&#215;</a>
@@ -42,14 +119,9 @@ Welcome
 
 <div id="map">Map!</div>
 
+<br><br><br>
 
 
-<br><br>
-<div class="location-button">
-<input type="button" value="Show Location" onclick="showCurrentlocation()"/><br>
-Current Latitude: <span id="latitude"></span> <br>
-Current Longitude: <span id="longitude"></span> <br>
-</div>
 </div>
 
 

@@ -9,27 +9,26 @@
 	  <%= l.hidden_field :deal_date, :id => 'dealDate' %>
 	  <%= l.hidden_field :deal_time, :id => 'dealTime' %>
 	  <%= l.hidden_field :user_id, value: current_user.id %>
-	  <%= l.submit "Submit" %>
+	  <div id="saveList">
+	  <%= l.submit "Save This Deal" %>
+	  </div>
 	<% end %>
 
 
+<div id="yourDeals">YOUR SAVED DEALS</div><br>
+
 	<% @userlist.each do |ud| %>
-		<div class="row" id="userListContainer">
-		<div class="small-12 columns">
-			<div id="userList">
-			<p style="font-size:32px"><%= ud.deal_name %></p>
-			<p style="font-size:20px"><%= ud.deal_description %></p>
-			<p style="font-size:25px"><%= ud.deal_code %></p>
-			<p style="font-size:12px"><%= ud.deal_fine %></p>
+	<div class="userList">
+			<p id="peeone"><%= ud.deal_name %></p>
+			<p id="peetwo"><%= ud.deal_description %></p>
+			<p id="peethree"><%= ud.deal_code %></p>
+			<p id="peefour"><%= ud.deal_fine %></p>
 			<%= link_to "Nix This Deal", list_path(ud.id), method: :delete %>
 			</div>
-		</div>
-		</div>
 	<% end %>
 
 
 <% end %>
-
 
 
 <% if @user.business_owner == true %>
