@@ -1,6 +1,6 @@
 class Deal < ActiveRecord::Base
+
   belongs_to :business
-  has_many :users, through: :lists
 
   before_create :set_deal_salt
 

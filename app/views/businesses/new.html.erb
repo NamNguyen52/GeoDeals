@@ -13,8 +13,8 @@ function load() {
     geocoder = new GClientGeocoder();
     var marker = new GMarker(center, {draggable: false});  
     businessMap.addOverlay(marker);
-    document.getElementById("lat").innerHTML = center.lat().toFixed(6);
-    document.getElementById("lng").innerHTML = center.lng().toFixed(6);
+    // document.getElementById("lat").innerHTML = center.lat().toFixed(6);
+    // document.getElementById("lng").innerHTML = center.lng().toFixed(6);
 }
 
 function showAddress(address) {
@@ -53,16 +53,7 @@ function showAddress(address) {
 	</p>
   </form>
 
-	<p align="left">
 
-
-	<!-- <table  bgcolor="#FFFFCC" width="300">
-	  <tr>
-		<td><b>Latitude</b><input type="text" id="lat"></input></td>
-		<td><b>Longitude</b><input type="text" id="lng"></input></td>
-	  </tr>
-	</table> -->
-	</p>
 	<p>
 	  <div align="center" id="businessMap" style="width: 600px; height: 400px"><br/></div>
 	</p>
@@ -79,7 +70,7 @@ Please submit your business information below so that you can start making deals
   <%= f.text_field :name %>
   <%= f.text_field :location %>
   <%= f.hidden_field :id %>
-  <%= f.hidden_field :latitude, :id => "lat" %>
-  <%= f.hidden_field :longitude, :id => "lng" %>
+  <%= f.text_field :latitude, :id => "lat" %>
+  <%= f.text_field :longitude, :id => "lng" %>
   <%= f.submit "Submit" %>
 <% end %>
