@@ -45,6 +45,8 @@
 
 }
 
+
+
 .sessions-new {
 	text-align: center;
 	height: 100vh;
@@ -114,7 +116,7 @@
 
 .header-content h1 {
 	color: rgba(255, 69, 0, 0.65);
-	font-size: 200px;
+	font-size: 180px;
 	font-family: intro_regular;
 }
 
@@ -193,14 +195,6 @@ h6 {
 -webkit-animation-delay: 3s ;
 }
 
-section article {
-	position:absolute;
-	top:240px;
-	left:40px;
-	width:300px;
-	z-index:4;
-}
-
 #info-container>div:nth-of-type(1) {
 	background: url(/assets/geodeals_background.jpg) 10% 0 no-repeat fixed;
 	background-size: cover;
@@ -208,6 +202,7 @@ section article {
 	height: 100vh;
 	position: absolute;
 	width: 100%;
+	border: 1px solid red;
 }
 
 .test-container {
@@ -233,20 +228,54 @@ section article {
 
 #email-field {
 	position: relative;
-	margin-left: 75%;
+	margin-left: 71%;
 }
 
 #password-field {
 	position: relative;
-	margin-left: 75%;
+	margin-left: 71%;
 }
 
-.sign-up-link-button {
-	
+.sign-up-link-button {	
 	position: relative;
 	width: 150px;
 	margin-left: 77%;
+	font-size: 15px;
 	font-family: heroregular;
+}
+
+.geo-hook {
+	font-family: hero_lightlight;
+	width: 450px;
+	margin-left: 40px;
+	margin-top: -270px;
+	text-align: left;
+	position: absolute;
+	/*border: 1px solid red;*/
+}
+
+.geo-hook p {
+	font-size: 18px;
+}
+
+.home-sections-1 {
+	position: relative;
+	z-index: 10;
+	height: 300px;
+	width: 1px;
+	border-left: 1px solid black;
+	margin-left: 38%;
+	margin-top: -140px;
+}
+
+.home-sections-2 {
+	position: relative;
+	z-index: 10;
+	height: 300px;
+	width: 1px;
+	border-left: 1px solid black;
+	margin-left: 62%;
+	margin-top: -300px;
 }
 
 #who-container {
@@ -505,6 +534,65 @@ div.hr hr {
 
 }
 
+@media all and (max-width: 600px) {
 
+	.geo-hook {
+		display: none;
+	}
+
+	.home-sections-1 {
+		display: none;
+	}
+
+	.home-sections-2 {
+		display: none;
+	}
+
+	.arrow {
+		display: none;
+	}
+
+	.arrow-wrap {
+		display: done;
+	}
+
+	.btn-main {
+		display: none;
+	}
+
+	h6 {
+		display: none;
+	}
+
+	#email-field {
+		margin-left: 0;
+		display: block;
+	}
+
+	#password-field {
+		margin-left: 0;
+		display: block;
+	}
+
+	.header-content h1 {
+		font-size: 50px;
+	}
+
+	.signin-fields {
+		margin-left: 5%;
+	}
+
+	.sign-up-link-button {
+		display: none;
+	}
+
+	#info-container {
+		display: none;
+	}
+
+	.test-container {
+		display: none;
+	}
+}
 
 

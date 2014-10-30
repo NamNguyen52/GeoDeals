@@ -55,27 +55,33 @@
 	border: 7px solid white;
 }
 
+.user-welcome {
+	text-align: center;
+}
+
 
 /* MEDIA QUERY BEGINS HERE */
 
-@media (max-width: 800px) {
+	@media (max-width: 600px) {
 
-#map {
-	height: 300px;
-	width: 450px;
-}
+	#map {
+		height: 60vh;
+		width: 100%;
+		border: 2px solid white;
+	}
 
-#dealmapTitle {
-	text-align: center;
-	margin-top: 40px;
-	font-size: 27px;
-}
+	#dealmapTitle {
+		text-align: center;
+		margin-top: 40px;
+		font-size: 27px;
+	}
 
+	#dealmapTitle {
+		display: none;
+	}
 
-
-
-
-
-
+	.location-button {
+		text-align: center;
+	}
 
 }
