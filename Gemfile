@@ -8,6 +8,8 @@ gem 'simple_form'
 
 gem 'gon'
 
+gem 'geocoder'
+
 gem 'angularjs-rails'
 
 gem 'active_model_serializers'

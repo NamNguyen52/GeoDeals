@@ -10,25 +10,6 @@ var playThatTune = function(){
     var audio = document.getElementById("audio");
     audio.play();
 };
-
-var seconds;
-var temp;
- 
-var countdown = function() {
-  seconds = document.getElementById('countdown').innerHTML;
-  seconds = parseInt(seconds, 10);
- 
-  if (seconds == 1) {
-    temp = document.getElementById('countdown');
-    temp.innerHTML = "Viola!";
-    return;
-  }
- 
-  seconds--;
-  temp = document.getElementById('countdown');
-  temp.innerHTML = seconds;
-  timeoutMyOswego = setTimeout(countdown, 90000);
-} 
  
 
 //window.setTimeout("holdYourHorses()", 5000);
@@ -37,15 +18,13 @@ var countdown = function() {
 
 function initialize() {
   var mapOptions = {
-    zoom: 12,
+    zoom: 15,
     center: new google.maps.LatLng(34.01,-118.49),
     styles: mapStyle
   };
 
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
-
-  countdown();  
 
 }
 
@@ -107,7 +86,6 @@ function distance(position){
 
 
 
-
     var personLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
     var marker = new google.maps.Marker({
     position: personLocation,
@@ -121,8 +99,7 @@ function distance(position){
 
 
 
-
-for (i = 1; i < 6; i++) {
+for (i = 0; i < 2; i++) {
   console.log(i);
   var distToDeal = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(deals[i].latitude,deals[i].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
   // document.getElementById('deal1').innerHTML = distToHillstone
