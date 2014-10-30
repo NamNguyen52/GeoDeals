@@ -55,7 +55,7 @@
 .sessions-header {
 	height: 55%;
 	width: 100%;
-	background: url(/assets/new_work.jpg);
+	background-image: image-url('new_work.jpg');
 	background-size: cover;
 	padding-top: 80px;
 }
@@ -196,7 +196,7 @@ h6 {
 }
 
 #info-container>div:nth-of-type(1) {
-	background: image-url('geodeals_background.jpg') 10% 0 no-repeat fixed;
+	background-image: image-url('geodeals_background.jpg') 10% 0 no-repeat fixed;
 	background-size: cover;
 	margin-top: 0;
 	height: 100vh;
@@ -212,7 +212,7 @@ h6 {
 }
 
 .test-container>div:nth-of-type(1) {
-	background: image-url('geodeals_background2.jpg') 60% no-repeat fixed;
+	background-image: image-url('geodeals_background2.jpg') 60% no-repeat fixed;
 	background-size: cover;
 	margin-top: 0;
 	height: 93%;
