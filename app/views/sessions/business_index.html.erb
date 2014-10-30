@@ -7,7 +7,7 @@
 <div class="row">
     <div id=<%= d.end_date <= Date.today ? 'deals-container blue' : 'deals-container2 red' %>>
 	<div id=<%= d.end_date <= Date.today ? 'blue' : 'red' %>></div>
-		<div class="small-12 columns">
+		<div class="small-8 columns deal-info-contain">
 			<br>
 			<span class="dealTitle"><%= d.name %><br></span>
 			<%= d.description %><br>
@@ -243,4 +243,3 @@
 
 
 </style>
-

@@ -52,8 +52,13 @@ include SessionsHelper
 	
 	if user && user.authenticate(params[:session][:password]) && user.business_owner == true
 	  flash[:success] = 'Logged In!'
-	  log_in(user)
-	  redirect_to sessions_path
+	  if user.business_id != nil
+	  	log_in(user)
+	  	redirect_to business_index_path
+	  else
+	  	log_in(user)
+	  	redirect_to sessions_path
+	  end
 	elsif user && user.authenticate(params[:session][:password]) && user.business_owner == false
 	  flash[:success] = 'Logged In!'
 	  log_in(user)

@@ -46,7 +46,6 @@
 }
 
 
-
 .sessions-new {
 	text-align: center;
 	height: 100vh;
@@ -103,32 +102,10 @@
 	margin-left: auto;
 }
 
-.video-container {
-	position: fixed;
-	left: 0;
-	top: 0;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	z-index: -100;
-}
-
 .header-content h1 {
 	color: rgba(255, 69, 0, 0.65);
 	font-size: 180px;
 	font-family: intro_regular;
-}
-
-
-#info-container {
-    min-height: 100vh;
-    position: relative;
-    width: 100% !important;
-    min-width: 1000px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
 }
 
 h6 {
@@ -195,15 +172,23 @@ h6 {
 -webkit-animation-delay: 3s ;
 }
 
+#info-container {
+    min-height: 100vh;
+    position: relative;
+    width: 100% !important;
+    min-width: 1000px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 #info-container>div:nth-of-type(1) {
-	background-image: image-url('geodeals_background.jpg');
-	background-image: 10% 0 no-repeat fixed;
+	background: url(/assets/geo_section1.jpg) 10% 0 no-repeat fixed;
 	background-size: cover;
 	margin-top: 0;
 	height: 100vh;
 	position: absolute;
 	width: 100%;
-	border: 1px solid red;
 }
 
 .test-container {
@@ -213,11 +198,10 @@ h6 {
 }
 
 .test-container>div:nth-of-type(1) {
-	background-image: image-url('geodeals_background2.jpg');
-	background-image: 60% no-repeat fixed;
+	background: url(/assets/geo_section2.jpg) 60% no-repeat fixed;
 	background-size: cover;
 	margin-top: 0;
-	height: 93%;
+	height: 100vh;
 	position: absolute;
 	width: 100%;
 }
@@ -300,12 +284,26 @@ h6 {
 	margin-top: 10%;
 }
 
+#what-container p {
+	color: white;
+	font-family: hero_lightlight;
+	font-size: 25px;
+}
+
 #what-container h1 {
 	color: white;
+	font-size: intro_regular;
+}
+
+#who-container p {
+	color: white;
+	font-family: hero_lightlight;
+	font-size: 25px;
 }
 
 #who-container h1 {
 	color: white;
+	font-size: intro_regular;
 }
 
 .inner-wrap {
@@ -400,36 +398,44 @@ h6 {
 // ########## business_index ##########
 // ####################################
 
-#deals-container {
-	background-color: white;
- 	box-shadow: 3px solid;
- 	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
-	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
-	box-shadow: 0px 10px 30px -1px rgba(180,180,180,1.0);
-	margin-top: 1%;
-	color: black;
-	border: inset white 2px;
-	font-family: heroregular;
-	font-size: 22px;
-	height: 475px;
+.deal-index {
+	font-family: intro_regular;
 	text-align: center;
-
 }
 
-#deals-container2 {
-	background-color: #222;
- 	box-shadow: 3px solid;
- 	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
-	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
-	box-shadow: 0px 10px 30px -1px rgba(180,180,180,1.0);
-	margin-top: 1%;
-	color: white;
-	border: inset white 2px;
+.biz-deal-index-item {
+	font-family: intro_regular;
+	size: 15px;
+}
+
+.deals-container {
+	margin-top: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	border-left: 5px solid rgba(0, 255, 0, 0.8);
+	border-right: 5px solid rgba(0, 255, 0, 0.8);
+	border-radius: 5px;
+	position: relative;
 	font-family: heroregular;
-	font-size: 22px;
 	height: 475px;
 	text-align: center;
+	overflow: scroll;
+}
 
+.deals-container2 {
+	margin-top: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	border-left: 5px solid rgba(255, 0, 0, 0.8);
+	border-right: 5px solid rgba(255, 0, 0, 0.8);
+	border-radius: 5px;
+	position: relative;
+	font-family: heroregular;
+	height: 475px;
+	text-align: center;
+	overflow: scroll;
 }
 
 #dealListHeading {
