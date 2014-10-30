@@ -1,4 +1,4 @@
-// var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}];
+deals = gon.deals
 
 var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#F1FF00"},{"saturation":-27.4},{"lightness":9.4},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#0099FF"},{"saturation":-20},{"lightness":36.4},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#00FF4F"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FFB300"},{"saturation":-38},{"lightness":11.2},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00B6FF"},{"saturation":4.2},{"lightness":-63.4},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#9FFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]}];
 
@@ -43,8 +43,8 @@ function loadScript() {
 window.onload = loadScript;
 console.log("loadScript fcn has passed by! Zoom!")
 
+
 function mapTheseBs() {
-  deals = gon.deals
   console.log(deals);
   for (i = 0; i < 2; i++) {
     if (deals[i].longitude && deals[i].latitude) {
@@ -61,10 +61,10 @@ function mapTheseBs() {
 }
 }
 
-setTimeout(mapTheseBs, 3200);
+setTimeout(mapTheseBs, 1000);
 
 
-///////////////////////// CALCULATIONS, BITCHES!!! //////////////////////////
+////////////////// DISTANCE CALCULATIONS FROM USER TO DEAL //////////////////
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -85,9 +85,10 @@ thirdDeal = "3"
 function distance(position){
 
 
+// MARKER TRACKING USER'S MOVEMENT
 
-    var personLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-    var markerz = new google.maps.Marker({
+    personLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+    markerz = new google.maps.Marker({
     position: personLocation,
     title: 'YOU!',
     map: map,
@@ -95,7 +96,6 @@ function distance(position){
     icon: "http://4.bp.blogspot.com/-IJXe-eEJTmA/U-G6WnOSe_I/AAAAAAAAAtQ/v_V9BcQu9Ok/s33-c/336914de2a.png",
     draggable: true
   });
-
 
 
 
