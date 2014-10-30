@@ -400,78 +400,52 @@ h6 {
 // ########## business_index ##########
 // ####################################
 
-.deals-container {
-	background-color: blue;
+#deals-container {
+	background-color: white;
  	box-shadow: 3px solid;
  	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
 	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
-	box-shadow: 0px 10px 30px -1px rgba(0,0,0,1.0);
-	margin-top: 20%;
+	box-shadow: 0px 10px 30px -1px rgba(180,180,180,1.0);
+	margin-top: 1%;
 	color: black;
-	border: inset white 10px;
-	position: relative;
-	font-family: Raleway;
+	border: inset white 2px;
+	font-family: heroregular;
+	font-size: 22px;
 	height: 475px;
-	width: 250px;
 	text-align: center;
 
 }
 
-.deals-container2 {
-	background-color: red;
+#deals-container2 {
+	background-color: #222;
  	box-shadow: 3px solid;
  	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
 	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
-	box-shadow: 0px 10px 30px -1px rgba(0,0,0,1.0);
-	margin-top: 20%;
-	color: black;
-	border: inset white 10px;
-	position: relative;
-	font-family: Raleway;
+	box-shadow: 0px 10px 30px -1px rgba(180,180,180,1.0);
+	margin-top: 1%;
+	color: white;
+	border: inset white 2px;
+	font-family: heroregular;
+	font-size: 22px;
 	height: 475px;
-	width: 250px;
 	text-align: center;
 
 }
 
-#deals {
-			list-style: none;
-		}
-
-.blue {
-	font-family: Halvetica;
-	color: blue;
-	margin-top: 30px;
+#dealListHeading {
+	text-align: center;
+	font-size: 40px;
+	font-family: heroregular;
+	margin-top: 24px;
 }
 
-.blue {
-	font-family: Halvetica;
-	color: blue;
-	margin-top: 30px;
-}
-#deal-code{
-	
+
+.dealTitle {
+	font-size: 32px;
+	text-decoration: underline;
 }
 
-#deal-fine {
-	
-}
 
-#deal-start-date {
-	
-}
-
-#deal-end-date {
-	
-}
-
-#deal-start-time {
-	
-}
-
-#deal-end-time {
-	
-}
 
 // ####################################
 // ########## business settings #######
@@ -493,7 +467,7 @@ h6 {
 
 
 div.border-line {
-	background: black  no-repeat scroll center;
+	background: black no-repeat scroll center;
 	margin-left: 12%;
 	width: 18.5em;
 	height: 2px;
@@ -526,12 +500,15 @@ div.hr hr {
 // ####################################
 
 #userListContainer {
-	
 	text-align: center;
 	border: 1px solid white;
+	font-family: heroregular;
 	box-shadow: 10px 0px 30px 6px #ccc;
-
+	width: 900px;
 }
+
+
+/* MEDIA QUERY BEGINS HERE */
 
 @media all and (max-width: 600px) {
 
@@ -592,6 +569,71 @@ div.hr hr {
 	.test-container {
 		display: none;
 	}
+
+/* POOJA'S STYLING FOR MEDIA QUERY BEGINS HERE */
+	
+
+	#map {
+		height: 400px;
+		width: 580px;
+		border: 1px solid white;
+	}
+
+	#dealmapTitle {
+		text-align: center;
+		margin-top: 40px;
+		font-size: 27px;
+	}
+
+	#dealmapTitle {
+		display: none;
+	}
+
+	.location-button {
+		text-align: center;
+	}
+
+
+}
+
+/* MEDIA QUERY ENDS HERE */
+
+#map {
+	height: 605px;
+	width: 900px;
+	margin: 0 auto;
+	border: 1px solid white;
+	box-shadow: 0px 0px 40px 10px #ccc;
+}
+
+#centered {
+	margin-top: 0px;
+}
+
+#dealmapTitle {
+	text-align: center;
+	font-family: heroregular;
+	margin-top: 37px;
+	font-size: 49px;
+}
+
+.dealInfo {
+	text-align: center;
+	font-size: 27px;
+}
+
+#deets1 {
+	font-size: 43px;
+	font-family: heroregular;
+}
+
+#myModal {
+	color: black;
+	border: 7px solid white;
+}
+
+.user-welcome {
+	text-align: center;
 }
 
 

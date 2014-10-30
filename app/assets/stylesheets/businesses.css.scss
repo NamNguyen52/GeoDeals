@@ -1,3 +1,35 @@
 // Place all the styles related to the businesses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#newBizEncasing {
+	text-align: center !important;
+}
+
+#businessMap {
+	height: 360px;
+	width: 620px;
+	border: 3px solid black;
+	margin: auto;
+}
+
+#newBizHeading {
+	margin-top: 20px;
+	font-size: 28px;
+}
+
+#newBizInput {
+	height: 42px;
+	width: 93px;
+	border-radius: 4px;
+	font-size: 12px;
+}
+
+.newBizFields {
+	font-size: 18px;
+}
+
+#TOS {
+	text-decoration: underline;
+}

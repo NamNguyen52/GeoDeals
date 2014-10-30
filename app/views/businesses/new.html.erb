@@ -2,75 +2,93 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
       	<title></title>
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4"
-      type="text/javascript"></script>
+
     <script type="text/javascript">
 
-function load() {
-    var businessMap = new GMap2(document.getElementById("businessMap"));
-    var center = new GLatLng(48.89364, 2.33739);
-    businessMap.setCenter(center, 16);
-    geocoder = new GClientGeocoder();
-    var marker = new GMarker(center, {draggable: false});  
-    businessMap.addOverlay(marker);
-    // document.getElementById("lat").innerHTML = center.lat().toFixed(6);
-    // document.getElementById("lng").innerHTML = center.lng().toFixed(6);
-}
+    mapStyling = [{"featureType":"administrative","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"simplified"}]},{"featureType":"water","stylers":[{"visibility":"simplified"}]},{"featureType":"transit","stylers":[{"visibility":"simplified"}]},{"featureType":"landscape","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"water","stylers":[{"color":"#84afa3"},{"lightness":52}]},{"stylers":[{"saturation":-17},{"gamma":0.36}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"color":"#3f518c"}]}];
 
-function showAddress(address) {
-   var businessMap = new GMap2(document.getElementById("businessMap"));
 
-   if (geocoder) {
-      geocoder.getLatLng(
-      address,
-      function(point) {
-        if (!point) {
-          alert(address + " not found");
-        } 
-        else {
-	  	  document.getElementById("lat").value = point.lat().toFixed(6);
-   		  document.getElementById("lng").value = point.lng().toFixed(6);
-	 	  businessMap.clearOverlays()
-		  businessMap.setCenter(point, 16);
-		  var marker = new GMarker(point, {draggable: false});  
-		  businessMap.addOverlay(marker);
-        }
+    var geocoder;
+    var businessMap;
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var latlng = new google.maps.LatLng(33.9661016, -118.2419219);
+      var mapOptions = {
+        zoom: 10,
+        center: latlng,
+        styles: mapStyling
       }
-      );
-  	}
-}
+      businessMap = new google.maps.Map(document.getElementById("businessMap"), mapOptions);
+    }
+
+    function codeAddress() {
+      var address = document.getElementById("address").value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          businessMap.setCenter(results[0].geometry.location);
+          businessMap.setZoom(15);
+          document.getElementById('lat').value = results[0].geometry.location.k;
+          document.getElementById('lng').value = results[0].geometry.location.B;
+          var marker = new google.maps.Marker({
+              map: businessMap,
+              position: results[0].geometry.location
+          });
+        } else {
+          alert("Geocode was not successful for the following reason: " + status);
+        }
+      });
+    }
+
+
+
 </script>
 
 </head>
 
 
-<body onload="load()" onunload="GUnload()">
+<body onload="initialize">
 
-  <form action="#" onsubmit="showAddress(this.address.value); return false">
-	<p>        
-	<input type="text" size="60" name="address" value="Enter address here to display location on map" />
-	<input type="submit" value="Search!" />
-	</p>
+
+<div id="newBizEncasing">
+
+  <p id="newBizHeading">Please submit your business info below to begin launching promotions!</p>
+
+
+  <div id="businessMap"></div>   <br><br>
+
+
+  <form action="#" onsubmit="codeAddress()">
+  
+<div class="row">
+<div class="small-12 columns">
+	<input type="text" size="60" id="address" placeholder="Enter address and hit search to confirm location on map" />
+	<input id="newBizInput" type="submit" value="Search"/>
+</div>
+</div>
+
+<br><br>
+
   </form>
 
+<div class="row">
+<div class="small-12 columns">
+  <%= form_for @business do |f| %>
+    <%= f.text_field :name, :placeholder => "Enter the name of business as it appears on your business license" %>
+    <%= f.text_field :location, :placeholder => "Enter address as you'd prefer it to appear to users" %>
+    <%= f.hidden_field :id %>
+    <%= f.hidden_field :latitude, :id => "lat" %>
+    <%= f.hidden_field :longitude, :id => "lng" %>
+    <label for="checkbox1"><input type="checkbox" id="checkbox1"><span class="custom checkbox"></span> I agree to the <span id="TOS">Terms of Service</span></label>
 
-	<p>
-	  <div align="center" id="businessMap" style="width: 600px; height: 400px"><br/></div>
-	</p>
-	  </div>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
+</div>
+
+
+</div>
+
 
 </body>
 
 </html>
-
-
-
-<%= form_for @business do |f| %>
-Please submit your business information below so that you can start making deals!
-  <%= f.text_field :name %>
-  <%= f.text_field :location %>
-  <%= f.hidden_field :id %>
-  <%= f.text_field :latitude, :id => "lat" %>
-  <%= f.text_field :longitude, :id => "lng" %>
-  <%= f.submit "Submit" %>
-<% end %>

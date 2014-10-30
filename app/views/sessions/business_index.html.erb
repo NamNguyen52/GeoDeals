@@ -1,29 +1,246 @@
-<div class="row">
 <% if current_user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
-	YOU ARE A BUSINESS OWNER! HOORAY
-<%= link_to "Add a Deal", deal_new_path(current_user.business_id) %>
 
-<ul>
+<p id="dealListHeading">DEAL DEETS&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspPERFORMANCE STATS</p>
+	
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
-
-    <li class="large-3 small-6 columns left" id="deals">
-    	<div class=<%= d.end_date <= Date.today ? 'deals-container blue' : 'deals-container2 red' %>>
-			<div class=<%= d.end_date <= Date.today ? 'blue' : 'red' %>><%= d.name %></div>
-			<div id="deal-description"><%= d.description %></div>
-			<div id="deal-code"><%= d.code %></div>
-			Fine Print:
-			<div id="deal-fine"><%= d.fine %></div>
-			<div id="deal-start-date"><%= d.start_date %></div>
-			<div id="deal-end-date"><%= d.end_date %></div>
-			<%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="row">
+    <div id=<%= d.end_date <= Date.today ? 'deals-container blue' : 'deals-container2 red' %>>
+	<div id=<%= d.end_date <= Date.today ? 'blue' : 'red' %>></div>
+		<div class="small-12 columns">
+			<br>
+			<span class="dealTitle"><%= d.name %><br></span>
+			<%= d.description %><br>
+			<%= d.code %><br>
+			<%= d.fine %><br>
+			<%= d.start_date %><br>
+			<%= d.end_date %><br><br/>
+			<em><%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %></em>
+    		<br><br>
+				<div id="main">
+				  <div id="outer-circle">
+				    <div id="inner-circle">
+				      <div id="center-circle">
+				        <div id="content"></div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
     	</div>
-    </li>
-  <% end %>
-</ul>
+    </div>
+</div>
+
+
+
+<% end %>
+
 
 <% else %>
 	<p> Sorry, you must be a business owner in order to view this page. Click here to change your user settings.</p>
 <% end %>
 
-</div>
+
+
+
+<style type="text/css">
+	
+
+  html { 
+    overflow-y: scroll;
+    -webkit-font-smoothing: antialiased; }
+
+  body {
+  	background: white; }
+
+  a {
+    color:#fff;
+    text-decoration:none;
+  }
+  a:hover {
+    color:#FF5E99;
+  }
+  a:link { -webkit-tap-highlight-color: #FF5E99; } 
+
+  #main {
+  	width: 85px;
+  	height: 60px;
+  	margin: auto; }
+
+  #outer-circle {
+  	-webkit-box-shadow: 0 0 50px 10px #453D9B;
+  	-moz-box-shadow: 0 0 50px 10px #453D9B;
+  	box-shadow: 0 0 50px 10px #453D9B;
+  	border: 10px solid #0082aa;
+  	border-top-color:#a1a1a1;
+  	margin: 20% auto;
+  	text-align:center;
+  	background: -webkit-linear-gradient(top, #ffffff 48%, #0082aa 49%, #0082aa 51%, #fff 52%);
+  	background: -moz-linear-gradient(top, #ffffff 48%, #0082aa 49%, #0082aa 51%, #fff 52%);
+  	background: linear-gradient(to bottom, #ffffff 48%, #0082aa 49%, #0082aa 51%, #fff 52%);
+  	width: 80px;
+  	height: 80px;
+	
+  	-webkit-border-radius: 80px;
+  	-moz-border-radius: 80px;
+  	border-radius: 80px;
+	
+  	-webkit-animation:turning_cw 5s infinite;
+  	-moz-animation:turning_cw 5s infinite;
+  	animation:turning_cw 5s infinite;
+  	position:relative;
+  	opacity: 0.7; }
+  	
+  #outer-circle:hover {
+  	-webkit-box-shadow: 0 0 100px 15px #453D9B;
+  	-moz-box-shadow: 0 0 100px 15px #453D9B;
+  	box-shadow: 0 0 100px 15px #453D9B; }
+  	
+  #inner-circle {
+  	border: 10px solid #0082aa;
+  	border-left-color:#a1a1a1;
+  	border-right-color:#a1a1a1;
+	
+  	-webkit-transform: rotate(360deg);
+  	-moz-transform: rotate(360deg);
+  	transform: rotate(360deg);
+	
+  	position:absolute;
+	
+  	background: -webkit-linear-gradient(top, #0082aa 48%, #a1a1a1 49%, #a1a1a1 51%, #0082aa 52%);
+  	background: -moz-linear-gradient(top, #0082aa 48%, #a1a1a1 49%, #a1a1a1 51%, #0082aa 52%);
+  	background: linear-gradient(to bottom, #0082aa 48%, #a1a1a1 49%, #a1a1a1 51%, #0082aa 52%);
+	
+  	margin: 10px;
+  	width: 60px;
+  	height: 60px;
+	
+  	-webkit-border-radius: 60px;
+  	-moz-border-radius: 60px;
+  	border-radius: 60px;
+	
+  	-webkit-animation:turning_acw 3s infinite;
+  	-moz-animation:turning_acw 3s infinite;
+  	animation:turning_acw 3s infinite; }
+
+  #center-circle {
+  	border: 10px solid #a1a1a1;
+  	border-bottom-color:#0082aa;
+  	-webkit-transform: rotate(360deg); 
+  	-moz-transform: rotate(360deg); 
+  	transform: rotate(360deg); 
+  	position:absolute;
+
+  	background: -webkit-linear-gradient(top, #fff 48%, #0082aa 49%, #0082aa 51%, #fff 52%);
+  	background: -moz-linear-gradient(top, #fff 48%, #0082aa 49%, #0082aa 51%, #fff 52%);
+  	background: linear-gradient(to bottom, #fff 48%, #0082aa 49%, #0082aa 51%, #fff 52%);
+	
+  	margin: 10px;
+  	width: 40px;
+  	height: 40px;
+	
+  	-webkit-border-radius: 40px;
+  	-moz-border-radius: 40px;
+  	border-radius: 40px;
+	
+  	-webkit-animation:turning_cw 5s infinite;
+  	-moz-animation:turning_cw 5s infinite;
+  	animation:turning_cw 5s infinite; }
+
+  #content {
+  	position:absolute;
+  	top: 10px;
+  	left: 10px;
+  	width: 12px;
+  	height: 12px;
+  	-webkit-border-radius: 140px;
+  	-moz-border-radius: 140px;
+  	border-radius: 140px;
+  	background: #2E2A69; 
+  	text-align:center;
+  	line-height: 120px;
+  	font-size: 30px;
+  	color:#a1a1a1;
+  	text-shadow: 0 2px 2px #000;
+  	font-weight:bold; }
+
+  @-webkit-keyframes aura {
+  	0%{
+  		text-shadow: 0 2px 2px #000; }
+  		
+  	50%{
+  		text-shadow: 0 10px 10px #000;
+  		line-height: 190px; }
+  		
+  	100%{
+  		text-shadow: 0 2px 10px #000; }
+  }
+
+  @-webkit-keyframes turning_cw {
+  	0%{
+  		-webkit-transform: rotate(0deg); }
+  	100%{
+  		-webkit-transform: rotate(360deg); }
+  }
+  
+  @-webkit-keyframes turning_acw {
+  	0%{
+  		-webkit-transform: rotate(360deg); }
+  	100%{
+  		-webkit-transform: rotate(0deg); }
+  }
+
+  @-moz-keyframes aura {
+  	0%{
+  		text-shadow: 0 2px 2px #000; }
+  		
+  	50%{
+  		text-shadow: 0 10px 10px #000;
+  		line-height: 190px; }
+  		
+  	100%{
+  		text-shadow: 0 2px 10px #000; }
+  }
+
+  @-moz-keyframes turning_cw {
+  	0%{
+  		-moz-transform: rotate(0deg); }
+  	100%{
+  		-moz-transform: rotate(360deg); }
+  }
+  
+  @-moz-keyframes turning_acw {
+  	0%{
+  		-moz-transform: rotate(360deg); }
+  	100%{
+  		-moz-transform: rotate(0deg); }
+  }
+
+  @keyframes aura {
+  	0%{
+  		text-shadow: 0 2px 2px #000; }
+  		
+  	50%{
+  		text-shadow: 0 10px 10px #000;
+  		line-height: 190px; }
+  		
+  	100%{
+  		text-shadow: 0 2px 10px #000; }
+  }
+
+  @keyframes turning_cw {
+  	0%{
+  		transform: rotate(0deg); }
+  	100%{
+  		transform: rotate(360deg); }
+  }
+  
+  @keyframes turning_acw {
+  	0%{
+  		transform: rotate(360deg); }
+  	100%{
+  		transform: rotate(0deg); }
+  }
+
+
+</style>
+
