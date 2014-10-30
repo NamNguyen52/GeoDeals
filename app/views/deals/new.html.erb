@@ -1,5 +1,5 @@
-
-<h1>Create a new deal</h1>
+<body>
+<h1>CREATE A NEW DEAL</h1>
 
 <!-- This begins the section for the business to enter the details for their deal -->
 
@@ -8,9 +8,9 @@
   		<li data-orbit-slide="headline-1">
     		<div>
 				<div class="new-deal-fields">
-				<h4>Name of the deal</h4>
+				<h3>Name of the deal</h3>
 				<p>This should be descriptive but short.</p>
-				<p>example: "Buy one get one"</p>
+				<p>Example: "Buy one get one"</p>
 					<div class="large-4 columns" id="deal-field1"><%= d.text_field :name %></div>
 				</div>
 			</div>
@@ -18,7 +18,7 @@
   		<li data-orbit-slide="headline-2">
     		<div>
 				<div class="new-deal-fields">
-				<h4>Deal details</h4>
+				<h3>Deal details</h3>
 				<p>Provide details for the deal you are offering. Optimal length is a tweet! (140 characters).</p>
 					<div class="large-4 columns" id="deal-field1"><%= d.text_area :description, size: "50x10" %></div>
 				</div>
@@ -27,7 +27,7 @@
   		<li data-orbit-slide="headline-3">
     		<div>
 				<div class="new-deal-fields">
-				<h4>Fine print</h4>
+				<h3>Fine print</h3>
 				<p>Provide the stipulations for this deal.</p>
 					<div class="large-4 columns" id="deal-field2"><%= d.text_area :fine, size: "50x10" %></div>
 				</div>
@@ -36,7 +36,7 @@
 		<li data-orbit-slide="headline-4">
 			<div>
 				<div class="new-deal-fields">
-				<h4>Start Date</h4>
+				<h3>Start Date</h3>
 				<p>Select the date this deal will start</p>
 					<div class="large-4 columns" id="deal-field3"><%= d.date_select :start_date %></div>
 				</div>
@@ -45,7 +45,7 @@
 		<li data-orbit-slide="headline-5">
 			<div>
 				<div class="new-deal-fields">
-				<h4>End Date</h4>
+				<h3>End Date</h3>
 				<p>Select the date this deal will end</p>
 					<div class="large-4 columns" id="deal-field4"><%= d.date_select :end_date %></div>
 				</div>
@@ -61,4 +61,22 @@
 
 <%= link_to "Go back", sessions_path %>
 </div>
+</body>
 
+
+<style type="text/css">
+	
+body {
+  font-family: heroregular !important;
+  background-color: #bbb;
+
+}
+
+h1 {
+  font-family: heroregular !important;
+  text-align: center;
+  margin-top: 40px !important; 
+}
+
+
+</style>

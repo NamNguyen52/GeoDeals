@@ -423,34 +423,35 @@ h6 {
 	size: 15px;
 }
 
-.deals-container {
-	margin-top: 20%;
-	margin-left: auto;
-	margin-right: auto;
+#deals-container {
+	background-color: white;
+ 	box-shadow: 3px solid;
+ 	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
+	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
+	box-shadow: 0px 10px 30px -1px rgba(180,180,180,1.0);
+	margin-top: 1%;
 	color: black;
-	border-left: 5px solid rgba(0, 255, 0, 0.8);
-	border-right: 5px solid rgba(0, 255, 0, 0.8);
-	border-radius: 5px;
-	position: relative;
+	border: inset white 2px;
 	font-family: heroregular;
+	font-size: 22px;
 	height: 475px;
 	text-align: center;
-	overflow: scroll;
 }
 
-.deals-container2 {
-	margin-top: 20%;
-	margin-left: auto;
-	margin-right: auto;
-	color: black;
-	border-left: 5px solid rgba(255, 0, 0, 0.8);
-	border-right: 5px solid rgba(255, 0, 0, 0.8);
-	border-radius: 5px;
-	position: relative;
+
+#deals-container2 {
+	background-color: #222;
+ 	box-shadow: 3px solid;
+ 	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
+	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
+	box-shadow: 0px 10px 30px -1px rgba(180,180,180,1.0);
+	margin-top: 1%;
+	color: white;
+	border: inset white 2px;
 	font-family: heroregular;
+	font-size: 22px;
 	height: 475px;
 	text-align: center;
-	overflow: scroll;
 }
 
 #dealListHeading {
@@ -458,6 +459,10 @@ h6 {
 	font-size: 40px;
 	font-family: heroregular;
 	margin-top: 24px;
+}
+
+.delete-deal-link {
+	color: #008CBA;
 }
 
 
