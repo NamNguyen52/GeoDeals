@@ -2,7 +2,7 @@
   <header class="sessions-header" id="geo-top">
     <div class="overlay-container">
       <div class="header-content">
-        <h1>GeoDeals</h1>
+        <h1 id="home-title">GeoDeals</h1>
       </div>
     </div>
   </header>
@@ -10,43 +10,50 @@
   <%= form_for(:session, url: sessions_new_path) do |s| %>
   
     <div class="row fields">
-      <div class="large-6 columns outline-inward" id="email-field">
+      <div class="large-5 columns outline-inward" id="email-field">
         <%= s.text_field :email, :placeholder => 'Email' %>
       </div>
     </div>
     <div class="row">
-      <div class="large-6 columns outline-inward" id="password-field">
+      <div class="large-5 columns outline-inward" id="password-field">
         <%= s.password_field :password, :placeholder => 'Password' %>
       </div>
     </div>
     <%= s.submit :class => 'button radius signin-fields', :value => 'Sign In' %></br>
   
-  <div class="sign-up-link-button">New to GeoDeals?</br><%= link_to "Sign Up!", users_new_path, class: "sign-in-link-button" %>
+  <div class="sign-up-link-button">New to GeoDeals?</br><%= link_to "Sign Up!", users_new_path %>
   </div>
 
   <% end %>
 
   <h6>Click to learn more.</h6>
-  <section class"btn-main">
+  <section class="btn-main">
   <a class="arrow-wrap" href="#info-container">
     <span class="arrow"></span>
   </a>
-  </section>  
+  </section>
 
+  <div class="home-sections-1"></div>
+  <div class="home-sections-2"></div>
+
+  <div class="geo-hook">
+    <p>Geodeals is a simple advertising geolocation platform for small businesses. Create new deals on the fly and manage it from your dashboard.</p>
+    <p>Geodeals is also an easy-to-use mobile app for anyone to discover deals in their immediate location.</p>
+  </div>  
 </div>
 
 <section id="info-container">
-    <h1>What is GeoDeals?</h1>
-    <div class="parallax" data-velocity="-.3">
-      <div id="what-container">
-        <h1>Geodeals is an app that captures your current location and whenever you are within the radius of a business that has a special deal going on, the code to redeem that deal will pop up.</h1>
-      </div>
+  <h1>What is GeoDeals?</h1>
+  <div class="parallax" data-velocity="-.3">
+    <div id="what-container">
+      <h1>Geodeals is an app that captures your current location and whenever you are within the radius of a business that has a special deal going on, the code to redeem that deal will pop up.</h1>
     </div>
-    <section class"btn-main">
-      <a class="arrow-wrap" href="#who-anchor">
-        <span class="arrow"></span>
-      </a>
-    </section>  
+  </div>
+  <section class"btn-main">
+    <a class="arrow-wrap" href="#who-anchor">
+      <span class="arrow"></span>
+    </a>
+  </section>  
 </section>
 
 <div class="test-container" id="who-anchor">

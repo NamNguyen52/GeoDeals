@@ -6,10 +6,11 @@
 <body>
 
 <div ng-controller="geoCtrl">
+<div class="user-welcome">
 Welcome
 {{ firstName }}
 {{ lastName }}!</br>
-{{ user.id }}
+</div>
 
 
 </div>
@@ -44,12 +45,14 @@ Welcome
 
 
 <br><br>
-<input type="button" value="Show Location" onclick="showCurrentlocation()"/> <br>
+<div class="location-button">
+<input type="button" value="Show Location" onclick="showCurrentlocation()"/><br>
 Current Latitude: <span id="latitude"></span> <br>
 Current Longitude: <span id="longitude"></span> <br>
-
-
 </div>
+</div>
+
+
 
 
 </body>

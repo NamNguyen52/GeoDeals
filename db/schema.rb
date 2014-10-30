@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 20141029171037) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "business_id"
-    t.float    "latitude"
-    t.float    "longitude"
   end
 
   create_table "lists", force: true do |t|
@@ -64,7 +62,6 @@ ActiveRecord::Schema.define(version: 20141029171037) do
     t.boolean  "customer"
     t.boolean  "business_owner"
     t.integer  "business_id"
-    t.string   "deals_array",     default: [], array: true
   end
 
 end
