@@ -7,7 +7,7 @@
 <div class="row">
     <div id=<%= d.end_date <= Date.today ? 'deals-container blue' : 'deals-container2 red' %>>
 	<div id=<%= d.end_date <= Date.today ? 'blue' : 'red' %>></div>
-		<div class="small-12 columns">
+		<div class="small-8 columns deal-info-contain">
 			<br>
 			<span class="dealTitle"><%= d.name %><br></span>
 			<%= d.description %><br>
@@ -15,7 +15,7 @@
 			<%= d.fine %><br>
 			<%= d.start_date %><br>
 			<%= d.end_date %><br><br/>
-			<em><%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %></em>
+			<em><%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "delete-deal-link" %></em>
     		<br><br>
 				<div id="main">
 				  <div id="outer-circle">
@@ -243,4 +243,3 @@
 
 
 </style>
-

@@ -37,3 +37,18 @@ body {
 #TOS {
 	text-decoration: underline;
 }
+
+.deal-info-contain {
+	border-left: 5px solid black;
+	border-right: 5px solid black;
+	border-radius: 5px;
+	text-align: center;
+	height: 400px;
+	margin-bottom: 25px;
+	position: relative;
+	margin-left: 17%;
+}
+
+.delete-deal-link {
+	color: blue;
+}
