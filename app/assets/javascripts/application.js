@@ -14,10 +14,10 @@
 //= require jquery_ujs
 //= require foundation
 //= require jquery.scrolly
-//= require angular
+//= require angular.min
 //= require angular-ui-router.min
 //= require angular-rails-templates
-//= require angular-resource
+//= require angular-resource.min
 //= require main 
 //= require_tree .
 
