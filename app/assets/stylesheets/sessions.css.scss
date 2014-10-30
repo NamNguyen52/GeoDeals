@@ -87,6 +87,7 @@
   -webkit-transition-property: top, right, bottom, left;
   transition-property: top, right, bottom, left;
 }
+
 .outline-inward:hover:before, .outline-inward:focus:before, .outline-inward:active:before {
   top: -8px;
   right: -8px;
