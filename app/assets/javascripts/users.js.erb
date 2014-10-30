@@ -19,7 +19,7 @@ var playThatTune = function(){
 function initialize() {
   var mapOptions = {
     zoom: 15,
-    center: new google.maps.LatLng(34.01,-118.49),
+    center: new google.maps.LatLng(34.0155274,-118.4938469),
     styles: mapStyle
   };
 
@@ -54,14 +54,14 @@ function mapTheseBs() {
       title: 'Deal $$!',
       map: map,
       animation: google.maps.Animation.BOUNCE,
-      icon: "http://4.bp.blogspot.com/-IJXe-eEJTmA/U-G6WnOSe_I/AAAAAAAAAtQ/v_V9BcQu9Ok/s33-c/336914de2a.png",
+      icon: "https://fedoraproject.org/w/uploads/4/4a/Echo-planet-48px.png",
       draggable: true
     });
   } 
 }
 }
 
-setTimeout(mapTheseBs, 1800);
+setTimeout(mapTheseBs, 3200);
 
 
 ///////////////////////// CALCULATIONS, BITCHES!!! //////////////////////////
@@ -87,13 +87,13 @@ function distance(position){
 
 
     var personLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-    var marker = new google.maps.Marker({
+    var markerz = new google.maps.Marker({
     position: personLocation,
     title: 'YOU!',
     map: map,
     animation: google.maps.Animation.BOUNCE,
-    icon: "https://fedoraproject.org/w/uploads/4/4a/Echo-planet-48px.png",
-    draggable: false
+    icon: "http://4.bp.blogspot.com/-IJXe-eEJTmA/U-G6WnOSe_I/AAAAAAAAAtQ/v_V9BcQu9Ok/s33-c/336914de2a.png",
+    draggable: true
   });
 
 
