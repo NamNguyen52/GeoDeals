@@ -1,21 +1,38 @@
 <div class="row">
 <% if current_user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
-	YOU ARE A BUSINESS OWNER! HOORAY
-<%= link_to "Add a Deal", deal_new_path(current_user.business_id) %>
-
+<h1 class="deal-index">Deals Management Dashboard</h1>
 <ul>
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
 
     <li class="large-3 small-6 columns left" id="deals">
-    	<div class=<%= d.end_date <= Date.today ? 'deals-container blue' : 'deals-container2 red' %>>
-			<div class=<%= d.end_date <= Date.today ? 'blue' : 'red' %>><%= d.name %></div>
-			<div id="deal-description"><%= d.description %></div>
-			<div id="deal-code"><%= d.code %></div>
-			Fine Print:
-			<div id="deal-fine"><%= d.fine %></div>
-			<div id="deal-start-date"><%= d.start_date %></div>
-			<div id="deal-end-date"><%= d.end_date %></div>
+    	<div class=<%= d.end_date >= Date.today ? 'deals-container blue' : 'deals-container2 red' %>>
+
+			<div>
+				<p class="biz-deal-index-item">Title</p>
+				<%= d.name %>
+			</div>
+
+			<div id="deal-description">
+				<p class="biz-deal-index-item">Description</p> <%= d.description %>
+			</div>
+
+			<div id="deal-code">
+				<p class="biz-deal-index-item">Code</p> <%= d.code %>
+			</div>
+	
+			<div id="deal-fine">
+				<p class="biz-deal-index-item">Fine Print</p> <%= d.fine %>
+			</div>
+
+			<div id="deal-start-date">
+				<p class="biz-deal-index-item">Start Date</p> <%= d.start_date %>
+			</div>
+
+			<div id="deal-end-date">
+				<p class="biz-deal-index-item">End Date</p> <%= d.end_date %>
+			</div>
+
 			<%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     	</div>
     </li>
