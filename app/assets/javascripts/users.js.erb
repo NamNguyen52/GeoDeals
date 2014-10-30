@@ -46,7 +46,7 @@ console.log("loadScript fcn has passed by! Zoom!")
 
 function mapTheseBs() {
   console.log(deals);
-  for (i = 0; i < 2; i++) {
+  for (i = 0; i < 7; i++) {
     if (deals[i].longitude && deals[i].latitude) {
       var dealLocation = new google.maps.LatLng(deals[i].latitude,deals[i].longitude);
       var marker = new google.maps.Marker({
@@ -98,12 +98,11 @@ function distance(position){
   });
 
 
-
 for (i = 0; i < deals.length; i++) {
   console.log(i);
   var distToDeal = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(deals[i].latitude,deals[i].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
   // document.getElementById('deal1').innerHTML = distToHillstone
-  if (distToDeal < 70000 && firstDeal === "1") {
+  if (distToDeal < 1500 && firstDeal === "1") {
     function runOnce() {
 
       document.getElementById('deets1').innerHTML = deals[i].name
@@ -123,7 +122,7 @@ for (i = 0; i < deals.length; i++) {
     }
     runOnce();
   };
-
+    markerz = null;
 }
 
 }
