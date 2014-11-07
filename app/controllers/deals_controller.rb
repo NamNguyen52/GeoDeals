@@ -20,7 +20,7 @@ include SessionsHelper
   end
 
   def create
-    @deal = Deal.new(params.require(:deal).permit(:name, :description, :fine, :start_date, :end_date, :start_time, :end_time, :business_id, :latitude, :longitude))
+    @deal = Deal.new(params.require(:deal).permit(:name, :description, :fine, :start_date, :end_date, :start_time, :end_time, :business_id, :latitude, :longitude, :start_datetime, :end_datetime))
       curr_user_biz_id = current_user.business_id
       curr_user_biz_obj = Business.find_by_id(curr_user_biz_id)
       curr_user_biz_lat = curr_user_biz_obj.latitude

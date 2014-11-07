@@ -11,10 +11,8 @@ var playThatTune = function(){
     audio.play();
 };
  
-
 //window.setTimeout("holdYourHorses()", 5000);
 //window.setTimeout("playThatTune()", 5000);
-
 
 function initialize() {
   var mapOptions = {
@@ -25,9 +23,7 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
-
 }
-
 
 ////////////////////////////// OTHER STUFF ////////////////////////////////
 
@@ -38,7 +34,6 @@ function loadScript() {
   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' + 'callback=initialize' + '&key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4&' + 'libraries=geometry';
   document.body.appendChild(script);
 }
-
 
 window.onload = loadScript;
 console.log("loadScript fcn has passed by! Zoom!")
@@ -63,10 +58,8 @@ function mapTheseBs() {
 
 setTimeout(mapTheseBs, 1000);
 
-
 ////////////////// DISTANCE CALCULATIONS FROM USER TO DEAL //////////////////
 /////////////////////////////////////////////////////////////////////////////
-
 
 function showCurrentlocation(){
   navigator.geolocation.watchPosition(callback);
@@ -84,7 +77,6 @@ thirdDeal = "3"
 
 function distance(position){
 
-
 // MARKER TRACKING USER'S MOVEMENT
 
     personLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
@@ -96,7 +88,6 @@ function distance(position){
     icon: "http://4.bp.blogspot.com/-IJXe-eEJTmA/U-G6WnOSe_I/AAAAAAAAAtQ/v_V9BcQu9Ok/s33-c/336914de2a.png",
     draggable: true
   });
-
 
 for (i = 0; i < deals.length; i++) {
   console.log(i);
@@ -124,8 +115,8 @@ for (i = 0; i < deals.length; i++) {
   };
     markerz = null;
 }
-
 }
+
 
 
 

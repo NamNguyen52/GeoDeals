@@ -13,6 +13,8 @@
 			<%= d.description %><br>
 			<%= d.code %><br>
 			<%= d.fine %><br>
+      <%= d.start_datetime %><br>
+      <%= d.end_datetime %><br>
 			<%= d.start_date %><br>
 			<%= d.end_date %><br><br/>
 			<em><%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "delete-deal-link" %></em>
