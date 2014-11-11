@@ -12,12 +12,17 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <li class="active add-deal"><%= link_to "Add a Deal", deal_new_path(current_user.business_id) %></li>
-      <li class="active add-deal"><%= link_to "User Mode", sessions_path(current_user) %></li>
+      <li class="has-dropdown">
+        <a href="#">User Mode</a>
+        <ul class="dropdown">
+          <li class="active"><%= link_to "User", sessions_path(current_user) %></a></li>
+          <li class="active add-deal"><%= link_to "My Business", business_index_path(current_user.business_id) %></a></li>
+        </ul>
+      </li>
       <li class="active add-deal"></a></li>
       <li class="has-dropdown">
         <a href="#">Account</a>
         <ul class="dropdown">
-          <li></li>
           <li class="active"><%= link_to "Settings", '/settings' %></a></li>
           <li class="active add-deal"><%= link_to "Log Out", sessions_path, method: :delete %></a></li>
         </ul>
