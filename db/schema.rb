@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106221818) do
+ActiveRecord::Schema.define(version: 20141107192221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,16 +44,17 @@ ActiveRecord::Schema.define(version: 20141106221818) do
   end
 
   create_table "lists", force: true do |t|
-    t.string  "created_at"
-    t.string  "updated_at"
-    t.integer "user_id"
-    t.string  "deal_id"
-    t.string  "deal_name"
-    t.string  "deal_description"
-    t.string  "deal_code"
-    t.string  "deal_fine"
-    t.string  "deal_date"
-    t.string  "deal_time"
+    t.string   "created_at"
+    t.string   "updated_at"
+    t.integer  "user_id"
+    t.string   "deal_id"
+    t.string   "deal_name"
+    t.string   "deal_description"
+    t.string   "deal_code"
+    t.string   "deal_fine"
+    t.string   "deal_date"
+    t.string   "deal_time"
+    t.datetime "deal_end_datetime"
   end
 
   create_table "users", force: true do |t|

@@ -93,7 +93,7 @@ for (i = 0; i < deals.length; i++) {
   console.log(i);
   var distToDeal = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(deals[i].latitude,deals[i].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
   // document.getElementById('deal1').innerHTML = distToHillstone
-  if (distToDeal < 1500 && firstDeal === "1") {
+  if (distToDeal < 21240 && distToDeal > 21230 && firstDeal === "1") {
     function runOnce() {
 
       document.getElementById('deets1').innerHTML = deals[i].name
@@ -101,11 +101,13 @@ for (i = 0; i < deals.length; i++) {
       document.getElementById('deets3').innerHTML = deals[i].code
       document.getElementById('deets4').innerHTML = deals[i].fine
       document.getElementById('deets5').innerHTML = deals[i].end_date
+      document.getElementById('deets6').innerHTML = deals[i].end_datetime
       document.getElementById('dealName').value = deals[i].name
       document.getElementById('dealDescription').value = deals[i].description
       document.getElementById('dealCode').value = deals[i].code
       document.getElementById('dealFine').value = deals[i].fine
       document.getElementById('dealDate').value = deals[i].end_date
+      document.getElementById('dealDateTime').value = deals[i].end_datetime
       // firstDeal = "11"
       holdYourHorses();
       playThatTune();

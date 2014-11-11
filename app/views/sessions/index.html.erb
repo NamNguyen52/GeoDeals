@@ -31,9 +31,7 @@
 			<p id="peethree"><%= ud.deal_code %></p>
 			<p id="peefour"><%= ud.deal_fine %></p>
 			<p id="peefive"><%= ud.deal_date %></p>
-			<% if ud.deal_end_datetime %>
 			<p id="peesix"><%= ud.deal_end_datetime %></p>
-			<% end %>
 			<%= link_to "Nix This Deal", list_path(ud.id), method: :delete %>
 		</div>
 	<% end %>
