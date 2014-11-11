@@ -1,3 +1,16 @@
+<style type="text/css">
+#centerSubmitButton {
+	text-align: center;
+}
+button {
+	font-family: 'heroregular' !important;
+	background-color: #000;
+}
+</style>
+
+
+
+<!-- HTML BODY BEGINS HERE -->
 <% if @user.business_owner == false %>
 	<%= render 'layouts/customernav' %>
 <% end %>
@@ -5,6 +18,49 @@
 <% if @user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
 <% end %>
+
+
+<div>
+	
+<p id="dealmapTitle">DEAL DISCOVERY DEVICE</p>
+
+<div id="inputLatLng">
+<input type="button" value="Find Deals Near Me!" onclick="showCurrentlocation()"/>
+</div>
+
+<div id="hiddenLatLng" style="display:none;">
+Current Latitude: <span id="latitude"></span> <br>
+Current Longitude: <span id="longitude"></span> <br>
+</div>
+
+<div id="centered">
+<!-- <a onclick="play()" href="#" data-reveal-id="myModal">Click Me For A Modal</a> -->
+<audio id="audio" src="http://www.freesound.org/data/previews/133/133054_1148376-lq.mp3"></audio>
+<h3 id="countdownn" style="display:none">12</h3>
+
+<div id="myModal" class="reveal-modal small" data-reveal>
+  <p class="dealVicinity">DEAL UNLOCKED IN THE VICINITY!</p>
+  <p class="dealInfo" class="lead" id="deets1">Business Name</p>
+  <p class="dealInfo" id="deets2">Deal Description</p>
+  <p class="dealInfo" id="deets3">Deal Code</p>
+  <p class="dealInfo" id="deets4">Fine Print</p>
+  <p class="dealInfo" id="deets5">Expires:</p>
+  <p class="dealInfo" id="deets6">UTC End Datetime:</p><br/>
+  <div id="centerSubmitButton"><button id="first" class="btn btn-link">SAVE THIS DEAL</button></div>
+  <p id="saveToUser"></p>
+  <p style="display:none" id="countdown">Deal Expiration Countdown</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+</div>
+
+
+
+<div id="map">Map!</div>
+
+<br><br><br>
+
+
+</div>
 
 
 	<%= form_for(:list, url: lists_path, method: :post) do |l| %>
@@ -17,7 +73,7 @@
 	  	<%= l.hidden_field :deal_end_datetime, :id => 'dealDateTime' %>
 	  	<%= l.hidden_field :user_id, value: current_user.id %>
 	  	<div id="saveList">
-	  	<%= l.submit "Save This Deal" %>
+	  	<%= l.submit "Save This Deal", :id => 'second', :style => "display:none;" %>
 	  	</div>
 	<% end %>
 
@@ -37,4 +93,10 @@
 	<% end %>
 
 
+<script type="text/javascript">
+$("#first").click(function(){
+    $("#second").click(); 
+    return false;
+});
+</script>
 
