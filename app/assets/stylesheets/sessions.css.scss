@@ -338,34 +338,11 @@ h6 {
 }
 
 .new-deal-fields {
-	width: 1000px;
+	width: 800px;
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
-}
-
-#deal-field1 {
-	margin-left: 320px;
-	position: relative;
-
-}
-
-#deal-field2 {
-	margin-left: 340px;
-	position: relative;
-
-}
-
-#deal-field3 {
-	margin-left: 340px;
-	position: relative;
-
-}
-
-#deal-field4 {
-	margin-left: 340px;
-	position: relative;
-
+	border: 1px solid black;
 }
 
 .submit-deal-button {
@@ -474,7 +451,19 @@ h6 {
 	text-decoration: underline;
 }
 
+.new-deals-container {
+	text-align: center;
+	font-family: hero_lightlight;
+}
 
+.new-deals-header {
+	text-align: center;
+	font-family: intro_regular;
+}
+
+.new-deals-back {
+	text-align: center;
+}
 
 // ####################################
 // ########## business settings #######

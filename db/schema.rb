@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20141107192221) do
     t.boolean  "customer"
     t.boolean  "business_owner"
     t.integer  "business_id"
-    t.string   "deals_array",     default: [], array: true
   end
 
 end
