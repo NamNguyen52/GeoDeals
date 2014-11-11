@@ -1,36 +1,40 @@
 <% if @user.business_owner == false %>
 	<%= render 'layouts/customernav' %>
-
-	<%= form_for(:list, url: lists_path, method: :post) do |l| %>
-	  <%= l.hidden_field :deal_name, :id => 'dealName' %>
-	  <%= l.hidden_field :deal_description, :id => 'dealDescription' %>
-	  <%= l.hidden_field :deal_code, :id => 'dealCode' %>
-	  <%= l.hidden_field :deal_fine, :id => 'dealFine' %>
-	  <%= l.hidden_field :deal_date, :id => 'dealDate' %>
-	  <%= l.hidden_field :deal_time, :id => 'dealTime' %>
-	  <%= l.hidden_field :user_id, value: current_user.id %>
-	  <div id="saveList">
-	  <%= l.submit "Save This Deal" %>
-	  </div>
-	<% end %>
-
-
-<div id="yourDeals">YOUR SAVED DEALS</div><br>
-
-	<% @userlist.each do |ud| %>
-	<div class="userList">
-			<p id="peeone"><%= ud.deal_name %></p>
-			<p id="peetwo"><%= ud.deal_description %></p>
-			<p id="peethree"><%= ud.deal_code %></p>
-			<p id="peefour"><%= ud.deal_fine %></p>
-			<%= link_to "Nix This Deal", list_path(ud.id), method: :delete %>
-			</div>
-	<% end %>
-
-
 <% end %>
-
 
 <% if @user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
 <% end %>
+
+
+	<%= form_for(:list, url: lists_path, method: :post) do |l| %>
+	  	<%= l.hidden_field :deal_name, :id => 'dealName' %>
+	  	<%= l.hidden_field :deal_description, :id => 'dealDescription' %>
+	  	<%= l.hidden_field :deal_code, :id => 'dealCode' %>
+	  	<%= l.hidden_field :deal_fine, :id => 'dealFine' %>
+	  	<%= l.hidden_field :deal_date, :id => 'dealDate' %>
+	  	<%= l.hidden_field :deal_time, :id => 'dealTime' %>
+	  	<%= l.hidden_field :deal_end_datetime, :id => 'dealDateTime' %>
+	  	<%= l.hidden_field :user_id, value: current_user.id %>
+	  	<div id="saveList">
+	  	<%= l.submit "Save This Deal" %>
+	  	</div>
+	<% end %>
+
+
+	<div id="yourDeals">YOUR SAVED DEALS</div><br>
+
+	<% @userlist.each do |ud| %>
+		<div class="userList">
+			<p id="peeone"><%= ud.deal_name %></p>
+			<p id="peetwo"><%= ud.deal_description %></p>
+			<p id="peethree"><%= ud.deal_code %></p>
+			<p id="peefour"><%= ud.deal_fine %></p>
+			<p id="peefive"><%= ud.deal_date %></p>
+			<p id="peesix"><%= ud.deal_end_datetime %></p>
+			<%= link_to "Nix This Deal", list_path(ud.id), method: :delete %>
+		</div>
+	<% end %>
+
+
+

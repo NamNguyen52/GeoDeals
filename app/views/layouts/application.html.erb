@@ -17,11 +17,10 @@
 
   <body ng-app="geoDeals">
 
-
     <% if @current_user %>
-      <% if @current_user.business_id == nil %>
+      <%# if @current_user.business_id == nil %>
         <div ui-view></div>
-      <% end %>
+      <%# end %>
     <% end %>
     <%= yield %>
 

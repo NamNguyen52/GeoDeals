@@ -20,6 +20,7 @@ include SessionsHelper
   	new_list_entry.deal_fine = params[:list][:deal_fine]
   	new_list_entry.deal_date = params[:list][:deal_date]
   	new_list_entry.deal_time = params[:list][:deal_time]
+    new_list_entry.deal_end_datetime = params[:list][:deal_end_datetime]
   	new_list_entry.user_id = params[:list][:user_id]
   	new_list_entry.save
   	# @list = List.new(params.require(:list).permit(:deal_name, :deal_description, :deal_code, :deal_fine, :deal_date, :deal_time, :user_id))

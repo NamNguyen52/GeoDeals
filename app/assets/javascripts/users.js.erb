@@ -11,10 +11,8 @@ var playThatTune = function(){
     audio.play();
 };
  
-
 //window.setTimeout("holdYourHorses()", 5000);
 //window.setTimeout("playThatTune()", 5000);
-
 
 function initialize() {
   var mapOptions = {
@@ -25,9 +23,7 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
-
 }
-
 
 ////////////////////////////// OTHER STUFF ////////////////////////////////
 
@@ -38,7 +34,6 @@ function loadScript() {
   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' + 'callback=initialize' + '&key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4&' + 'libraries=geometry';
   document.body.appendChild(script);
 }
-
 
 window.onload = loadScript;
 console.log("loadScript fcn has passed by! Zoom!")
@@ -63,10 +58,8 @@ function mapTheseBs() {
 
 setTimeout(mapTheseBs, 1000);
 
-
 ////////////////// DISTANCE CALCULATIONS FROM USER TO DEAL //////////////////
 /////////////////////////////////////////////////////////////////////////////
-
 
 function showCurrentlocation(){
   navigator.geolocation.watchPosition(callback);
@@ -84,7 +77,6 @@ thirdDeal = "3"
 
 function distance(position){
 
-
 // MARKER TRACKING USER'S MOVEMENT
 
     personLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
@@ -97,12 +89,11 @@ function distance(position){
     draggable: true
   });
 
-
 for (i = 0; i < deals.length; i++) {
   console.log(i);
   var distToDeal = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(deals[i].latitude,deals[i].longitude), new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
   // document.getElementById('deal1').innerHTML = distToHillstone
-  if (distToDeal < 1500 && firstDeal === "1") {
+  if (distToDeal < 21240 && distToDeal > 21230 && firstDeal === "1") {
     function runOnce() {
 
       document.getElementById('deets1').innerHTML = deals[i].name
@@ -110,11 +101,13 @@ for (i = 0; i < deals.length; i++) {
       document.getElementById('deets3').innerHTML = deals[i].code
       document.getElementById('deets4').innerHTML = deals[i].fine
       document.getElementById('deets5').innerHTML = deals[i].end_date
+      document.getElementById('deets6').innerHTML = deals[i].end_datetime
       document.getElementById('dealName').value = deals[i].name
       document.getElementById('dealDescription').value = deals[i].description
       document.getElementById('dealCode').value = deals[i].code
       document.getElementById('dealFine').value = deals[i].fine
       document.getElementById('dealDate').value = deals[i].end_date
+      document.getElementById('dealDateTime').value = deals[i].end_datetime
       // firstDeal = "11"
       holdYourHorses();
       playThatTune();
@@ -124,8 +117,8 @@ for (i = 0; i < deals.length; i++) {
   };
     markerz = null;
 }
-
 }
+
 
 
 
