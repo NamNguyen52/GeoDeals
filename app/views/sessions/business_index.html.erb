@@ -1,39 +1,40 @@
 <% if current_user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
 
-<p id="dealListHeading">DEAL DEETS&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspPERFORMANCE STATS</p>
+<div id="deal-list-heading"><%= Business.find_by_id(current_user.business_id).name %></div>
 	
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
 <div class="row">
-    <div id=<%= d.end_date <= Date.today ? 'deals-container blue' : 'deals-container2 red' %>>
-	<div id=<%= d.end_date <= Date.today ? 'blue' : 'red' %>></div>
-		<div class="small-8 columns deal-info-contain">
-			<br>
-			<span class="dealTitle"><%= d.name %><br></span>
-			<%= d.description %><br>
-			<%= d.code %><br>
-			<%= d.fine %><br>
-      <%= d.start_datetime %><br>
-      <%= d.end_datetime %><br>
-			<%= d.start_date %><br>
-			<%= d.end_date %><br><br/>
-			<em><%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "delete-deal-link" %></em>
-    		<br><br>
-				<div id="main">
-				  <div id="outer-circle">
-				    <div id="inner-circle">
-				      <div id="center-circle">
-				        <div id="content"></div>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-    	</div>
-    </div>
+	<div class="small-8 columns deal-info-contain">
+		<span class="dealTitle"><%= d.name %><br></span>
+		<%= d.description %><br>
+		<%= d.code %><br>
+		<%= d.fine %><br>
+    <%= d.start_datetime %><br>
+    <%= d.end_datetime %><br>
+		<%= d.start_date %><br>
+		<%= d.end_date %><br><br/>
+    <% if d.end_date <= Date.today %>
+      <p id="expired">THIS DEAL HAS EXPIRED</p>
+    <% end %>
+    <% if d.end_date >= Date.today %>
+      <p id="active-deal">Number of days left for this deal: <%= d.end_date - Date.today %></p>
+    <% end %>
+		<em><%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "delete-deal-link" %></em>
+  		<br><br>
+			<div id="main">
+			  <div id="outer-circle">
+			    <div id="inner-circle">
+			      <div id="center-circle">
+			        <div id="content">    
+              </div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+  	</div>
+  </div>
 </div>
-
-
-
 <% end %>
 
 
