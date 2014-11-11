@@ -185,7 +185,6 @@ h6 {
 
 #info-container>div:nth-of-type(1) {
 	background-image: image-url('geo_section1.jpg'); 
-	background-image: 10% 0 no-repeat fixed;
 	background-size: cover;
 	margin-top: 0;
 	height: 100vh;
@@ -201,7 +200,6 @@ h6 {
 
 .test-container>div:nth-of-type(1) {
 	background-image: image-url('geo_section2.jpg'); 
-	background-image: 60% no-repeat fixed;
 	background-size: cover;
 	margin-top: 0;
 	height: 100vh;
@@ -403,41 +401,18 @@ h6 {
 	size: 15px;
 }
 
-#deals-container {
-	background-color: white;
- 	box-shadow: 3px solid;
- 	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
-	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
-	box-shadow: 0px 10px 30px -1px rgba(180,180,180,1.0);
-	margin-top: 1%;
-	color: black;
-	border: inset white 2px;
-	font-family: heroregular;
-	font-size: 22px;
-	height: 475px;
-	text-align: center;
+#expired {
+	color: red;
 }
 
-
-#deals-container2 {
-	background-color: #222;
- 	box-shadow: 3px solid;
- 	-webkit-box-shadow: 0px 10px 30px -1px rgba(0,0,0,1);
-	-moz-box-shadow: inset 0px 10px 30px -1px rgba(0,0,0,1.00);
-	box-shadow: 0px 10px 30px -1px rgba(180,180,180,1.0);
-	margin-top: 1%;
-	color: white;
-	border: inset white 2px;
-	font-family: heroregular;
-	font-size: 22px;
-	height: 475px;
-	text-align: center;
+#active-deal {
+	color: green;
 }
 
-#dealListHeading {
+#deal-list-heading {
 	text-align: center;
 	font-size: 40px;
-	font-family: heroregular;
+	font-family: intro_regular;
 	margin-top: 24px;
 }
 
@@ -453,7 +428,7 @@ h6 {
 
 .new-deals-container {
 	text-align: center;
-	font-family: hero_lightlight;
+	font-family: heroregular;
 }
 
 .new-deals-header {

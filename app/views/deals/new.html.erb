@@ -3,55 +3,46 @@
 
 <!-- This begins the section for the business to enter the details for their deal -->
 
-<%= form_for(@deal, url: deal_new_path, method: :post) do |d| %>
 <div class="new-deals-container">
+<%= form_for(@deal, url: create_path, method: :post) do |d| %>
 	<h3>Name of the deal</h3>
 	<p>This should be descriptive but short.</p>
 	<p>Example: "Buy one get one"</p>
-	<form>
 		<div class="row">
 		<%= d.text_field :name, :class => "large-4 columns" %>
 		</div>
-	</form>
 		
 	<h3>Deal details</h3>
 	<p>Provide details for the deal you are offering. Optimal length is a tweet! (140 characters).</p>
-	<form>
 		<div class="row">
 		<%= d.text_field :description, :class => "large-4 columns"  %>
 		</div>
-	</form>
 
 	<h3>Fine print</h3>
 	<p>Provide the stipulations for this deal.</p>
-	<form>
 		<div class="row">
 		<%= d.text_field :fine, :class => "large-4 columns" %>
 		</div>
-	</form>
 				
 	<h3>START Date and Time</h3>
 	<p>Select the date and time this deal will start</p>
-	<form>
 		<div class="row">
-		<%= d.date_select :start_datetime, :class => "large-4 columns" %>
+		<%= d.date_select :start_date, :class => "large-4 columns" %>
 		</div>
-	</form>
 
 	<h3>END Date</h3>
 	<p>Select date deal will end</p>
-	<form>
 		<div class="row">
 		<%= d.date_select :end_date, :class => "large-4 columns" %>
 		</div>
-	</form>
+
+	<div class="submit-deal-button">
+	<%= d.submit "Submit" %>
+	</div>
+		
+<% end %>
 </div>
 
-<div class="submit-deal-button">
-<%= d.submit "Submit" %>
-</div>		
-	
-<% end %>
 
 <%= link_to "Go back", sessions_path, :class => "new-deals-back" %>
 

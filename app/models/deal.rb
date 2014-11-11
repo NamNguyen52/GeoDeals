@@ -5,7 +5,7 @@ class Deal < ActiveRecord::Base
   before_create :set_deal_salt
   # validate :start_date_not_less_than_today
   # validate :end_date_not_less_than_today
-  validates_presence_of :name, :description, :fine, :start_date, :end_date, on: :create
+  # validates_presence_of :name, :description, :fine, :start_date, :end_date, on: :create
   # validates :code, format: { with: /[0-9]+{11}/}, on: :create
   
   def set_deal_salt
