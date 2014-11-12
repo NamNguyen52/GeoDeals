@@ -1,10 +1,10 @@
 <% if current_user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
 
-<div id="deal-list-heading"><%= Business.find_by_id(current_user.business_id).name %></div>
+<div id="deal-list-heading"><%= Business.find_by_id(current_user.business_id).name %></div><br>
 	
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
-<div class="row">
+<div class="row" id="eachDealListed">
 	<div class="small-8 columns deal-info-contain">
 		<span class="dealTitle"><%= d.name %><br></span>
 		<%= d.description %><br>
@@ -18,7 +18,7 @@
       <p id="expired">THIS DEAL HAS EXPIRED</p>
     <% end %>
     <% if d.end_date >= Date.today %>
-      <p id="active-deal">Number of days left for this deal: <%= d.end_date - Date.today %></p>
+      <p id="active-deal">DAYS TILL DEAL EXPIRATION: <%= (d.end_date - Date.today).to_i %></p>
     <% end %>
 		<em><%= link_to "Delete this Deal", deal_delete_path(d.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "delete-deal-link" %></em>
   		<br><br>
@@ -32,9 +32,9 @@
 			    </div>
 			  </div>
 			</div>
-  	</div>
-  </div>
+  </div><br><br><br>
 </div>
+
 <% end %>
 
 

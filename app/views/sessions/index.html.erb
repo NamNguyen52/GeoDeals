@@ -23,9 +23,10 @@ button {
 <div>
 	
 <p id="dealmapTitle">DEAL DISCOVERY DEVICE</p>
+<p id="clickButtonBelow">Click the button below to begin receiving local deal alerts!</p><br>
 
 <div id="inputLatLng">
-<input type="button" value="Find Deals Near Me!" onclick="showCurrentlocation()"/>
+<input id="locationButton" type="button" value="Find Deals Near Me!" onclick="showCurrentlocation()"/>
 </div>
 
 <div id="hiddenLatLng" style="display:none;">
@@ -78,7 +79,7 @@ Current Longitude: <span id="longitude"></span> <br>
 	<% end %>
 
 
-	<div id="yourDeals">YOUR SAVED DEALS</div><br>
+	<div id="yourDeals">YOUR SAVED DEALS</div><br><br>
 
 	<% @userlist.each do |ud| %>
 		<div class="userList">
@@ -86,12 +87,17 @@ Current Longitude: <span id="longitude"></span> <br>
 			<p id="peetwo"><%= ud.deal_description %></p>
 			<p id="peethree"><%= ud.deal_code %></p>
 			<p id="peefour"><%= ud.deal_fine %></p>
-			<p id="peefive"><%= ud.deal_date %></p>
-			<p id="peesix"><%= ud.deal_end_datetime %></p>
+			<p id="nil"><%= ud.deal_date %></p>
+			<% if Time.parse(ud.deal_date).utc <= Date.today %>
+      		<p id="peefive">THIS DEAL HAS EXPIRED</p>
+    		<% end %>
+    		<% if Time.parse(ud.deal_date).utc >= Date.today %>
+      		<p id="peesix">Expires in: <%= ((Date.parse(ud.deal_date) - Date.today)/1).to_i %> days</p>
+    		<% end %>
+			<p id="peeseven"><%= ud.deal_end_datetime %></p>
 			<%= link_to "Nix This Deal", list_path(ud.id), method: :delete %>
 		</div>
 	<% end %>
-
 
 <script type="text/javascript">
 $("#first").click(function(){
