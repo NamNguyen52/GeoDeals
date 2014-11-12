@@ -411,8 +411,9 @@ h6 {
 
 #deal-list-heading {
 	text-align: center;
-	font-size: 40px;
-	font-family: intro_regular;
+	font-size: 50px;
+	font-family: heroregular;
+	font-weight: 900;
 	margin-top: 24px;
 }
 
@@ -439,6 +440,12 @@ h6 {
 .new-deals-back {
 	text-align: center;
 }
+
+.deal-info-contain {
+	border: 6px solid black;
+	height: 470px;
+}
+
 
 // ####################################
 // ########## business settings #######
