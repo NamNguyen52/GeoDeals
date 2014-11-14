@@ -61,6 +61,8 @@ setTimeout(mapTheseBs, 1000);
 
 ////////////////// DISTANCE CALCULATIONS FROM USER TO DEAL //////////////////
 /////////////////////////////////////////////////////////////////////////////
+firstDeal = "1"
+secondDeal = "2"
 
 function showCurrentlocation(){
   navigator.geolocation.watchPosition(callback);
@@ -69,12 +71,19 @@ function showCurrentlocation(){
 function callback(position){
   document.getElementById('latitude').innerHTML = position.coords.latitude;
   document.getElementById('longitude').innerHTML = position.coords.longitude;
+  if (secondDeal === "2") {
+    secondDeal = "nonexistent"
+    var mapOptions = {
+    zoom: 15,
+    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+    styles: mapStyle
+  };
+
+  map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
+  }
   // setInterval(function() {distance(position)}, 7000);
 }
-
-firstDeal = "1"
-secondDeal = "2"
-thirdDeal = "3"
 
 function distance(position){
 
