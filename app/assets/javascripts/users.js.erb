@@ -93,8 +93,8 @@ function callback(position){
   // map = new google.maps.Map(document.getElementById('map'),
   //     mapOptions);
   // }
-
-  // setInterval(function() {distance(position)}, 7000);
+  ////// RUNS DISTANCE CALCULATIONS EVERY 3 SECONDS INSTEAD OF 300-700 MS //////
+  // setInterval(function() {distance(position)}, 3000);
 }
 
 function distance(position){
@@ -136,8 +136,8 @@ for (i = 0; i < deals.length; i++) {
     }
     runOnce();
   };
-    markerz = null;
 }
+        markerz.setMap(null);
 }
 
 
