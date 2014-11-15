@@ -1,5 +1,5 @@
 deals = gon.deals
-
+var initialLocation;
 //var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#F1FF00"},{"saturation":-27.4},{"lightness":9.4},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#0099FF"},{"saturation":-20},{"lightness":36.4},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#00FF4F"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FFB300"},{"saturation":-38},{"lightness":11.2},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00B6FF"},{"saturation":4.2},{"lightness":-63.4},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#9FFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]}];
 var mapStyle = [{"featureType":"road","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"administrative","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"weight":1}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"weight":0.8}]},{"featureType":"landscape","stylers":[{"color":"#ffffff"}]},{"featureType":"water","stylers":[{"visibility":"off"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"elementType":"labels","stylers":[{"visibility":"off"}]},{"elementType":"labels.text","stylers":[{"visibility":"on"}]},{"elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"elementType":"labels.text.fill","stylers":[{"color":"#000000"}]},{"elementType":"labels.icon","stylers":[{"visibility":"on"}]}];
 
@@ -17,13 +17,21 @@ var playThatTune = function(){
 
 function initialize() {
   var mapOptions = {
-    zoom: 15,
-    center: new google.maps.LatLng(34.0155274,-118.4938469),
+    zoom: 13,
+    //center: new google.maps.LatLng(34.0155274,-118.4938469),
     styles: mapStyle
   };
 
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
+
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(initialPosition) {
+      initialLocation = new google.maps.LatLng(initialPosition.coords.latitude,initialPosition.coords.longitude);
+      map.setCenter(initialLocation);
+    });
+  };
+  mapTheseBs();
 }
 
 ////////////////////////////// OTHER STUFF ////////////////////////////////
@@ -41,6 +49,7 @@ console.log("loadScript fcn has passed by! Zoom!")
 
 
 function mapTheseBs() {
+  console.log('WAHHHHHHHH!');
   console.log(deals);
   for (i = 0; i < 7; i++) {
     if (deals[i].longitude && deals[i].latitude) {
@@ -57,7 +66,7 @@ function mapTheseBs() {
 }
 }
 
-setTimeout(mapTheseBs, 1000);
+//setTimeout(mapTheseBs, 1000);
 
 ////////////////// DISTANCE CALCULATIONS FROM USER TO DEAL //////////////////
 /////////////////////////////////////////////////////////////////////////////
@@ -71,17 +80,19 @@ function showCurrentlocation(){
 function callback(position){
   document.getElementById('latitude').innerHTML = position.coords.latitude;
   document.getElementById('longitude').innerHTML = position.coords.longitude;
-  if (secondDeal === "2") {
-    secondDeal = "nonexistent"
-    var mapOptions = {
-    zoom: 15,
-    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-    styles: mapStyle
-  };
+  ////// COMMENTED OUT CODE BELOW DUE TO MAPPING DEAL MARKER CONFLICT //////
+  // if (secondDeal === "2") {
+  //   secondDeal = "nonexistent"
+  //   var mapOptions = {
+  //   zoom: 15,
+  //   center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+  //   styles: mapStyle
+  // };
 
-  map = new google.maps.Map(document.getElementById('map'),
-      mapOptions);
-  }
+  // map = new google.maps.Map(document.getElementById('map'),
+  //     mapOptions);
+  // }
+
   // setInterval(function() {distance(position)}, 7000);
 }
 
