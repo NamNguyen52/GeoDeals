@@ -543,15 +543,11 @@ div.hr hr {
 	}
 
 	.header-content h1 {
-		font-size: 50px;
+		font-size: 40px;
 	}
 
 	.signin-fields {
 		margin-left: 5%;
-	}
-
-	.sign-up-link-button {
-		display: none;
 	}
 
 	#info-container {
@@ -562,6 +558,12 @@ div.hr hr {
 		display: none;
 	}
 
+	.sign-up-link-button {
+		width: 50%;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 20px;
+	}
 
 }
 

@@ -52,3 +52,18 @@ body {
 .delete-deal-link {
 	color: blue;
 }
+
+@media (max-width: 800px) {
+
+	#businessMap {
+		height: 300px;
+		width: 450px;
+		border: 3px solid black;
+		margin: auto;
+	}
+
+	#newBizHeading {
+		margin-top: 20px;
+		font-size: 24px;
+	}
+}

@@ -21,13 +21,29 @@
 	}
 }
 
+.user-list {
+	width: 800px;
+	height: 200px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+	border: 2px solid black;
+	text-align: center;
+}
+
+#your-deals {
+	text-align: center;
+}
+
+#click-button-below {
+	text-align: center;
+}
 
 #map {
 	height: 605px;
 	width: 61%;
 	margin: 0 auto;
-	/*border: 3px solid black;*/
-	box-shadow: 0px 0px 40px 10px #000;
+	border: 4px solid black;
 }
 
 #centered {
@@ -36,7 +52,7 @@
 
 #dealmapTitle {
 	text-align: center;
-	font-family: heroregular;
+	font-family: intro_regular;
 	margin-top: 37px;
 	font-size: 48px;
 	letter-spacing: 14.5px;
@@ -82,22 +98,30 @@
 #myModal {
 	color: black;
 	font-family: heroregular;
-	border: 7px solid #222;
+	border: 4px solid #222;
 }
 
 .user-welcome {
 	text-align: center;
 }
 
+#test-test {
+	font-size: 100px;
+}
 
+.mobile-signout {
+	display: none;
+}
 /* MEDIA QUERY BEGINS HERE */
 
 	@media (max-width: 800px) {
 
 	#map {
-		height: 350px;
-		width: 500px;
-		border: 1px solid white;
+		height: 250px;
+		width: 250px;
+		margin-right: auto;
+		margin-left: auto;
+		border: 4px solid black;
 	}
 
 	#dealmapTitle {
@@ -114,11 +138,36 @@
 		text-align: center;
 	}
 
-	#myModal {
-	width: 60% !important;
-	height:100px !important;
-	margin: auto !important;
-	font-size: 7px !important;
-}
+	#click-button-below {
+		display: none;
+	}
+	
+	#your-deals {
+		font-size: 20px;
+		text-align: center;
+	}
+
+	#saved-deal-name {
+		font-size: 20px;
+	}
+
+	#saved-deal-description {
+		font-size: 15px;
+	}
+
+	.user-list {
+		height: 250px;
+		width: 250px;
+		margin-right: auto;
+		margin-left: auto;
+		border: 2px solid black;
+	}
+
+	.mobile-signout {
+		display: block;
+		position: relative;
+		text-align: center;
+		margin-bottom: 20px;
+	}
 
 }
