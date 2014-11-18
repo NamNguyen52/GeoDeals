@@ -26,8 +26,14 @@ body {
 #newBizInput {
 	height: 42px;
 	width: 93px;
-	border-radius: 4px;
-	font-size: 12px;
+	border-radius: 3px;
+	font-family: heroregular;
+	font-size: 14px;
+	background-color: #7AA297 !important;
+	color: #fff;
+	width: 110px;
+	height: 44px;
+	border: none;
 }
 
 .newBizFields {
@@ -53,11 +59,17 @@ body {
 	color: blue;
 }
 
+#newBizSubmit {
+	font-family: heroregular;
+	font-size: 14px;
+	background-color: #85AA4D;
+}
+
 @media (max-width: 800px) {
 
 	#businessMap {
 		height: 300px;
-		width: 450px;
+		width: 370px;
 		border: 3px solid black;
 		margin: auto;
 	}

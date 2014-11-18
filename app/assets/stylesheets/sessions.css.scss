@@ -415,12 +415,22 @@ h6 {
 	font-family: heroregular;
 	font-weight: 900;
 	margin-top: 24px;
+	margin-bottom: 0px;
+}
+
+#deal-list-address {
+	text-align: center;
+	margin-top: -10px;
+	font-size: 20px;
 }
 
 .delete-deal-link {
 	color: #008CBA;
 }
 
+.dealStartEnd {
+	font-weight: 700;
+}
 
 .dealTitle {
 	font-size: 32px;
