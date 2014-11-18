@@ -23,7 +23,7 @@ button {
 <div>
 	
 <p id="dealmapTitle">DEAL DISCOVERY DEVICE</p>
-<p id="clickButtonBelow">Click the button below to begin receiving local deal alerts!</p><br>
+<p id="click-button-below">Click the button below to begin receiving local deal alerts!</p><br>
 
 <div id="inputLatLng">
 <input id="locationButton" type="button" value="Find Deals Near Me!" onclick="showCurrentlocation()"/>
@@ -35,7 +35,6 @@ Current Longitude: <span id="longitude"></span> <br>
 </div>
 
 <div id="centered">
-<!-- <a onclick="play()" href="#" data-reveal-id="myModal">Click Me For A Modal</a> -->
 <audio id="audio" src="http://www.freesound.org/data/previews/133/133054_1148376-lq.mp3"></audio>
 <h3 id="countdownn" style="display:none">12</h3>
 
@@ -79,12 +78,12 @@ Current Longitude: <span id="longitude"></span> <br>
 	<% end %>
 
 
-	<div id="yourDeals">YOUR SAVED DEALS</div><br><br>
+	<div id="your-deals">YOUR SAVED DEALS</div><br><br>
 
 	<% @userlist.each do |ud| %>
-		<div class="userList">
-			<p id="peeone"><%= ud.deal_name %></p>
-			<p id="peetwo"><%= ud.deal_description %></p>
+		<div class="user-list">
+			<p id="saved-deal-name"><%= ud.deal_name %></p>
+			<p id="saved-deal-description"><%= ud.deal_description %></p>
 			<p id="peethree"><%= ud.deal_code %></p>
 			<p id="peefour"><%= ud.deal_fine %></p>
 			<p id="nil"><%= ud.deal_date %></p>
