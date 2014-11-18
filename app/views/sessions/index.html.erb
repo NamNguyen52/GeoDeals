@@ -20,8 +20,7 @@ button {
 <% end %>
 
 
-<div>
-	
+<div>	
 <p id="dealmapTitle">DEAL DISCOVERY DEVICE</p>
 <p id="click-button-below">Click the button below to begin receiving local deal alerts!</p><br>
 
@@ -46,7 +45,9 @@ Current Longitude: <span id="longitude"></span> <br>
   <p class="dealInfo" id="deets4">Fine Print</p>
   <p class="dealInfo" id="deets5">Expires:</p>
   <p class="dealInfo" id="deets6">UTC End Datetime:</p><br/>
-  <div id="centerSubmitButton"><button id="first" class="btn btn-link">SAVE THIS DEAL</button></div>
+  <div id="centerSubmitButton">
+  	<button id="first" class="btn btn-link">SAVE THIS DEAL</button>
+  </div>
   <p id="saveToUser"></p>
   <p style="display:none" id="countdown">Deal Expiration Countdown</p>
   <a class="close-reveal-modal">&#215;</a>
@@ -77,6 +78,9 @@ Current Longitude: <span id="longitude"></span> <br>
 	  	</div>
 	<% end %>
 
+	<div class="mobile-signout">
+	<%= link_to "Log Out", sessions_path, method: :delete %>
+	</div>
 
 	<div id="your-deals">YOUR SAVED DEALS</div><br><br>
 

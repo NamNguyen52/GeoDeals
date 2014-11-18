@@ -105,7 +105,13 @@
 	text-align: center;
 }
 
+#test-test {
+	font-size: 100px;
+}
 
+.mobile-signout {
+	display: none;
+}
 /* MEDIA QUERY BEGINS HERE */
 
 	@media (max-width: 800px) {
@@ -132,7 +138,6 @@
 		text-align: center;
 	}
 
-
 	#click-button-below {
 		display: none;
 	}
@@ -157,4 +162,12 @@
 		margin-left: auto;
 		border: 2px solid black;
 	}
+
+	.mobile-signout {
+		display: block;
+		position: relative;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
 }
