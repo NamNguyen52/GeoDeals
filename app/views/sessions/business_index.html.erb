@@ -1,19 +1,20 @@
 <% if current_user.business_owner == true %>
 	<%= render 'layouts/businessnav' %>
 
-<div id="deal-list-heading"><%= Business.find_by_id(current_user.business_id).name %></div><br>
+<p id="deal-list-heading"><%= Business.find_by_id(current_user.business_id).name %></p>
+<p id="deal-list-address"><%= Business.find_by_id(current_user.business_id).location %></p><br/>
 	
 <% Deal.where(business_id: current_user.business_id).each do |d| %>
 <div class="row" id="eachDealListed">
 	<div class="small-8 columns deal-info-contain">
-		<span class="dealTitle"><%= d.name %><br></span>
-		<%= d.description %><br>
-		<%= d.code %><br>
-		<%= d.fine %><br>
-    <%= d.start_datetime %><br>
-    <%= d.end_datetime %><br>
-		<%= d.start_date %><br>
-		<%= d.end_date %><br><br/>
+		<span class="dealTitle"><%= d.name %></span><br/><br/>
+		<%= d.description %><br><br>
+		<%= d.code %><br><br>
+		<%= d.fine %><br><br>
+    <span class="dealStartEnd">Start Date/Time: </span><%= d.start_datetime %><br>
+    <span class="dealStartEnd">End Date/Time: </span><%= d.end_datetime %><br><br>
+<!-- 		<%= d.start_date %><br><br>
+		<%= d.end_date %><br><br/> -->
     <% if d.end_date <= Date.today %>
       <p id="expired">THIS DEAL HAS EXPIRED</p>
     <% end %>
