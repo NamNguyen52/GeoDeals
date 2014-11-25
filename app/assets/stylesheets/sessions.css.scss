@@ -49,6 +49,7 @@
 .sessions-new {
 	text-align: center;
 	height: 100vh;
+	overflow: scroll;
 }
 
 .sessions-header {
@@ -105,7 +106,7 @@
 
 .header-content h1 {
 	color: rgba(255, 69, 0, 0.65);
-	font-size: 180px;
+	font-size: 10em;
 	font-family: intro_regular;
 }
 
@@ -138,7 +139,7 @@ h6 {
   border-style: solid;
   border-width: 3em 3em 0 3em;
   border-color: rgba(255, 69, 0, 0.65) transparent transparent transparent;
-  -webkit-transform:rotate(360deg);/* added for better anti-aliasing on webkit browsers */
+  -webkit-transform:rotate(360deg);
 }
 
 .arrow:after {
@@ -151,7 +152,7 @@ h6 {
   border-style: solid;
   border-width: 3em 3em 0 3em;
   border-color: #111 transparent transparent transparent;
-  -webkit-transform:rotate(360deg);/* added for better anti-aliasing on webkit browsers */
+  -webkit-transform:rotate(360deg);
 }
 
 @-webkit-keyframes arrows {
@@ -241,11 +242,10 @@ h6 {
 .geo-hook {
 	font-family: hero_lightlight;
 	width: 450px;
-	margin-left: 40px;
+	margin-left: 2%;
 	margin-top: -270px;
 	text-align: left;
-	position: absolute;
-	/*border: 1px solid red;*/
+	position: relative;
 }
 
 .geo-hook p {
@@ -257,7 +257,8 @@ h6 {
 	z-index: 10;
 	height: 300px;
 	width: 1px;
-	border-left: 1px solid black;
+	/*border-left: 1px solid black;*/
+	border: 1px solid black;
 	margin-left: 38%;
 	margin-top: -140px;
 }
@@ -267,7 +268,8 @@ h6 {
 	z-index: 10;
 	height: 300px;
 	width: 1px;
-	border-left: 1px solid black;
+	/*border-left: 1px solid black;*/
+	border: 1px solid black;
 	margin-left: 62%;
 	margin-top: -300px;
 }
@@ -512,7 +514,61 @@ div.hr hr {
 
 /* MEDIA QUERY BEGINS HERE */
 
-@media all and (max-width: 600px) {
+@media all and (max-height: 600px){
+	h6 {
+		margin-top: -200px;
+	}
+
+	.geo-hook {
+		margin-top: -70px;
+	}
+
+	.geo-hook p {
+		font-size: 16px;
+	}
+}
+
+@media all and (max-width: 1250px) {
+	.geo-hook {
+		font-family: hero_lightlight;
+		width: 350px;
+		margin-left: 2%;
+		margin-top: -270px;
+		text-align: left;
+		position: relative;
+	}
+
+	.header-content h1 {
+		font-size: 8em;
+	}
+
+	#email-field {
+		position: relative;
+		margin-left: 62%;
+	}
+
+	#password-field {
+		position: relative;
+		margin-left: 62%;
+	}
+}
+
+@media all and (max-width: 950px) {
+	.geo-hook {
+		font-family: hero_lightlight;
+		width: 300px;
+		margin-left: 2%;
+		margin-top: -270px;
+		text-align: left;
+		position: relative;
+	}
+
+	.header-content h1 {
+		font-size: 6em;
+	}
+}
+
+@media all and (max-width: 800px) {
 
 	.geo-hook {
 		display: none;
